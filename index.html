@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TA LTC Portal - Central Government Utility Hub & Master Rules</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        header p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+        .section-title {
+            text-align: center;
+            margin: 30px 0 20px;
+            font-size: 24px;
+            color: #1e3c72;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #2a5298;
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+        /* Grid for Tools */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 22px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-top: 4px solid #2a5298;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        .card p {
+            font-size: 13.5px;
+            color: #666;
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+        .btn {
+            display: inline-block;
+            background: #2a5298;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .btn:hover {
+            background: #1e3c72;
+        }
+        /* Rules Content Box */
+        .rules-container {
+            background: white;
+            border-radius: 8px;
+            padding: 35px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        .rules-container h2 {
+            color: #1e3c72;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .rules-container h3 {
+            color: #2a5298;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .rules-container ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .rules-container li {
+            margin-bottom: 8px;
+            font-size: 14.5px;
+        }
+        .rules-container p {
+            font-size: 14.5px;
+            margin-bottom: 12px;
+        }
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 25px;
+            font-size: 14px;
+        }
+        table, th, td {
+            border: 1px solid #dddddd;
+        }
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2a5298;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fbfd;
+        }
+        .note-box {
+            background-color: #eef4fc;
+            border-left: 4px solid #2a5298;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        /* Footer */
+        footer {
+            background: #222;
+            color: #bbb;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 13px;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        @media (max-width: 600px) {
+            .rules-container { padding: 20px; }
+            table { font-size: 12.5px; }
+            th, td { padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>TA LTC Portal</h1>
+        <p>Sarkari Karmchariyon Ke Liye Online Utility Hub & Authentic Master Rules</p>
+    </header>
+
+    <div class="container">
+        
+        <h2 class="section-title">Online Bill Generators & Utility Tools</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>LTC Bill Generator</h3>
+                <p>Apna Leave Travel Concession bill online banayein dynamic details ke sath.</p>
+                <a href="https://ltc.taltcportal.in" class="btn" target="_blank">Open Tool ➔</a>
+            </div>
+
+            <div class="card">
+                <h3>Tour TA Bill Generator</h3>
+                <p>Official duty ya tours ke liye Travelling Allowance bill online generate karein.</p>
+                <a href="https://ta.taltcportal.in" class="btn" target="_blank">Open Tool ➔</a>
+            </div>
+
+            <div class="card">
+                <h3>Transfer TA Bill</h3>
+                <p>Sarkari badli (Transfer) ke dauran hue safar ka bill online taiyar karein.</p>
+                <a href="https://transferta.taltcportal.in" class="btn" target="_blank">Open Tool ➔</a>
+            </div>
+
+            <div class="card">
+                <h3>HRA Calculator & Rules</h3>
+                <p>House Rent Allowance calculation aur revised rates ki jankari dekhein.</p>
+                <a href="https://hra.taltcportal.in" class="btn" target="_blank">Open Tool ➔</a>
+            </div>
+
+            <div class="card">
+                <h3>Form 3 & Other Utilities</h3>
+                <p>Karmchariyon ke liye anya zaroori dastawez aur automatic Form 3 ki suvidha.</p>
+                <a href="https://form3.taltcportal.in" class="btn" target="_blank">Open Tool ➔</a>
+            </div>
+        </div>
+
+        <h2 class="section-title">Central Government Master Rules Handbook</h2>
+
+        <div class="rules-container">
+            
+            <h1>📘 केंद्रीय सरकारी कर्मचारी मास्टर गाइड: LTC, TA एवं HRA नियमावली</h1>
+            <p><em>(Swamy's Handbook एवं नवीनतम संशोधित दरों (Revised Rates) पर आधारित हुबहू बिंदुवार हिंदी अनुवाद)</em></p>
+
+            <h2>📑 भाग 1: अवकाश यात्रा रियायत (LTC) नियमावली</h2>
+            
+            <h3>1. पात्रता (Eligibility)</h3>
+            <ul>
+                <li><strong>न्यूनतम सेवा अवधि:</strong> कोई भी सरकारी कर्मचारी जिसने यात्रा (Onward Journey) शुरू करने की तारीख तक न्यूनतम 1 वर्ष की निरंतर सेवा पूरी कर ली हो, वह स्वयं और अपने परिवार के लिए LTC का लाभ उठाने का पात्र है.</li>
+                <li><strong>ब्लॉक वर्ष का निर्धारण:</strong> यदि किसी अधिकारी की नियुक्ति 31-12-2022 को हुई है, तो वह दो-वर्षीय ब्लॉक 2024-2025 के लिए पात्र माना जाएगा. हालांकि, जो कर्मचारी 1-1-2025 या उसके बाद नियुक्त हुए हैं, वे इस विशिष्ट ब्लॉक का लाभ उठाने के पात्र नहीं होंगे.</li>
+                <li><strong>अनाधिकृत अनुपस्थिति (FR 17-A):</strong> FR 17-A के तहत घोषित अनाधिकृत अनुपस्थिति को 'सेवा में व्यवधान' (Break in Service) माना जाएगा, जब तक कि सक्षम प्राधिकारी द्वारा माफ न किया गया हो.</li>
+                <li><strong>रेलवे कर्मचारियों के लिए विशेष शर्तें:</strong> (a) रेलवे कर्मचारियों के लिए होम टाउन LTC पूरी तरह वर्जित है. उन्हें केवल 4 वर्ष के ब्लॉक में एक बार "ऑल इंडिया" LTC की अनुमति दी जाएगी. (b) जिस कैलेंडर वर्ष में वे AILTC का लाभ उठाना चाहते हैं, उस वर्ष का प्रिविलेज पास सरेंडर करके PPSC सर्टिफिकेट जमा करना अनिवार्य है.</li>
+                <li><strong>AI यात्रा की समय-सीमा:</strong> ऑल इंडिया LTC का लाभ उठाते समय, मुख्य यात्रा संबंधित कैलेंडर वर्ष की 31 दिसंबर को या उससे पहले शुरू होना अनिवार्य है.</li>
+            </ul>
+
+            <h3>2. मुख्य बिंदु (Salient Points)</h3>
+            <ul>
+                <li><strong>होम टाउन की घोषणा:</strong> प्रत्येक सरकारी सेवक को अपने होम टाउन की घोषणा करनी होगी. पूरी सेवा के दौरान केवल एक बार असाधारण परिस्थितियों में ही विभागाध्यक्ष द्वारा बदलाव स्वीकृत किया जा सकता है.</li>
+                <li><strong>पति-पत्नी दोनों के सरकारी कर्मचारी होने पर:</strong> वे अलग-अलग होम टाउन घोषित कर सकते हैं और अपने मूल परिवारों के लिए अलग से LTC का दावा कर सकते हैं.</li>
+                <li><strong>अवकाश की स्थिति:</strong> LTC का लाभ किसी भी स्वीकृत अवकाश (CL, EL आदि) के दौरान लिया जा सकता है, लेकिन बिना छुट्टी लिए केवल वीकेंड्स पर नहीं.</li>
+            </ul>
+
+            <h3>3. LTC के प्रकार (Types of LTC)</h3>
+            <ul>
+                <li><strong>LTC टू होम टाउन:</strong> दो कैलेंडर वर्षों के ब्लॉक में एक बार देय.</li>
+                <li><strong>LTC टू एनी प्लेस इन इंडिया (AILTC):</strong> चार कैलेंडर वर्षों के ब्लॉक में एक बार देय.</li>
+                <li><strong>नए भर्ती कर्मचारियों के लिए पात्रता:</strong> शुरुआती 8 वर्षों के दौरान प्रत्येक 4-वर्षीय ब्लॉक में पहले 3 अवसरों पर 'होम टाउन' और चौथे अवसर पर 'ऑल इंडिया' LTC मिलता है.</li>
+            </ul>
+
+            <h3>4. ब्लॉक वर्ष और कैरी-फॉरवर्ड (Grace Period)</h3>
+            <p>यदि कोई कर्मचारी निर्धारित ब्लॉक वर्ष में LTC का उपयोग नहीं कर पाता, तो वह अगले ब्लॉक के पहले वर्ष ( Grace Period - 31 दिसंबर तक) उस पुरानी पात्रता का उपयोग कर सकता है.</p>
+
+            <h3>5. यात्रा के साधन एवं हवाई यात्रा के कड़े नियम</h3>
+            <ul>
+                <li>हवाई यात्रा (Air Travel) की सुविधा केवल पे-मैट्रिक्स लेवल 9 और उससे ऊपर के अधिकारियों के लिए स्वीकार्य है.</li>
+                <li><strong>3 अधिकृत ट्रैवल एजेंट (ATAs) अनिवार्य:</strong> टिकट अनिवार्य रूप से केवल (1) M/s Balmer Lawrie and Company Ltd., (2) Ashok Travels and Tours, (3) IRCTC से ही बुक होने चाहिए. किसी निजी थर्ड-पार्टी पोर्टल से बुक टिकट का रिफंड नहीं मिलेगा.</li>
+                <li>टिकट यात्रा से कम से कम 21 दिन पहले (Best Available Fare में) बुक करने अनिवार्य हैं.</li>
+            </ul>
+
+            <h3>6. पूर्वोत्तर क्षेत्र (NER), J&K, लद्दाख और A&N के लिए विशेष छूट</h3>
+            <p>गैर-हकदार कर्मचारी भी निर्धारित रेलहेड (दिल्ली, कोलकाता, गुवाहाटी आदि) तक ट्रेन से और वहां से आगे इन विशेष क्षेत्रों के लिए हवाई जहाज (Economy Class) से यात्रा कर सकते हैं, बशर्ते टिकट 3 अधिकृत एजेंटों से बुक हों और वेबपेज प्रिंट-आउट संलग्न हो.</p>
+
+            <h3>7. LTC अग्रिम एवं दावों का निपटान (Advance & Claims)</h3>
+            <ul>
+                <li>कुल अनुमानित किराए का 90% तक अग्रिम लिया जा सकता है (ट्रेन के लिए 125 दिन पहले, हवाई/सड़क के लिए 65 दिन पहले).</li>
+                <li><strong>अग्रिम लेने पर:</strong> वापसी यात्रा के 1 महीने के भीतर बिल जमा करना अनिवार्य है, अन्यथा 2% दंडात्मक ब्याज (Penal Interest) के साथ एकमुश्त वसूली होगी.</li>
+                <li><strong>अग्रिम न लेने पर:</strong> यात्रा पूरी होने के 3 महीने के भीतर दावा जमा करना आवश्यक है.</li>
+            </ul>
+
+            <h3>8. अर्जित अवकाश का नगदीकरण (Encashment of EL)</h3>
+            <p>LTC का लाभ उठाते समय एक अवसर पर अधिकतम 10 दिनों की EL (पूरे करियर में अधिकतम 60 दिन) का नगदीकरण कराया जा सकता है, बशर्ते लीव अकाउंट में कम से कम 30 दिनों की EL शेष बचे.</p>
+
+
+            <h2>📑 भाग 2: यात्रा भत्ता (TA) नियमावली</h2>
+
+            <h3>1. दौरे पर दैनिक भत्ता (DA on Tour) - संशोधित दरें</h3>
+            <table>
+                <tr>
+                    <th>पे-मैट्रिक्स लेवल</th>
+                    <th>होटल प्रतिपूर्ति सीमा (Revised)</th>
+                    <th>शहर के भीतर टैक्सी खर्च</th>
+                    <th>दैनिक भोजन बिल (Revised)</th>
+                </tr>
+                <tr>
+                    <td>लेवल 14 और ऊपर</td>
+                    <td>₹9,375 प्रति दिन</td>
+                    <td>वास्तविक AC टैक्सी</td>
+                    <td>₹1,500 प्रति दिन</td>
+                </tr>
+                <tr>
+                    <td>लेवल 12 और 13</td>
+                    <td>₹5,625 प्रति दिन</td>
+                    <td>अधिकतम 50 किमी तक AC टैक्सी</td>
+                    <td>₹1,250 प्रति दिन</td>
+                </tr>
+                <tr>
+                    <td>लेवल 9 से 11</td>
+                    <td>₹2,813 प्रति दिन</td>
+                    <td>नॉन-AC टैक्सी (अधिकतम ₹423/दिन)</td>
+                    <td>₹1,125 प्रति दिन</td>
+                </tr>
+                <tr>
+                    <td>लेवल 6 से 8</td>
+                    <td>₹938 प्रति दिन</td>
+                    <td>नॉन-AC टैक्सी (अधिकतम ₹281/दिन)</td>
+                    <td>₹1,000 प्रति दिन</td>
+                </tr>
+                <tr>
+                    <td>लेवल 5 और नीचे</td>
+                    <td>₹563 प्रति दिन</td>
+                    <td>नॉन-AC टैक्सी (अधिकतम ₹141/दिन)</td>
+                    <td>₹625 प्रति दिन</td>
+                </tr>
+            </table>
+
+            <div class="note-box">
+                <strong>पैदल यात्रा भत्ता:</strong> पैदल तय की गई आधिकारिक यात्राओं के लिए अब ₹15 प्रति किलोमीटर (संशोधित दर) देय होगा.
+            </div>
+
+            <h3>2. यात्रा पात्रता (Travel Entitlement)</h3>
+            <ul>
+                <li><strong>लेवल 14 और ऊपर:</strong> हवाई यात्रा में Business/Club Class या रेल में AC-I Class.</li>
+                <li><strong>लेवल 12, 13 और 13-A:</strong> हवाई यात्रा में Economy Class या रेल में AC-I Class.</li>
+                <li><strong>लेवल 6 से 11:</strong> हवाई यात्रा में Economy Class या रेल में AC-II Class.</li>
+                <li><strong>लेवल 5 और नीचे:</strong> रेल में First Class / AC-III Class / AC Chair Car.</li>
+            </ul>
+
+            <h3>3. सड़क मार्ग माइलेज एवं वाहन परिवहन दरें</h3>
+            <ul>
+                <li>स्वयं की कार या टैक्सी द्वारा: <strong>₹24 प्रति किलोमीटर</strong></li>
+                <li>ऑटो-रिक्शा, स्वयं के स्कूटर/मोटरसाइकिल द्वारा: <strong>₹12 प्रति किलोमीटर</strong></li>
+            </ul>
+
+            <h3>4. स्थानांतरण पर यात्रा भत्ता (T.A. on Transfer)</h3>
+            <ul>
+                <li><strong>एकीकृत स्थानांतरण अनुदान (CTG):</strong> पिछले महीने के मूल वेतन (Basic Pay) का 80% देय होगा.</li>
+                <li><strong>घरेलू सामान परिवहन दरें:</strong> लेवल 6 और ऊपर के लिए ₹50/किमी (6000 किग्रा limit); लेवल 5 के लिए ₹25/किमी (3000 किग्रा limit); लेवल 4 और नीचे के लिए ₹15/किमी (1500 किग्रा limit).</li>
+            </ul>
+
+            <h3>5. टीए दावों की समय-सीमा</h3>
+            <p>दौरा/स्थानांतरण/प्रशिक्षण का TA दावा जमा करने की समय-सीमा यात्रा पूरी होने की तिथि से <strong>60 दिन</strong> है. सेवानिवृत्ति (Retirement) के मामले में यह समय-सीमा <strong>180 दिन (6 महीने)</strong> है.</p>
+
+
+            <h2>📑 भाग 3: मकान किराया भत्ता (HRA) एवं परिवहन भत्ता</h2>
+
+            <h3>1. शहरों का वर्गीकरण एवं संशोधित HRA दरें</h3>
+            <table>
+                <tr>
+                    <th>शहरों की श्रेणी</th>
+                    <th>जनसंख्या मानदंड</th>
+                    <th>संशोधित HRA रेट (DA 50% पार होने पर)</th>
+                </tr>
+                <tr>
+                    <td>'X' श्रेणी (महानगर)</td>
+                    <td>50 लाख और उससे अधिक</td>
+                    <td><strong>मूल वेतन का 30%</strong> (Min ₹5,400)</td>
+                </tr>
+                <tr>
+                    <td>'Y' श्रेणी (बड़े शहर)</td>
+                    <td>5 लाख से 50 लाख</td>
+                    <td><strong>मूल वेतन का 20%</strong> (Min ₹3,600)</td>
+                </tr>
+                <tr>
+                    <td>'Z' श्रेणी (छोटे शहर/गांव)</td>
+                    <td>5 लाख से कम</td>
+                    <td><strong>मूल वेतन का 10%</strong> (Min ₹1,800)</td>
+                </tr>
+            </table>
+
+            <h3>2. परिवहन भत्ता (Transport Allowance - TPTA)</h3>
+            <table>
+                <tr>
+                    <th>पे-लेवल</th>
+                    <th>उच्च TPTA शहरों में दरें</th>
+                    <th>अन्य स्थानों पर दरें</th>
+                </tr>
+                <tr>
+                    <td>लेवल 9 और ऊपर</td>
+                    <td>₹7,200 + DA</td>
+                    <td>₹3,600 + DA</td>
+                </tr>
+                <tr>
+                    <td>लेवल 3 से 8</td>
+                    <td>₹3,600 + DA</td>
+                    <td>₹1,800 + DA</td>
+                </tr>
+                <tr>
+                    <td>लेवल 1 और 2</td>
+                    <td>₹1,350 + DA</td>
+                    <td>₹900 + DA</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 taltcportal.in. All Rights Reserved.</p>
+        <p style="margin-top:10px;">
+            <a href="copyright.html">कॉपीराइट नीति</a> | 
+            <a href="privacy.html">प्राइवेसी पॉलिसी</a> | 
+            <a href="contact.html">संपर्क करें</a>
+        </p>
+    </footer>
+
+
+</body>
+</html>
