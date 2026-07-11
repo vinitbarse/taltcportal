@@ -424,14 +424,14 @@ function sharePortal() {
         navigator.share({
             title: 'TA LTC Portal',
             text: 'केंद्रीय कर्मचारियों के लिए मोबाइल से TA और LTC बिल बनाने का सबसे आसान पोर्टल।',
-            url: 'https://taltcportal.in/?utm_source=user_share'
+            url: 'https://taltcportal.in/index.html?shared=true'
         }).then(() => {
             console.log('Shared successfully');
         }).catch((error) => {
             console.log('Error sharing:', error);
         });
     } else {
-        navigator.clipboard.writeText('https://taltcportal.in/?utm_source=user_share');
+       navigator.clipboard.writeText('https://taltcportal.in/index.html?shared=true');
         alert("पोर्टल लिंक कॉपी हो गया है! अब आप इसे किसी को भी भेज सकते हैं।");
     }
 }
