@@ -34,11 +34,6 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             position: relative;
         }
-        
-        .force-new-page {
-            page-break-before: always;
-            break-before: page;
-        }
 
         .top-sub-header {
             display: flex;
@@ -225,6 +220,7 @@
             body { background: none; padding: 0; margin: 0; }
             .page { box-shadow: none; margin: 0 auto; padding: 8mm 12mm; width: 210mm; min-height: auto; }
             .control-panel { display: none !important; }
+            .page-break-before { page-break-before: always !important; break-before: page !important; }
             tr, .flex-container, .part-b-container { page-break-inside: avoid !important; break-inside: avoid !important; }
         }
     </style>
@@ -369,9 +365,14 @@
                 <button type="button" class="scr-btn btn-red" onclick="deleteLastJourneyRow()">आखिरी रो डिलीट करें (-)</button>
                 <button type="button" class="scr-btn btn-green" onclick="window.print()">PDF डाउनलोड करें ⬇</button>
             </div>
+        </div>
+
+        <!-- ================= PAGE 2 (Starts from Point 9) ================= -->
+        <div class="page page-break-before">
+            <div style="text-align: center; font-weight: bold; margin-bottom: 8px;">:: 2 ::</div>
 
             <!-- Point 9 Transport Table -->
-            <div class="sub-point" style="font-weight: bold; margin-top: 8px;">9. व्यक्तिगत चीज़ वस्तु का परिवहन व्यय (फर्म रसीदें संलग्न करें)<br><span style="font-size: 10px; font-weight: normal;">Transportation charges of personal effects (Money receipts to be attached)</span></div>
+            <div class="sub-point" style="font-weight: bold; margin-top: 5px;">9. व्यक्तिगत चीज़ वस्तु का परिवहन व्यय (फर्म रसीदें संलग्न करें)<br><span style="font-size: 10px; font-weight: normal;">Transportation charges of personal effects (Money receipts to be attached)</span></div>
             <table id="transportTable">
                 <thead>
                     <tr>
@@ -407,13 +408,8 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
 
-        <!-- ================= PAGE 2 ================= -->
-        <div class="page" style="page-break-inside: avoid; break-inside: avoid;">
-            <div style="text-align: center; font-weight: bold; margin-bottom: 8px;">:: 2 ::</div>
-            
-            <div class="sub-point" style="font-size: 11px;">
+            <div class="sub-point" style="font-size: 11px; margin-top: 10px;">
                 10. निजी वाहन का परिवहन प्रभार (धन रसीद संलग्न करें)<br>
                 <span style="font-style: italic; font-size: 10.5px; color:#333;">Transportation charges of personal conveyance (Money receipt to be attached)</span><br>
                 (क) परिवहन की रीति और किस स्थान को परिवहन किया गया । <input type="text" class="inline-blank" style="width: 55%;"><br>
@@ -429,217 +425,4 @@
             <table>
                 <thead>
                     <tr>
-                        <th colspan="2" style="width: 24%;">स्थान / Place</th>
-                        <th rowspan="2" style="width: 16%;">यात्रा का प्रकार / Mode of Conveyance</th>
-                        <th rowspan="2" style="width: 16%;">वह वर्ग जिसका हकदार है / Class to which entitled</th>
-                        <th rowspan="2" style="width: 16%;">वह वर्ग जिसमें वस्तुतः यात्रा की है / Class by which actually travelled</th>
-                        <th rowspan="2" style="width: 12%;">यात्री भाड़े की संख्या / No of Fares</th>
-                        <th colspan="2" style="width: 16%;">संदत्त यात्रा भत्ता / Fair paid</th>
-                    </tr>
-                    <tr>
-                        <th>से / From</th>
-                        <th>तक / To</th>
-                        <th>रू / Rs.</th>
-                        <th>पै / P.</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
-                        <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
-                        <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
-                        <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
-                        <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
-                        <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="sub-point" style="font-size: 11px;">
-                13. रेल से जुड़े स्थानों के बीच, सड़क मार्ग से की गई यात्रा/यात्राओं के ब्यौरे:<br>
-                <span style="font-size: 10.5px; color:#333;">Particulars of journey(s) performed by road between places connected by rail:</span>
-            </div>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="2" style="width: 40%;">स्थानों के नाम / Name of Places</th>
-                        <th rowspan="2" style="width: 30%;">वह वर्ग जिसका हकदार है / Class to which entitled</th>
-                        <th rowspan="2" style="width: 30%;">रेल यात्री भाड़ा / Rail Fare</th>
-                    </tr>
-                    <tr>
-                        <th>से / From</th>
-                        <th>तक / To</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
-                        <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
-                        <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
-                        <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="sub-point" style="font-size: 10.5px; margin-top: 6px; line-height: 1.35;">
-                <strong>1. प्रमाणित किया जाता है कि ऊपर दी गई जानकारी मेरे सर्वोत्तम ज्ञान और विश्वास के अनुसार सत्य है।</strong><br>
-                <span style="font-style: italic; color:#333;">Certified that information as given above is true to the best of my knowledge and belief.</span><br>
-                <strong>2. मेरा पति/मेरी पत्नी सरकारी सेवा में नियोजित नहीं रही है। मेरा पति/मेरी पत्नी सरकारी सेवा में नियोजित है और उनके <input type="text" class="inline-blank" style="width: 80px;"> वर्ष के ब्लाक के दौरान अपने लिये या कुटुम्ब के किसी सदस्य के लिये रियायत का उपयोग नहीं किया है।</strong><br>
-                <span style="font-style: italic; color:#333;">That my husband /wife is not employed in Govt. service/ that my husband/wife is employed in Govt. Service and the concession has not been availed of by him/her separately or himself/herself or for any of the family member for the concerned block of <input type="text" class="inline-blank" style="width: 60px;"> years.</span>
-            </div>
-
-            <div class="flex-container" style="margin-top: 10px; page-break-inside: avoid; break-inside: avoid;">
-                <div>तारीख / Date <input type="text" class="inline-blank" style="width: 120px;"></div>
-                <div style="text-align: right; font-weight: bold;">सरकारी सेवक के हस्ताक्षर / Signature of Govt. Servant</div>
-            </div>
-
-            <div class="form-section-title" style="margin-top: 6px; page-break-inside: avoid; break-inside: avoid;">भाग-ख — (बिल/अनुभाग में भरा जाना है) PART-B (TO BE FILLED IN THE BILL SECTION)</div>
-            
-            <div class="sub-point" style="font-size: 10.5px; page-break-inside: avoid; break-inside: avoid;">
-                यात्रा हकदारी...........................................................................................रू० बनी है जिसके ब्यौरे नीचे दिये गये हैं :—<br>
-                <span style="font-style: italic; color:#333;">The entitlement on account of traveling allowance works out to Rs..................................as detailed below: -</span>
-            </div>
-
-            <div class="part-b-container" style="page-break-inside: avoid; break-inside: avoid;">
-                <div class="part-b-row">
-                    <div class="part-b-text">(क) रेल/वायुयान/बस/स्टीमर यात्री भाड़ा<br><span style="font-size:9.5px; color:#444;">Railway/air/bus/steamer fare</span></div>
-                    <div class="part-b-money">रू० / Rs. <input type="text" class="inline-blank" style="width:80px;"> पै० / P. <input type="text" class="inline-blank" style="width:40px;"></div>
-                </div>
-                <div class="part-b-row">
-                    <div class="part-b-text">(ख) <input type="text" class="inline-blank" style="width:60px;"> कि. मी. के लिये सड़क माल भाड़ा..........................................पै प्रति कि. मी. की दर से..........................<br><span style="font-size:9.5px; color:#444;">Road mileage For...................Kms. @ Rs...................per Km.</span></div>
-                    <div class="part-b-money">रू० / Rs. <input type="text" class="inline-blank" style="width:80px;"> पै० / P. <input type="text" class="inline-blank" style="width:40px;"></div>
-                </div>
-                <div class="part-b-row">
-                    <div class="part-b-text">(ग) स्थानांतरण अनुभाग / Transfer grant</div>
-                    <div class="part-b-money">रू० / Rs. <input type="text" class="inline-blank" style="width:80px;"> पै० / P. <input type="text" class="inline-blank" style="width:40px;"></div>
-                </div>
-                <div class="part-b-row">
-                    <div class="part-b-text">(घ) स्थानांतरण आनुषंगिक ( <input type="text" class="inline-blank" style="width:40px;"> दिनों के लिये दे. भ. ..........................रू. प्रति दिन की दर से<br><span style="font-size:9.5px; color:#444;">Transfer incidentals (DA for....................days @ Rs....................per day)</span></div>
-                    <div class="part-b-money">रू० / Rs. <input type="text" class="inline-blank" style="width:80px;"> पै० / P. <input type="text" class="inline-blank" style="width:40px;"></div>
-                </div>
-                <div class="part-b-row">
-                    <div class="part-b-text">(ङ) निजी वस्तु का परिवहन / Transportation of personal effects</div>
-                    <div class="part-b-money">रू० / Rs. <input type="text" class="inline-blank" style="width:80px;"> पै० / P. <input type="text" class="inline-blank" style="width:40px;"></div>
-                </div>
-                <div class="part-b-row">
-                    <div class="part-b-text">(च) निजी प्रवहण का परिवहन / Transportation of private conveyance</div>
-                    <div class="part-b-money">रू० / Rs. <input type="text" class="inline-blank" style="width:80px;"> पै० / P. <input type="text" class="inline-blank" style="width:40px;"></div>
-                </div>
-                
-                <div class="part-b-row" style="border-top: 1px solid #000; padding-top: 3px; font-weight: bold;">
-                    <div class="part-b-text" style="text-align: right; padding-right: 20px;">कुल रकम / Gross Amount</div>
-                    <div class="part-b-money">रू० / Rs. <input type="text" class="inline-blank" style="width:80px;"> पै० / P. <input type="text" class="inline-blank" style="width:40px;"></div>
-                </div>
-
-                <div class="part-b-row" style="font-size: 10px; margin-top: 2px;">
-                    <div class="part-b-text">(छ) वाउचर सं०.....................तारीख.....................के अनुसार लिये गये अग्रिम (अग्रिमों) की रकम, यदि कोई हो तो घटा दें ।<br><span style="font-size:9.5px; color:#444; font-style: italic;">Less Amount of Advance(s) if any, drawn vide voucher(s) No....................date....................</span></div>
-                    <div class="part-b-money">रू० / Rs. <input type="text" class="inline-blank" style="width:80px;"> पै० / P. <input type="text" class="inline-blank" style="width:40px;"></div>
-                </div>
-
-                <div class="part-b-row" style="border-top: 1px dashed #000; padding-top: 3px; font-weight: bold; margin-bottom: 3px;">
-                    <div class="part-b-text" style="text-align: right; padding-right: 20px;">कुल रकम / Net Amount</div>
-                    <div class="part-b-money">रू० / Rs. <input type="text" class="inline-blank" style="width:80px;"> पै० / P. <input type="text" class="inline-blank" style="width:40px;"></div>
-                </div>
-            </div>
-
-            <div class="sub-point" style="font-size: 10px; page-break-inside: avoid; break-inside: avoid;">
-                व्यय.........................................................................में विकलनीय है।<br>
-                <span style="font-style: italic; color:#444;">The expenditure is debitable to...........................................................................................</span>
-            </div>
-
-            <!-- Signature Section -->
-            <div class="flex-container" style="margin-top: 5px; page-break-inside: avoid; break-inside: avoid;">
-                <div>बिल लिपिक के आद्याक्षर / <span style="font-weight:normal; font-size:10px;">Initials of Bill clerk</span></div>
-                <div style="text-align: right;">आदान और संवितरक अधिकारी के हस्ताक्षर / <span style="font-weight:normal; font-size:10px;">Signature of Drawing & Disbursing Officer</span></div>
-            </div>
-
-            <div style="text-align: center; font-weight: bold; margin: 4px 0; page-break-inside: avoid; break-inside: avoid;">
-                प्रतिहस्ताक्षर / <span style="font-weight:normal; font-size:10px;">Counter signed</span>
-            </div>
-
-            <div style="text-align: right; font-weight: bold; margin-top: -15px; page-break-inside: avoid; break-inside: avoid;">
-                नियंत्रक अधिकारी के हस्ताक्षर / <span style="font-weight:normal; font-size:10px;">Signature of Controlling Officer</span>
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- JavaScript Controls -->
-    <script>
-        function autoResize(element) {
-            element.style.height = 'auto';
-            element.style.height = element.scrollHeight + 'px';
-        }
-
-        function calculateJourneyTotal() {
-            var rsInputs = document.getElementsByClassName('fare-rs');
-            var pInputs = document.getElementsByClassName('fare-p');
-            
-            var totalRupees = 0;
-            var totalPaise = 0;
-            
-            for (var i = 0; i < rsInputs.length; i++) {
-                var rs = parseInt(rsInputs[i].value) || 0;
-                var p = parseInt(pInputs[i].value) || 0;
-                
-                totalRupees += rs;
-                totalPaise += p;
-            }
-            
-            totalRupees += Math.floor(totalPaise / 100);
-            totalPaise = totalPaise % 100;
-            
-            var formattedPaise = totalPaise < 10 ? '0' + totalPaise : totalPaise;
-            document.getElementById('journeyTotalCell').innerText = totalRupees + '.' + formattedPaise;
-        }
-
-        function addJourneyRow() {
-            var tbody = document.getElementById('journeyBody');
-            var newRow = document.createElement('tr');
-            newRow.className = 'journey-row';
-            newRow.innerHTML = `
-                <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY\\nHH:MM" oninput="autoResize(this)"></textarea></td>
-                <td><textarea class="cell-expand" rows="1" placeholder="स्थान (From)" oninput="autoResize(this)"></textarea></td>
-                <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY\\nHH:MM" oninput="autoResize(this)"></textarea></td>
-                <td><textarea class="cell-expand" rows="1" placeholder="स्थान (To)" oninput="autoResize(this)"></textarea></td>
-                <td><textarea class="cell-expand" rows="1" placeholder="Mode/Class" oninput="autoResize(this)"></textarea></td>
-                <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
-                <td><input type="number" class="fare-rs" placeholder="0" oninput="calculateJourneyTotal()"></td>
-                <td><input type="number" class="fare-p" placeholder="00" oninput="calculateJourneyTotal()"></td>
-                <td><textarea class="cell-expand" rows="1" placeholder="--" oninput="autoResize(this)"></textarea></td>
-            `;
-            tbody.appendChild(newRow);
-        }
-
-        function addHaltRow() {
-            var tbody = document.getElementById('journeyBody');
-            var newRow = document.createElement('tr');
-            newRow.className = 'journey-row';
-            newRow.innerHTML = `
-                <td colspan="4"><textarea class="cell-expand" rows="1" placeholder="कहाँ ठहरे (Stay Location/Purpose)" style="text-align:left; padding-left:10px;" oninput="autoResize(this)"></textarea></td>
-                <td><textarea class="cell-expand" rows="1" placeholder="Halt / Stay" oninput="autoResize(this)"></textarea></td>
-                <td><textarea class="cell-expand" rows="1" placeholder="दिन" oninput="autoResize(this)"></textarea></td>
-                <td><input type="number" class="fare-rs" placeholder="0" oninput="calculateJourneyTotal()"></td>
-                <td><input type="number" class="fare-p" placeholder="00" oninput="calculateJourneyTotal()"></td>
-                <td><textarea class="cell-expand" rows="1" placeholder="--" oninput="autoResize(this)"></textarea></td>
-            `;
-            tbody.appendChild(newRow);
-        }
-
-        function deleteLastJourneyRow() {
-            var tbody = document.getElementById('journeyBody');
-            var rows = tbody.getElementsByClassName('journey-row');
-            if (rows.length > 1) {
-                tbody.removeChild(rows[rows.length - 1]);
-                calculateJourneyTotal();
-            } else {
-                alert("कम से कम एक रो होना अनिवार्य है!");
-            }
-        }
-    </script>
-</body>
-</html>
+                        <th colspan="2" style="width: 24%;">स्थ
