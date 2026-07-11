@@ -207,6 +207,7 @@
                 <h3>Tour TA Bill Generator</h3>
                 <p>Official duty ya tours ke liye Travelling Allowance bill online generate karein.</p>
                 <a href="ta.html" class="btn" target="_blank">Open Tool ➔</a>
+                <button type="button" class="btn" style="background-color: #25D366; color: white; border: none; margin-top: 8px; cursor: pointer; display: block; width: 100%; text-align: center;" onclick="sharePortal()">Share Portal 🔗</button>
             </div>
 
             <div class="card">
@@ -417,7 +418,25 @@
             <a href="contact.html">संपर्क करें</a>
         </p>
     </footer>
-
+<script>
+function sharePortal() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'TA LTC Portal',
+            text: 'केंद्रीय कर्मचारियों के लिए मोबाइल से TA और LTC बिल बनाने का सबसे आसान पोर्टल।',
+            url: 'https://taltcportal.in'
+        }).then(() => {
+            console.log('Shared successfully');
+        }).catch((error) => {
+            console.log('Error sharing:', error);
+        });
+    } else {
+        navigator.clipboard.writeText('https://taltcportal.in');
+        alert("पोर्टल लिंक कॉपी हो गया है! अब आप इसे किसी को भी भेज सकते हैं।");
+    }
+}
+</script>
+        
 
 </body>
 </html>
