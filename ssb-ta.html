@@ -21,7 +21,7 @@
             width: 100%;
         }
         
-        /* EXACT SINGLE ROW FOR TOP HEADER - NATURAL POSITIONING */
+        /* EXACT SINGLE ROW FOR TOP HEADER */
         .header-top { 
             font-size: 14px; 
             margin-bottom: 25px; 
@@ -36,38 +36,48 @@
         .note-text { text-align: center; font-weight: bold; font-size: 14px; margin-bottom: 15px; color: #333; }
         .part-title { text-align: center; font-weight: bold; font-size: 15px; margin-bottom: 25px; text-transform: uppercase; }
         
-        /* Inputs styling */
+        /* Web Input styling - Restored Crisp Look */
         input[type="text"], input[type="date"], input[type="time"], select {
             border: none; border-bottom: 1px solid #000; outline: none; background: transparent; font-family: inherit; font-size: 15px; padding: 3px; min-height: 24px;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
         }
         .dotted-line { width: 140px; text-align: center; }
         .long-line { width: 100%; max-width: 450px; }
         
         .personal-details { margin-bottom: 25px; line-height: 2.2; }
         .personal-details div { font-weight: bold; font-size: 15px; margin-bottom: 8px; }
-        .personal-details input { width: 100%; max-width: 400px; }
+        .personal-details input { width: 100%; max-width: 400px; border: none; border-bottom: 1px solid #000; }
 
         /* Mobile Responsive Scroll Tables */
         .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 15px; margin-bottom: 20px; border: 1px solid #000; }
         table { width: 100%; border-collapse: collapse; min-width: 850px; table-layout: auto; }
         th, td { border: 1px solid #000; padding: 8px; text-align: center; font-size: 14px; vertical-align: middle; }
         th { font-weight: bold; background-color: #f7f7f7; white-space: nowrap; }
-        td { white-space: nowrap; }
+        td { background: #fff; }
         
-        table input { width: 90%; padding: 4px; border: 1px solid #ccc !important; border-radius: 3px; background: #fff; text-align: center; }
+        table input { width: 90%; padding: 6px; border: 1px solid #ccc !important; border-radius: 3px; background: #fff; text-align: center; box-sizing: border-box; }
         .purpose-cell textarea { width: 92%; height: 90px; resize: none; padding: 4px; border: 1px solid #ccc; border-radius: 3px; text-align: center; font-family: inherit; }
+        .total-row td { font-weight: bold; background-color: #f9f9f9; }
+        
+        /* Special full width input style for merged halt rows */
+        .halt-input { width: 96% !important; text-align: left !important; padding-left: 15px !important; font-style: italic; border: none !important; border-bottom: 1px dashed #000 !important; font-weight: bold; color: #2c3e50; }
 
         /* Action Buttons */
         .btn-group { margin: 10px 0; }
         .btn-add { background-color: #28a745; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; margin-right: 6px; font-weight: bold; font-size: 12px; }
         .btn-remove { background-color: #dc3545; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; font-weight: bold; font-size: 12px; }
+        .btn-halt { background-color: #fd7e14; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; margin-right: 6px; font-weight: bold; font-size: 12px; }
         
         .print-btn-container { text-align: center; margin-bottom: 25px; }
         .btn-print { background-color: #007bff; color: white; border: none; padding: 14px 40px; cursor: pointer; border-radius: 6px; font-weight: bold; font-size: 18px; box-shadow: 0 4px 10px rgba(0,123,255,0.3); }
 
         .section-bold { font-weight: bold; margin-top: 20px; margin-bottom: 8px; font-size: 15px; line-height: 1.4; }
         .sub-section { margin-left: 15px; margin-bottom: 15px; line-height: 1.8; }
+        
         .flex-row { display: flex; justify-content: space-between; margin-top: 35px; font-weight: bold; flex-wrap: wrap; gap: 15px; }
+        .signature-space { margin-top: 75px !important; }
         
         .part-b-list { list-style: none; padding-left: 5px; line-height: 2.2; }
         .part-b-list li { margin-bottom: 10px; }
@@ -76,49 +86,42 @@
         
         hr { border: 0; border-top: 1px solid #000; margin: 20px 0; }
 
-        /* CERTIFICATE PARAGRAPH GAP REDUCTION CODE */
         .certificate-text p {
-            margin: 6px 0 !important; /* Reduces gap between points 16 to 29 significantly */
+            margin: 6px 0 !important;
             line-height: 1.6;
             font-size: 14px;
             text-align: justify;
         }
 
-        /* ==================== GLOBAL NATIVE ARROWS REMOVAL ==================== */
+        /* Hides native calendar arrows selectively without breaking web boxes */
         input[type="date"]::-webkit-calendar-picker-indicator,
         input[type="time"]::-webkit-calendar-picker-indicator,
         input[type="date"]::-webkit-inner-spin-button,
-        input[type="time"]::-webkit-inner-spin-button,
-        input[type="date"]::-webkit-clear-button,
-        input[type="time"]::-webkit-clear-button {
+        input[type="time"]::-webkit-inner-spin-button {
             display: none !important;
             -webkit-appearance: none !important;
             margin: 0 !important;
-            padding: 0 !important;
-            opacity: 0 !important;
         }
-        input[type="date"], input[type="time"] {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-        select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
 
-        /* ==================== CLEAN A4 PRINT HARDBREAK ENGINE ==================== */
+        /* ==================== CLEAN A4 PRINT LAYOUT ENGINE ==================== */
         @media print {
             body { background: white; margin: 0; padding: 0; font-family: 'Times New Roman', Times, serif; font-size: 12px; }
             .form-container { width: 100%; max-width: 100%; }
             
             .page { 
-                page-break-after: always !important; 
-                break-after: page !important;
+                page-break-after: auto !important; 
+                break-after: auto !important;
                 border: none !important; 
                 box-shadow: none !important;
                 padding: 0 !important; 
-                margin: 0 0 25px 0 !important; 
+                margin: 0 0 35px 0 !important; 
                 background: white !important;
             }
-            .page:last-child { page-break-after: avoid !important; break-after: avoid !important; margin-bottom: 0 !important; }
+            
+            table, .table-responsive, .personal-details, .sub-section, .part-b-list, .flex-row { 
+                page-break-inside: avoid; 
+                break-inside: avoid; 
+            }
             
             .btn-group, .print-btn-container { display: none !important; }
             
@@ -133,9 +136,10 @@
             .table-responsive { overflow: visible !important; border: none !important; width: 100% !important; }
             table { width: 100% !important; min-width: 100% !important; table-layout: fixed !important; }
             th, td { font-size: 11px !important; padding: 4px !important; border: 1px solid #000 !important; white-space: normal !important; }
-            table input { border: none !important; border-bottom: 1px solid #000 !important; border-radius: 0 !important; }
+            table input { border: none !important; border-bottom: 1px solid #000 !important; border-radius: 0 !important; background: transparent !important; }
             .purpose-cell textarea { height: 80px !important; border: none !important; border-bottom: 1px solid #000 !important; }
-            
+            .halt-input { border-bottom: 1px dashed #000 !important; }
+
             .header-top { display: block !important; white-space: nowrap !important; width: 100% !important; }
             .sub-bill-span { margin-left: 50px !important; }
             
@@ -144,7 +148,7 @@
                 line-height: 1.4;
                 font-size: 11px !important;
             }
-            .flex-row { margin-top: 25px !important; }
+            .signature-space { margin-top: 50px !important; }
         }
     </style>
 </head>
@@ -157,7 +161,7 @@
         <button type="button" class="btn-print" onclick="window.print()">📥 Download PDF / Print Bill</button>
     </div>
 
-    <!-- ==================== PAGE 1 (PHOTO 1) ==================== -->
+    <!-- ==================== PAGE 1 ==================== -->
     <div class="page" id="page1">
         <div class="header-top">
             <span>G.A.R.-14-A [See Rules 66 (1) & 90 (1) (i)]</span>
@@ -178,8 +182,9 @@
 
         <div class="section-bold">6. Details and purpose of journey (s) performed.</div>
         <div class="btn-group">
-            <button type="button" class="btn-add" onclick="addRow6()">नई यात्रा जोड़ें (+)</button>
-            <button type="button" class="btn-remove" onclick="removeRow6()">आखरी यात्रा हटाएँ (-)</button>
+            <button type="button" class="btn-add" onclick="addRow6()">नया यात्रा विवरण जोड़े (+)</button>
+            <button type="button" class="btn-halt" onclick="addHaltRow6()">नया विश्राम हाल्ट जोड़े (➔)</button>
+            <button type="button" class="btn-remove" onclick="removeRow6()">आखरी रो हटाए (-)</button>
         </div>
         <div class="table-responsive">
             <table id="table-point6">
@@ -194,11 +199,11 @@
                         <th style="width: 10%;">Mode</th>
                         <th style="width: 10%;">Fare Paid</th>
                         <th style="width: 10%;">Distance Kms</th>
-                        <th style="width: 10%;">Purpose of Journey</th>
+                        <th style="width: 15%;">Purpose of Journey</th>
                     </tr>
                 </thead>
                 <tbody id="tbody-point6">
-                    <tr>
+                    <tr class="dynamic-row-6 data-row-6">
                         <td><input type="date"></td>
                         <td><input type="time"></td>
                         <td><input type="text" placeholder="From"></td>
@@ -206,18 +211,23 @@
                         <td><input type="time"></td>
                         <td><input type="text" placeholder="To"></td>
                         <td><input type="text"></td>
-                        <td><input type="text" placeholder="Rs."></td>
+                        <td><input type="text" class="fare-input" placeholder="Rs." oninput="calculateFareTotal()"></td>
                         <td><input type="text"></td>
                         <td id="purpose-td" class="purpose-cell" rowspan="1">
                             <textarea placeholder="Purpose..." rows="4"></textarea>
                         </td>
+                    </tr>
+                    <tr class="total-row" id="total-row-6">
+                        <td colspan="7" style="text-align: right; padding-right: 15px;">कुल योग (Total):</td>
+                        <td><input type="text" id="total-fare-output" readonly placeholder="0" style="font-weight: bold; border: none !important;"></td>
+                        <td colspan="2" style="background-color: #f9f9f9;"></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- ==================== PAGE 2 (PHOTO 2) ==================== -->
+    <!-- ==================== PAGE 2 ==================== -->
     <div class="page" id="page2">
         <div class="section-bold">7. Mode of journey:-</div>
         <div class="sub-section">
@@ -312,7 +322,7 @@
         <p style="font-size: 13px; font-style: italic; text-align: justify; margin-top: 5px;">If the journey (s) by higher class accommodation has been performed with the approval of the competent authority, No and date of the sanction may be quoted.</p>
     </div>
 
-    <!-- ==================== PAGE 3 (PHOTO 3) ==================== -->
+    <!-- ==================== PAGE 3 ==================== -->
     <div class="page" id="page3">
         <div class="section-bold">12. Details of Journey (s) performed by road between places connected by rail:-</div>
         <div class="btn-group">
@@ -379,22 +389,21 @@
 
         <div class="section-bold">15. The expenditure is debitable to <input type="text" class="long-line"></div>
         
-        <div class="flex-row" style="margin-top: 30px;">
+        <div class="flex-row signature-space">
             <div>Initial Bill Clerk</div>
             <div>Signature of D.D.O</div>
         </div>
-        <div class="text-center bold" style="margin-top: 20px; font-size: 14px;">Countersigned</div>
-        <div class="flex-row" style="margin-top: 25px;">
+        <div class="text-center bold" style="margin-top: 25px; font-size: 14px;">Countersigned</div>
+        <div class="flex-row signature-space">
             <div></div>
             <div>Signature of Controlling Officer</div>
         </div>
     </div>
 
-    <!-- ==================== PAGE 4 (PHOTO 4) ==================== -->
+    <!-- ==================== PAGE 4 ==================== -->
     <div class="page" id="page4">
         <div class="bill-title" style="font-size: 15px; margin-bottom: 15px;">CERTIFICATE FOR TOUR T.A. BILLS</div>
         
-        <!-- Wrapped in class for precise gap regulation -->
         <div class="certificate-text">
             <p>16. Certified that I/my family was neither allowed free transit by Rail under free pass or otherwise provided with. means of communication at expense of the state or local round journey for the which T.A. has been claimed in the bill.</p>
             <p>17. Certified that I/my family actually travelled by the class for the T.A. claimed in this bill.</p>
@@ -412,12 +421,12 @@
             <p>29. Certified that I have transported <input type="text" style="width:60px;"> Kg <input type="text" style="width:60px;"> gms of luggage on mytransfer from <input type="text" class="dotted-line"> to <input type="text" class="dotted-line">.</p>
         </div>
 
-        <div class="flex-row" style="margin-top: 30px;">
+        <div class="flex-row" style="margin-top: 40px;">
             <div>Countersigned</div>
             <div>Signature of the claimant</div>
         </div>
         
-        <div class="text-center bold" style="margin-top: 35px; font-size: 14px;">
+        <div class="text-center bold" style="margin-top: 85px; font-size: 14px; width: 100%;">
             (Signature & Designation of the controlling officer)
         </div>
     </div>
@@ -428,22 +437,68 @@
 <script>
     function addRow6() {
         const tbody = document.getElementById('tbody-point6');
+        const totalRow = document.getElementById('total-row-6');
+        
         const newRow = document.createElement('tr');
+        newRow.className = 'dynamic-row-6 data-row-6';
         newRow.innerHTML = `
-            <td><input type="date"></td><td><input type="time"></td><td><input type="text" placeholder="From"></td>
-            <td><input type="date"></td><td><input type="time"></td><td><input type="text" placeholder="To"></td>
-            <td><input type="text"></td><td><input type="text" placeholder="Rs."></td><td><input type="text"></td>
+            <td><input type="date"></td>
+            <td><input type="time"></td>
+            <td><input type="text" placeholder="From"></td>
+            <td><input type="date"></td>
+            <td><input type="time"></td>
+            <td><input type="text" placeholder="To"></td>
+            <td><input type="text"></td>
+            <td><input type="text" class="fare-input" placeholder="Rs." oninput="calculateFareTotal()"></td>
+            <td><input type="text"></td>
         `;
-        tbody.appendChild(newRow);
+        
+        tbody.insertBefore(newRow, totalRow);
         updatePurposeRowspan();
     }
+    
+    function addHaltRow6() {
+        const tbody = document.getElementById('tbody-point6');
+        const totalRow = document.getElementById('total-row-6');
+        
+        const haltRow = document.createElement('tr');
+        haltRow.className = 'dynamic-row-6 halt-row-6';
+        haltRow.innerHTML = `
+            <td colspan="9">
+                <input type="text" class="halt-input" placeholder="यहाँ विश्राम / हाल्ट का विवरण लिखें (उदा: Halt at Shrirampur HQ)...">
+            </td>
+        `;
+        
+        tbody.insertBefore(haltRow, totalRow);
+        updatePurposeRowspan();
+    }
+    
     function removeRow6() {
         const tbody = document.getElementById('tbody-point6');
-        if (tbody.rows.length > 1) { tbody.removeChild(tbody.lastChild); updatePurposeRowspan(); }
+        const allRows = tbody.getElementsByClassName('dynamic-row-6');
+        if (allRows.length > 1) { 
+            tbody.removeChild(allRows[allRows.length - 1]); 
+            updatePurposeRowspan(); 
+            calculateFareTotal();
+        }
     }
+    
     function updatePurposeRowspan() {
         const tbody = document.getElementById('tbody-point6');
-        document.getElementById('purpose-td').rowSpan = tbody.rows.length;
+        const allRows = tbody.getElementsByClassName('dynamic-row-6');
+        document.getElementById('purpose-td').rowSpan = allRows.length;
+    }
+    
+    function calculateFareTotal() {
+        const fareInputs = document.getElementsByClassName('fare-input');
+        let total = 0;
+        for (let i = 0; i < fareInputs.length; i++) {
+            let val = parseFloat(fareInputs[i].value);
+            if (!isNaN(val)) {
+                total += val;
+            }
+        }
+        document.getElementById('total-fare-output').value = total;
     }
 
     function addRow10() {
