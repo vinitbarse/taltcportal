@@ -59,7 +59,7 @@
         td { background: #fff; }
         
         table input { width: 92%; padding: 6px; border: 1px solid #ccc !important; border-radius: 3px; background: #fff; text-align: center; box-sizing: border-box; font-size: 14px; }
-        .purpose-cell textarea { width: 92%; height: 90px; resize: none; padding: 4px; border: 1px solid #ccc; border-radius: 3px; text-align: center; font-family: inherit; }
+        .purpose-cell textarea { width: 92%; height: 90px; resize: none; padding: 4px; border: 1px solid #ccc; border-radius: 3px; text-align: center; font-family: inherit; box-sizing: border-box; }
         .total-row td { font-weight: bold; background-color: #f9f9f9; }
         
         /* Merged Halt Input styling row width */
@@ -99,12 +99,11 @@
             margin: 0 !important;
         }
 
-        /* ==================== CLEAN A4 PRINT ENGINE PRINT ENGINE ==================== */
+        /* ==================== CLEAN A4 PRINT ENGINE ==================== */
         @media print {
             body { background: white; margin: 0; padding: 0; font-family: 'Times New Roman', Times, serif; font-size: 12px; }
             .form-container { width: 100%; max-width: 100%; }
             
-            /* Slices elements beautifully when row entries are populated */
             .page { 
                 page-break-after: auto !important; 
                 break-after: auto !important;
@@ -218,9 +217,9 @@
                 </tbody>
             </table>
         </div>
-    </div> <!-- Strict Separation of Page 1 Block -->
+    </div> <!-- Clean and Secure Close of Page 1 container -->
 
-    <!-- ==================== PAGE 2 (POINT 7 INDEPENDENTLY STARTS HERE) ==================== -->
+    <!-- ==================== PAGE 2 ==================== -->
     <div class="page" id="page2">
         <div class="section-bold">7. Mode of journey:-</div>
         <div class="sub-section">
