@@ -105,14 +105,15 @@
             .form-container { width: 100%; max-width: 100%; }
             
             .page { 
-                page-break-after: auto !important; 
-                break-after: auto !important;
+                page-break-after: always !important; 
+                break-after: page !important;
                 border: none !important; 
                 box-shadow: none !important;
                 padding: 0 !important; 
                 margin: 0 0 35px 0 !important; 
                 background: white !important;
             }
+            .page:last-child { page-break-after: avoid !important; break-after: avoid !important; margin-bottom: 0 !important; }
             
             table, .table-responsive, .personal-details, .sub-section, .part-b-list, .flex-row { 
                 page-break-inside: avoid; 
@@ -217,9 +218,9 @@
                 </tbody>
             </table>
         </div>
-    </div> <!-- Clean and Secure Close of Page 1 container -->
+    </div> <!-- PAGE 1 CLOSES KADAK RULES HERE -->
 
-    <!-- ==================== PAGE 2 ==================== -->
+    <!-- ==================== PAGE 2 (POINT 7 INDEPENDENTLY LOCK) ==================== -->
     <div class="page" id="page2">
         <div class="section-bold">7. Mode of journey:-</div>
         <div class="sub-section">
