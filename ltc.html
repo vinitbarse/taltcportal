@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEAVE TRAVEL CONCESSION BILL</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Times New Roman', 'Mangal', serif;
+            line-height: 1.3;
+            background-color: #f4f4f9;
+            color: #000;
+            padding: 0;
+        }
+        
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .page {
+            background: #fff;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 15px auto;
+            padding: 12mm 15mm;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        /* Strict Page Break so Page 2 always starts on a fresh page */
+        .force-new-page {
+            page-break-before: always;
+            break-before: page;
+        }
+
+        /* Top Header Style */
+        .top-sub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            font-size: 10.5px;
+            margin-bottom: 6px;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .header-left { width: 30%; text-align: left; font-weight: normal; font-size: 11px; }
+        .header-center { width: 40%; display: flex; justify-content: center; }
+        .header-right { width: 30%; text-align: right; font-size: 10px; }
+        
+        /* Center Info Box */
+        .identity-box {
+            border: 1px solid #000;
+            padding: 5px 8px;
+            background-color: #fafafa;
+            font-size: 11px;
+            width: 240px;
+            line-height: 1.4;
+            margin: 0 auto;
+        }
+        .identity-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2px;
+            align-items: baseline;
+        }
+        .identity-row:last-child { margin-bottom: 0; }
+        .identity-row label { font-weight: bold; white-space: nowrap; margin-right: 4px; }
+        .identity-row input {
+            border: none;
+            border-bottom: 1px dotted #333;
+            outline: none;
+            font-family: inherit;
+            font-size: 11px;
+            background: transparent;
+            width: 100%;
+            padding-left: 2px;
+        }
+
+        .center-heading { text-align: center; margin-bottom: 8px; width: 100%; }
+        .center-heading h2 { font-size: 14.5px; font-weight: bold; margin-top: 5px; }
+        
+        .form-section-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            margin: 6px 0;
+            text-transform: uppercase;
+            background-color: #f2f2f2;
+            padding: 3px;
+            border: 1px solid #000;
+            width: 100%;
+        }
+        .inputs-container {
+            border: 1px solid #777;
+            padding: 5px 6px;
+            margin-bottom: 6px;
+            font-size: 11.5px;
+            width: 100%;
+            line-height: 1.5;
+        }
+        .input-row {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 3px 0;
+            align-items: center;
+            width: 100%;
+        }
+        .input-row:last-child { border-bottom: none; }
+        .input-val {
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-size: 11.5px;
+            background: transparent;
+            padding-left: 4px;
+            border-bottom: 1px dotted #000;
+        }
+        
+        table {
+            width: 100% !important;
+            border-collapse: collapse;
+            margin: 5px 0;
+            table-layout: fixed;
+        }
+        table, th, td { border: 1px solid #555; }
+        th {
+            background-color: #f9f9f9;
+            font-size: 9px;
+            padding: 4px 1px;
+            text-align: center;
+            font-weight: bold;
+        }
+        td { padding: 2px; vertical-align: middle; font-size: 10.5px; }
+        
+        td textarea, td input[type="number"], td input[type="text"] {
+            width: 100% !important;
+            border: none !important;
+            box-sizing: border-box;
+            font-size: 11px;
+            font-family: inherit;
+            background: transparent;
+            text-align: center;
+            outline: none;
+            resize: none;
+            overflow: hidden;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            line-height: 1.2;
+        }
+        .cell-expand { min-height: 26px; }
+
+        .control-panel {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 10px 0;
+            width: 100%;
+        }
+        .scr-btn {
+            padding: 5px 12px;
+            font-size: 11.5px;
+            border-radius: 3px;
+            cursor: pointer;
+            border: 1px solid #aaa;
+            font-family: inherit;
+        }
+        .btn-grey { background-color: #f0f0f0; color: #000; }
+        .btn-blue { background-color: #2b5797; color: white; border: none; font-weight: bold; }
+        .btn-red { background-color: #e51c23; color: white; border: none; }
+        .btn-green { background-color: #4caf50; color: white; border: none; font-weight: bold; }
+
+        .sub-point {
+            margin-top: 6px;
+            font-size: 11.5px;
+            line-height: 1.45;
+            width: 100%;
+        }
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            font-size: 11.5px;
+            width: 100%;
+        }
+        .inline-blank {
+            border: none;
+            border-bottom: 1px dotted #000;
+            outline: none;
+            font-family: inherit;
+            font-size: 11.5px;
+            background: transparent;
+            padding: 0 2px;
+        }
+        
+        /* Copyright Link Style */
+        .copyright-footer {
+            text-align: center;
+            font-size: 12px;
+            padding: 15px 0;
+            color: #666;
+            width: 100%;
+        }
+        .copyright-footer a {
+            color: #2b5797;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .copyright-footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body { background: none; padding: 0; margin: 0; }
+            .page { box-shadow: none; margin: 0 auto; padding: 10mm 15mm; width: 210mm; }
+            .control-panel, .copyright-footer { display: none !important; } /* Hidden during print */
+            tr { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        
+        <!-- ================= PAGE 1 ================= -->
+        <div class="page">
+            <div class="top-sub-header">
+                <div class="header-left">
+                    कार्यालय सं० / Sub Bill No <input type="text" class="inline-blank" style="width: 100px;"><br>
+                    वर्ष <input type="text" class="inline-blank" style="width: 60px;"> से <input type="text" class="inline-blank" style="width: 60px;"> तक के ब्लॉक के लिए छुट्टी यात्रा<br> रियायत बिल
+                </div>
+                
+                <div class="header-center">
+                    <div class="identity-box">
+                        <div class="identity-row">
+                            <label>Account No:</label>
+                            <input type="text" placeholder="खाता संख्या">
+                        </div>
+                        <div class="identity-row">
+                            <label>IFSC Code:</label>
+                            <input type="text" placeholder="IFSC कोड">
+                        </div>
+                        <div class="identity-row">
+                            <label>Vendor ID:</label>
+                            <input type="text" placeholder="वेंडर आई.डी.">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    भा०ति०सी०पु०बल लेखा 003<br>I.T.B.P.F. Accts 003<br>टी०आर०— ५ग / T.R.-5 c
+                </div>
+            </div>
+
+            <div class="center-heading">
+                <h2>Leave Travel Concession Bill for the Block of</h2>
+                <strong>Year.................................................................................</strong><br>
+                <span>प्रेषक / To: <input type="text" class="inline-blank" style="width: 80%;"></span>
+                <p style="margin-top: 5px; font-size:11px; font-style: italic;">टिप्पणी — यह बिल दो प्रतियों में एक संदाय के लिए दूसरा कार्यालय प्रति के लिए तैयार किया जाना चाहिए ।<br>Note:- This bill should be prepared in duplicate – one for payment and the other as office copy.</p>
+            </div>
+
+            <div class="form-section-title">भाग—क (सरकारी सेवक द्वारा भरा जाना है)<br>PART-A (To be filled up by Government Servant)</div>
+
+            <div class="inputs-container">
+                <div class="input-row">
+                    <div style="width: 50%;">1. नाम/Name: <input type="text" class="input-val" placeholder="पूरा नाम" style="width: 70%;"></div>
+                    <div style="width: 50%;">2. दल संख्या/Regt No. <input type="text" class="input-val" placeholder="110150363" style="width: 60%;"></div>
+                </div>
+                <div class="input-row">
+                    <div style="width: 35%;">3. पद/Designation: <input type="text" class="input-val" style="width: 55%;"></div>
+                    <div style="width: 30%;">4. समवाय /Coy- <input type="text" class="input-val" placeholder="Coy No." style="width: 55%;"></div>
+                    <div style="width: 35%;">5. वेतन/Pay: <input type="text" class="input-val" style="width: 70%;"></div>
+                </div>
+                <div class="input-row">
+                    <div style="width: 100%;">6. मुख्यालय/Headquarters: <input type="text" class="input-val" style="width: 80%;"></div>
+                </div>
+                <div class="input-row" style="border-bottom: none;">
+                    <div style="width: 100%;">7. to तक मंजूर की गई छुट्टी की अवधि <input type="text" class="inline-blank" placeholder="(e.g.) 30 day EL/15 day CL 08-07-2026 to 07-08-2026" style="width: 360px;"><br>
+                    Nature and period of leave sanctioned from .......................................................................<br>
+                    कुटुम्ब के सदस्यों की विशिष्टियाँ जिन के बाबत छुट्टी यात्रा रियायत का दावा किया गया है ।<br>
+                    Particulars of members of family in respect of on he L.T.C has been claimed.</div>
+                </div>
+            </div>
+
+            <!-- Dynamic Buttons for Family Table -->
+            <div class="control-panel" style="margin: 5px 0;">
+                <button type="button" class="scr-btn btn-grey" onclick="addFamilyRow()">नया सदस्य जोड़ें (+)</button>
+                <button type="button" class="scr-btn btn-red" style="padding: 5px 10px;" onclick="deleteLastFamilyRow()">सदस्य हटाएँ (-)</button>
+            </div>
+
+            <!-- Family Table -->
+            <table id="familyTable">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">क्रम सं०<br>Sl. No</th>
+                        <th style="width: 45%;">नाम<br>Name</th>
+                        <th style="width: 15%;">आयु<br>Age</th>
+                        <th style="width: 30%;">सरकारीसेवकसेसंबंध<br>Relationship with Govt. Servant</th>
+                    </tr>
+                </thead>
+                <tbody id="familyBody">
+                    <tr><td>1</td><td><textarea rows="1" placeholder="Self" style="font-weight: bold;"></textarea></td><td><textarea rows="1"></textarea></td><td><textarea rows="1" placeholder="Self" style="font-weight: bold;"></textarea></td></tr>
+                    <tr><td>2</td><td><textarea rows="1" oninput="autoResize(this)"></textarea></td><td><textarea rows="1" oninput="autoResize(this)"></textarea></td><td><textarea rows="1" oninput="autoResize(this)"></textarea></td></tr>
+                </tbody>
+            </table>
+
+            <!-- Point 6 LTC Journey Table -->
+            <div class="sub-point" style="font-weight: bold; margin-bottom: 2px;">6. सरकारी सेवक और उसके कुटुम्ब के सदस्यों द्वारा की गई यात्राओं का ब्यौरा:<br><span style="font-size: 10px; font-weight: normal;">Details of journey(s) performed by Govt. servant and the members of his / her family:</span></div>
+            
+            <table id="journeyTable">
+                <thead>
+                    <tr>
+                        <th colspan="2" style="width: 24%;">प्रस्थान<br>Departure</th>
+                        <th colspan="2" style="width: 24%;">आगमन<br>Arrival</th>
+                        <th rowspan="2" style="width: 10%;">दूरी कि०मी० में<br>Distance in Kms.</th>
+                        <th rowspan="2" style="width: 18%;">यात्रा की रीति और स्थान सुविधा का वर्ग का दावा किया गया है<br><span style="font-size: 8px;">Mode of travel & class</span></th>
+                        <th rowspan="2" style="width: 8%;">भाड़े की सं०<br>No. of fares</th>
+                        <th rowspan="2" style="width: 8%;">कुल दिया गया भाड़ा<br>Fare Paid</th>
+                        <th rowspan="2" style="width: 8%;">टिप्पणी<br>Remarks</th>
+                    </tr>
+                    <tr>
+                        <th>तारीख और समय Date/Time</th>
+                        <th>से<br>From</th>
+                        <th>तारीख और समय Date/Time</th>
+                        <th>तक<br>To</th>
+                    </tr>
+                </thead>
+                <tbody id="journeyBody">
+                    <tr class="journey-row">
+                        <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY\\nHH:MM" oninput="autoResize(this)"></textarea></td>
+                        <td><textarea class="cell-expand" rows="1" placeholder="स्थान (From)" oninput="autoResize(this)"></textarea></td>
+                        <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY\\nHH:MM" oninput="autoResize(this)"></textarea></td>
+                        <td><textarea class="cell-expand" rows="1" placeholder="स्थान (To)" oninput="autoResize(this)"></textarea></td>
+                        <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
+                        <td><textarea class="cell-expand" rows="1" placeholder="Mode/Class" oninput="autoResize(this)"></textarea></td>
+                        <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
+                        <td><input type="number" class="fare-rs" placeholder="0" oninput="calculateJourneyTotal()"></td>
+                        <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr style="font-weight: bold; background-color: #f9f9f9;">
+                        <td colspan="7" style="text-align: right; padding-right: 15px;">कुल योग / Total Amount</td>
+                        <td id="journeyTotalCell" style="text-align: center; color: #000; font-size: 11px;">0.00</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <!-- Dynamic Control Buttons -->
+            <div class="control-panel">
+                <button type="button" class="scr-btn btn-grey" onclick="addJourneyRow()">नया यात्रा विवरण जोड़ें (+)</button>
+                <button type="button" class="scr-btn btn-grey" onclick="addHomeStayRow()">नया होम स्टे/विश्राम विवरण जोड़ें (+)</button>
+                <button type="button" class="scr-btn btn-blue" onclick="calculateJourneyTotal()">कुल योग (₹) जोड़ें</button>
+                <button type="button" class="scr-btn btn-red" onclick="deleteLastJourneyRow()">आखिरी रो डिलीट करें (-)</button>
+                <button type="button" class="scr-btn btn-green" onclick="window.print()">PDF डाउनलोड करें ⬇</button>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 2 ================= -->
+        <div class="page force-new-page">
+            <div style="text-align: center; font-weight: bold; margin-bottom: 15px;">:: 2 ::</div>
+            
+            <div class="sub-point" style="line-height: 1.6; margin-bottom: 10px;">
+                <strong>7. लिये गये अग्रिम की रकम यदि कोई है</strong> <input type="text" class="inline-blank" style="width: 60%;"><br>
+                ....रु Amount of advance, if any, drawn Rs. <input type="text" class="inline-blank" style="width: 55%;"><br>
+                ........................................................................................................................
+            </div>
+
+            <div class="sub-point" style="font-weight: bold; margin-bottom: 2px;">
+                8. उस यात्रा तथा उन यात्राओं की विशिष्टियां जिसके/जिनके लिये सरकारी सेवक ने उस वर्ग से, जिसका हकदार है, उच्चतर वर्ग की स्थान सुविधा का उपयोग किया गया है (स्वीकृति की संख्या और तारीख का उल्लेख करना है)।<br>
+                <span style="font-weight: normal; font-size: 10.5px; display:block; margin-top:2px;">Particulars of journey(s) for which higher class of accommodation than the one to which the Govt. servant is entitled, was used (Sanction number & date to be given)</span>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2" style="width: 25%;">स्थान/Place</th>
+                        <th rowspan="2" style="width: 14%;"> यात्रा का प्रकार/Mode of Conveyance</th>
+                        <th rowspan="2" style="width: 15%;">वह वर्ग जिसका हकदार है/Class to which entitled</th>
+                        <th rowspan="2" style="width: 16%;">वह वर्ग जिसमें वस्तुतः यात्रा की है/Class by which actually travelled</th>
+                        <th rowspan="2" style="width: 12%;">यात्री भाड़े की संख्या /No of Fares</th>
+                        <th colspan="2" style="width: 18%;">सदत्त यात्रा भत्ता/Fair paid</th>
+                    </tr>
+                    <tr>
+                        <th>से/From</th>
+                        <th>तक/To</th>
+                        <th>रु/Rs.</th>
+                        <th>पै./p</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                </tbody>
+            </table>
+
+            <div class="sub-point" style="font-weight: bold; margin-top: 10px; margin-bottom: 2px;">
+                9. रेल से जुड़े स्थानों के बीच, सड़क मार्ग से की गई यात्रा/यात्राओं के ब्यौरे:<br>
+                <span style="font-weight: normal; font-size: 10.5px;">Particulars of journey(s) performed by road between places connected by rail:</span>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2" style="width: 50%;">स्थानों के नाम/Name of Places</th>
+                        <th rowspan="2" style="width: 25%;">वह वर्ग जिसका हकदार है/<br>Class to which entitled</th>
+                        <th rowspan="2" style="width: 25%;">रेल यात्री भाड़ा/Rail Fare</th>
+                    </tr>
+                    <tr>
+                        <th>से/From</th>
+                        <th>तक / To</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                </tbody>
+            </table>
+
+            <div class="sub-point" style="margin-top: 12px; line-height: 1.5;">
+                <strong>1. प्रमाणित किया जाता है कि ऊपर दी गई जानकारी मेरे सर्वोत्तम ज्ञान और विश्वास के अनुसार सत्य है।</strong><br>
+                <span style="color:#333;">Certified that information as given above is true to the best of my knowledge and belief.</span><br>
+                
+                <strong>2. मेरा पति/मेरी पत्नी सरकारी सेवा में नियोजित नहीं रही है। मेरा पति/मेरी पत्नी सरकारी सेवा में नियोजित है और उनके <input type="text" class="inline-blank" style="width: 80px;"> वर्ष के ब्लाक के दौरान अपने लिये या कुटुम्ब के किसी सदस्य के लिये रियायत का उपयोग नहीं किया है।</strong><br>
+                <span style="color:#333;">That my husband /wife is not employed in Govt. service/ that my husband/wife is employed in Govt. Service and the concession has not been availed of by him/her separately or himself/herself or for any of the family member for the concerned block of <input type="text" class="inline-blank" style="width: 100px;"> years.</span>
+            </div>
+
+            <div class="flex-container" style="margin-top: 12px; margin-bottom: 12px;">
+                <div>तारीख /Date <input type="text" class="inline-blank" style="width: 150px;"></div>
+                <div style="text-align: right;"><strong>सरकारी सेवक के हस्ताक्षर/Signature of Govt. Servant</strong></div>
+            </div>
+
+            <div class="form-section-title">भाग-ख — (बिल अनुभाग द्वारा भरा जाना है) (To be filled in the Bill Section)</div>
+            <div class="sub-point" style="line-height: 1.8;">
+                <strong>1. यात्रा भत्ता मददे हकदारी</strong> <input type="text" class="inline-blank" style="width: 200px;"> <strong>रु० बनी है जिसके ब्योर नीचे दिये गये हैं:</strong><br>
+                <span style="font-size: 11px;">The net entitlement on account of travelling allowance works out to Rs. ......................... as detailed below:</span>
+                
+                <div style="padding-left: 20px; margin-top: 5px;">
+                    (क) रेल/वायुयान/बस/स्टीमर यात्री भाड़ा <span style="float:right;">रु० <input type="text" class="inline-blank" style="width: 120px;"> पै० <input type="text" class="inline-blank" style="width: 60px;"></span><br>
+                    <span style="font-size:10.5px; color:#333;">(a) Railway/air/Bus/Steamer fare</span> <span style="float:right;">Rs <input type="text" class="inline-blank" style="width: 120px;"> P <input type="text" class="inline-blank" style="width: 60px;"></span><br><br>
+                    
+                    (ख) वाउचर सं० <input type="text" class="inline-blank" style="width: 100px;"> तारीख <input type="text" class="inline-blank" style="width: 100px;"> के अनुसार लिए गये अग्रिम(अग्रिमो) की रकम यदि कोई हो तो घटायें।<br>
+                    <span style="font-size:10.5px; color:#333;">(b) Less amount of advance(s) if any drawn vide voucher(s) No .................... date ..................</span><br>
+                    
+                    <div style="text-align: right; font-weight: bold; margin-top: 5px;">
+                        रु० / Rs. <input type="text" class="inline-blank" style="width: 120px;"> . पै. / P. <input type="text" class="inline-blank" style="width: 60px;"><br>
+                        शुद्ध रकम / Net amount &nbsp;&nbsp;&nbsp;&nbsp; रु० / Rs <input type="text" class="inline-blank" style="width: 120px;"> . पै./P. <input type="text" class="inline-blank" style="width: 60px;">
+                    </div>
+                </div>
+
+                <strong>2. व्यय</strong> <input type="text" class="inline-blank" style="width: 250px;"> <strong>मेंविकलनीय</strong><br>
+                <span>The expenditure is debitable to ............................................................................................</span>
+            </div>
+
+            <div class="flex-container" style="margin-top: 15px; font-weight: bold;">
+                <div>बिल लिपिक के हस्ताक्षर<br><span style="font-weight:normal; font-size:10.5px;">Initial of Bill Clerk</span></div>
+                <div style="text-align: right;">संहरण और संवितरक अधिकारी के हस्ताक्षर<br><span style="font-weight:normal; font-size:10.5px;">Signature of Drawing & Disbursing Officer</span></div>
+            </div>
+
+            <div style="text-align: center; font-weight: bold; margin: 10px 0;">
+                प्रतिहस्ताक्षरित<br><span style="font-weight:normal; font-size:10.5px;">Countersigned</span>
+            </div>
+            
+            <div style="text-align: right; font-weight: bold; margin-bottom: 15px;">
+                नियंत्रक अधिकारी के हस्ताक्षर<br><span style="font-weight:normal; font-size:10.5px;">Signature of Controlling Officer</span>
+            </div>
+
+            <div class="sub-point" style="border-top: 1px solid #333; padding-top: 8px; line-height: 1.4;">
+                <strong>प्रमाणित किया जाता है कि श्री/श्रीमति/कु०</strong> <input type="text" class="inline-blank" style="width: 250px;"> <strong>की सेवा पुस्तिका में आवश्यक प्रविष्टियोंकर दी गई है।</strong><br>
+                <span>Certified that necessary entries have been made in Service Book of Shri/Shrimati/Miss .......................................................</span><br>
+                
+                <div style="text-align: right; font-weight: bold; margin-top: 10px;">
+                    सेवा पुस्तिका में की गई प्रविष्टियों को अनुप्रमाणित करने के लिये स्वीकृत अधिकारी के हस्ताक्षर<br>
+                    <span style="font-weight:normal; font-size:10.5px;">Signature of the Officer authorized particulars in the Service Book</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Web Footer View Only -->
+        <div class="copyright-footer">
+            &copy; 2026 LTC Bill Generator. All Rights Reserved. Designed with &hearts;
+        </div>
+
+    </div>
+
+    <!-- JavaScript For Live Actions -->
+    <script>
+        function autoResize(element) {
+            element.style.height = 'auto';
+            element.style.height = element.scrollHeight + 'px';
+        }
+
+        /* Family Table Functions */
+        function addFamilyRow() {
+            var tbody = document.getElementById("familyBody");
+            var currentRows = tbody.rows.length;
+            var nRow = tbody.insertRow();
+            
+            nRow.innerHTML = `
+                <td>${currentRows + 1}</td>
+                <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
+                <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
+                <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
+            `;
+        }
+
+        function deleteLastFamilyRow() {
+            var tbody = document.getElementById("familyBody");
+            // Keeps at least the first row (Self entry)
+            if (tbody.rows.length > 1) {
+                tbody.deleteRow(tbody.rows.length - 1);
+            }
+        }
+
+        /* Journey Table Functions */
+        function calculateJourneyTotal() {
+            var rsInputs = document.getElementsByClassName("fare-rs");
+            var totalRupees = 0;
+
+            for (var i = 0; i < rsInputs.length; i++) {
+                totalRupees += parseFloat(rsInputs[i].value) || 0;
+            }
+
+            document.getElementById("journeyTotalCell").innerText = totalRupees.toFixed(2);
+        }
+
+        function addJourneyRow() {
+            var tbody = document.getElementById("journeyBody");
+            var nRow = tbody.insertRow();
+            nRow.className = "journey-row";
+            nRow.innerHTML = `
+                <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY\\nHH:MM" oninput="autoResize(this)"></textarea></td>
+                <td><textarea class="cell-expand" rows="1" placeholder="स्थान (From)" oninput="autoResize(this)"></textarea></td>
+                <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY\\nHH:MM" oninput="autoResize(this)"></textarea></td>
+                <td><textarea class="cell-expand" rows="1" placeholder="स्थान (To)" oninput="autoResize(this)"></textarea></td>
+                <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
+                <td><textarea class="cell-expand" rows="1" placeholder="Mode/Class" oninput="autoResize(this)"></textarea></td>
+                <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
+                <td><input type="number" class="fare-rs" placeholder="0" oninput="calculateJourneyTotal()"></td>
+                <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
+            `;
+            calculateJourneyTotal();
+        }
+
+        function addHomeStayRow() {
+            var tbody = document.getElementById("journeyBody");
+            var nRow = tbody.insertRow();
+            nRow.className = "homestay-row";
+            nRow.innerHTML = `
+                <td colspan="9"><textarea class="cell-expand" rows="1" placeholder="यहाँ होम स्टे / विश्राम का पूरा विवरण (तारीख, समय, स्थान और टिप्पणी) दर्ज करें..." style="text-align: left; padding-left: 8px; font-style: italic;" oninput="autoResize(this)"></textarea></td>
+            `;
+        }
+
+        function deleteLastJourneyRow() {
+            var tbody = document.getElementById("journeyBody");
+            if (tbody.rows.length > 1) {
+                tbody.deleteRow(tbody.rows.length - 1);
+                calculateJourneyTotal();
+            }
+        }
+    </script>
+</body>
+</html>
