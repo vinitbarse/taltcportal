@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Viewport tag removed to block mobile responsiveness and force strict A4 view -->
+    <title>TRANSFER TA/DA CERTIFICATE</title>
+    <style>
+        /* ==================== FIXED A4 PREVIEW STYLE ==================== */
+        body { font-family: 'Times New Roman', Times, serif; margin: 0; padding: 25px 10px; color: #000; background-color: #d1d8e0; }
+        
+        /* Fixed width applied to maintain strict paper proportions on all screens */
+        .form-container { width: 850px; margin: 0 auto; }
+        
+        .page { 
+            background: #ffffff !important; 
+            margin-bottom: 35px; 
+            padding: 50px 40px; 
+            border: 2px solid #718093; 
+            border-radius: 6px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+            box-sizing: border-box;
+            width: 100%;
+        }
+        
+        .cert-title { text-align: center; font-weight: bold; text-decoration: underline; font-size: 16px; margin: 20px 0 15px 0; text-transform: uppercase; }
+        
+        /* Interactive Dotted Inputs */
+        input[type="text"], input[type="date"] {
+            border: none; border-bottom: 1px dotted #000; outline: none; background: transparent; font-family: inherit; font-size: 14px; padding: 2px 5px; text-align: center;
+        }
+        input::placeholder { color: #888; font-style: italic; font-size: 12px; }
+
+        .points-list { list-style: none; padding-left: 0; margin: 0; }
+        .points-list li { font-size: 14.5px; line-height: 1.8; text-align: justify; margin-bottom: 12px; position: relative; padding-left: 25px; }
+        .points-list li::before { content: attr(data-num) ". "; position: absolute; left: 0; top: 0; font-weight: bold; }
+
+        .rate-section {
+            margin: 20px 0;
+            font-size: 14.5px;
+            line-height: 2;
+        }
+
+        .flex-row { display: flex; justify-content: space-between; margin-top: 25px; font-size: 14.5px; }
+        .right-aligned-group { margin-left: auto; text-align: left; width: 250px; line-height: 1.8; margin-top: 20px; }
+
+        .control-panel { text-align: center; margin-bottom: 25px; }
+        .btn-print { background-color: #007bff; color: white; border: none; padding: 12px 35px; cursor: pointer; border-radius: 6px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 10px rgba(0,123,255,0.3); }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .page { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; }
+            .control-panel { display: none !important; }
+            input[type="text"], input[type="date"] { border-bottom: 1px solid #000 !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+
+    <div class="control-panel">
+        <button type="button" class="btn-print" onclick="window.print()">📥 Print / Save Certificate PDF</button>
+    </div>
+
+    <div class="page">
+        
+        <div class="cert-title">TRANSFER TA/DA CERTIFICATE</div>
+
+        <ul class="points-list">
+            <li data-num="1">Certified that the claim is genuine and has not been claimed or drawn previously.</li>
+            <li data-num="2">Certified that the railway fare claimed for the classes in which self and members of family traveled were actually paid.</li>
+            <li data-num="3">Certified that I have claimed airfare for journey which performed on exchange order.</li>
+            <li data-num="4">
+                Certified that my family consisting of my wife <input type="text" style="width: 200px;" placeholder="Wife's Name"> Daughter (s) <input type="text" style="width: 150px;" placeholder="Daughter(s)"> 
+                Son (s) <input type="text" style="width: 150px;" placeholder="Son(s)"> Father <input type="text" style="width: 180px;" placeholder="Father's Name"> Mother <input type="text" style="width: 180px;" placeholder="Mother's Name"> 
+                Ages <input type="text" style="width: 180px;" placeholder="e.g. 32, 8, 5, 65, 60"> Which are residing with/wholly dependent on me accompanied/followed me on transfer.
+            </li>
+            <li data-num="5">
+                Certified that personal effects weighing <input type="text" style="width: 100px;" placeholder="Weight in Kg"> <strong>Kgs.</strong> Were actually transported by from 
+                <input type="text" style="width: 150px;" placeholder="Old Station"> (Station) to <input type="text" style="width: 150px;" placeholder="New Station"> on the occasion of my transfer in 
+                <input type="text" style="width: 220px;" placeholder="Name/Registration Details"> and that he expenditure incurred therefore was not less than the sum claimed therein.
+            </li>
+            <li data-num="6">Details of actual expenditure are given below as per receipts enclosed. Station from <input type="text" style="width: 120px;" placeholder="From"> to <input type="text" style="width: 120px;" placeholder="To"> Mode of conveyance <input type="text" style="width: 150px;" placeholder="Rail/Road/Packer"> Expenditure involved.</li>
+        </ul>
+
+        <p style="margin-top: 15px; font-weight: bold; font-size: 14px; text-decoration: underline;">Note:- <span style="font-weight: normal; text-decoration: none; font-size: 14px;">It is certified that the total amount claimed above does exceed that admissible to me had the maximum admissible number of kilograms been transported by good train from old station to the new station directly. In proof I am indication the rate of conveyance of personal effects (smalls) by good trains at owner's risk.</span></p>
+
+        <!-- Fixed Text Layout Instead of Table as requested -->
+        <div class="rate-section">
+            From (Old Station) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To (New Station) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rate per. Kg./Qtl. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; T. Amount <br>
+            <input type="text" style="width: 160px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" style="width: 160px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" style="width: 165px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" style="width: 140px;">
+        </div>
+
+        <p style="font-size: 14.5px; line-height: 1.8; text-align: justify; margin-top: 15px;">
+            Certified that my wife who is employed under Central Govt. and who has been transferred from <input type="text" style="width: 150px;" placeholder="Station A"> to <input type="text" style="width: 150px;" placeholder="Station B"> which in six months of my transfer has not already claimed any transfer TA in consequence of her transfer.
+        </p>
+
+        <p style="font-size: 14px; line-height: 1.6; margin-top: 15px; font-weight: bold;">
+            Encl:- Receipts for conveyance of personal effects by road at either end.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Receipts for conveyance for personal effects by rail.
+        </p>
+
+        <div class="flex-row">
+            <div>Station :- <input type="text" style="width: 150px;"></div>
+        </div>
+        <div class="flex-row" style="margin-top: 5px;">
+            <div>Date :- <input type="date" style="width: 150px;"></div>
+        </div>
+
+        <div class="right-aligned-group">
+            <span style="font-style: italic; font-weight: bold; display: block; margin-bottom: 10px;">Signature of Govt. Servant</span>
+            <div>Name : <input type="text" style="width: 180px;"></div>
+            <div>Rank : <input type="text" style="width: 180px;"></div>
+            <div>Unit : <input type="text" style="width: 180px;"></div>
+        </div>
+
+        <div style="border-top: 1px dashed #000; margin-top: 30px; padding-top: 15px;">
+            <div class="cert-title" style="font-size: 15px;">CERTIFICATE BY CONTROLLING OFFICER</div>
+            <ul class="points-list">
+                <li data-num="1">Certified that journey was performed in interest of public service.</li>
+                <li data-num="2">TA/DA claim has been examined in accordance with Rule/instruction issued from time to time.</li>
+                <li data-num="3">Certified that Rail/ Air fare claimed for the classes in which self and members of family traveled were actually paid.</li>
+                <li data-num="4">Certified that claim is genuine and has not been claimed / drawn previously.</li>
+                <li data-num="5">Certified that the details of actual expenditure for conveyance of the personnel effects have been scrutinized and I am satisfied that the claim is correct and reasonable.</li>
+            </ul>
+
+            <div style="text-align: right; margin-top: 45px; font-weight: bold; font-style: italic; font-size: 14.5px;">
+                Signature of the Controlling Officer
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

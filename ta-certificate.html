@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Viewport tag removed to force strict desktop aspect ratio like LTC Certificate -->
+    <title>TOUR TA/DA (FOOD BILL CLAIM) CERTIFICATE</title>
+    <style>
+        /* ==================== FIXED A4 PREVIEW STYLE ==================== */
+        body { font-family: 'Times New Roman', Times, serif; margin: 0; padding: 25px 10px; color: #000; background-color: #d1d8e0; }
+        
+        /* Fixed width set to 850px to look exactly like a printed paper draft */
+        .form-container { width: 850px; margin: 0 auto; }
+        
+        .page { 
+            background: #ffffff !important; 
+            margin-bottom: 35px; 
+            padding: 50px 45px; 
+            border: 2px solid #718093; 
+            border-radius: 6px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+            box-sizing: border-box;
+            width: 100%;
+        }
+        
+        .cert-title { text-align: center; font-weight: bold; text-decoration: underline; font-size: 15px; margin: 15px 0 25px 0; text-transform: uppercase; }
+        
+        /* Interactive Dotted Inputs */
+        input[type="text"] {
+            border: none; border-bottom: 1px dotted #000; outline: none; background: transparent; font-family: inherit; font-size: 14px; padding: 1px 4px; text-align: center;
+        }
+        input::placeholder { color: #999; font-style: italic; font-size: 11px; }
+
+        .points-list { list-style: none; padding-left: 0; margin: 0; }
+        .points-list li { font-size: 14px; line-height: 1.7; text-align: justify; margin-bottom: 12px; position: relative; padding-left: 28px; }
+        .points-list li::before { content: attr(data-num) ". "; position: absolute; left: 0; top: 0; font-weight: bold; }
+
+        .flex-row { display: flex; justify-content: space-between; margin-top: 15px; font-size: 14.5px; }
+        .left-details { line-height: 2; font-weight: bold; }
+        .right-signature-group { text-align: left; width: 280px; line-height: 1.9; margin-top: 5px; }
+        
+        .control-panel { text-align: center; margin-bottom: 25px; }
+        .btn-print { background-color: #007bff; color: white; border: none; padding: 12px 35px; cursor: pointer; border-radius: 6px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 10px rgba(0,123,255,0.3); }
+
+        /* ==================== A4 PRINT ENGINE ==================== */
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .page { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; }
+            .control-panel { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="control-panel">
+        <button type="button" class="btn-print" onclick="window.print()">📥 Print / Save Certificate PDF</button>
+    </div>
+
+    <div class="page">
+        <div class="cert-title">TOUR TA/DA (FOOD BILL CLAIM) CERTIFICATE</div>
+
+        <ul class="points-list">
+            <li data-num="1">This claim is genuine and has not been claimed or drawn previously.</li>
+            <li data-num="2">The fare have been claimed for the class of accommodation actually issued by me.</li>
+            <li data-num="3">I was actually and not merely constructively in the camp during Sunday / Holidays falling during tour and for which DA has been claimed.</li>
+            <li data-num="4">Certified that I was not provided free lodging or boarding during tour for the days I have claimed DA,s.</li>
+            <li data-num="5">I was provided free lodging or boarding during tour for the following days.</li>
+            <li data-num="6">I have not claimed air fare for the journey for which air voucher was used.</li>
+            <li data-num="7">I was not on C/L on any day for which air voucher/ daily allowance has been claimed in the bill.</li>
+            <li data-num="8">The distance by the tour for which road millage allows. Has been claimed is correct to the best of my knowledge and belief.</li>
+            <li data-num="9">The journeys were performed in the interest of public service and no Govt. transport was utilized for journey for which millage has been claimed.</li>
+            <li data-num="10">
+                I stayed from <input type="text" style="width: 140px;" placeholder="DD/MM/YYYY"> To <input type="text" style="width: 140px;" placeholder="DD/MM/YYYY"> at <input type="text" style="width: 250px;" placeholder="Name of hotel/Estt/Camp"> (Name of hotel/Estt, which provided board/ lodging schedule tariffs).
+            </li>
+            <li data-num="11">The rate of daily allowances charged in the bill are in conformity with the provisions contained in SR 46, 51,73.</li>
+            <li data-num="12">Certified that all the inner and outer columns of this TA bill have been properly and completely filled in.</li>
+        </ul>
+
+        <div class="flex-row" style="margin-top: 25px;">
+            <div class="left-details">
+                Place : <input type="text" style="width: 150px; text-align: left;"><br>
+                Date : <input type="text" style="width: 150px; text-align: left;">
+            </div>
+            <div class="right-signature-group">
+                <span style="font-style: italic; font-weight: bold; display: block; margin-bottom: 10px; text-align: right;">Signature of the Govt. Servant</span>
+                <div>Regtl. No.- <input type="text" style="width: 150px;"></div>
+                <div>Rank- <input type="text" style="width: 150px;"></div>
+                <div>Name- <input type="text" style="width: 150px;"></div>
+            </div>
+        </div>
+
+        <!-- Controlling Officer Section -->
+        <div style="border-top: 1px dashed #000; margin-top: 35px; padding-top: 20px;">
+            <div class="cert-title" style="font-size: 14px; margin-bottom: 15px; text-decoration: underline;">CERTIFICATE BY THE CONTROLLING OFFICER</div>
+            <ul class="points-list">
+                <li data-num="1">Certified that the journey was performed in the interest of public service.</li>
+                <li data-num="2">Certified that the amount claimed in the bill was not drawn previously.</li>
+                <li data-num="3">Certified that the journeys were undertaken for official purposes and the casual leave was incidental.</li>
+                <li data-num="4">Certified that the details of actual expenditure for conveyance of personal effects have been scrutinized and I am satisfied that the claim is correct and reasonable.</li>
+            </ul>
+            <div style="text-align: right; margin-top: 50px; font-weight: bold; font-style: italic;">
+                Signature of the Controlling Officer.
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

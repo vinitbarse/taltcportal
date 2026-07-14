@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>L.T.C. CERTIFICATE</title>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; margin: 0; padding: 25px 10px; color: #000; background-color: #d1d8e0; }
+        .form-container { width: 850px; margin: 0 auto; }
+        .page { 
+            background: #ffffff !important; 
+            margin-bottom: 35px; 
+            padding: 50px 45px; 
+            border: 2px solid #718093; 
+            border-radius: 6px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+            box-sizing: border-box;
+            width: 100%;
+        }
+        .cert-title { text-align: center; font-weight: bold; text-decoration: underline; font-size: 16px; margin-top: 10px; text-transform: uppercase; }
+        .cert-subtitle { text-align: center; font-weight: bold; text-decoration: underline; font-size: 14px; margin-bottom: 25px; text-transform: uppercase; }
+        input[type="text"] { border: none; border-bottom: 1px dotted #000; outline: none; background: transparent; font-family: inherit; font-size: 14px; padding: 1px 4px; text-align: center; }
+        .points-list { list-style: none; padding-left: 0; margin: 0; }
+        .points-list li { font-size: 14px; line-height: 1.8; text-align: justify; margin-bottom: 15px; position: relative; padding-left: 28px; }
+        .points-list li::before { content: attr(data-num) ". "; position: absolute; left: 0; top: 0; font-weight: bold; }
+        .flex-row { display: flex; justify-content: space-between; margin-top: 20px; font-size: 14.5px; }
+        .left-details { line-height: 2; font-weight: bold; }
+        .right-signature-group { text-align: left; width: 280px; line-height: 1.9; margin-top: 10px; }
+        .control-panel { text-align: center; margin-bottom: 25px; }
+        .btn-print { background-color: #007bff; color: white; border: none; padding: 12px 35px; cursor: pointer; border-radius: 6px; font-weight: bold; font-size: 16px; }
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .page { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; }
+            .control-panel { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="control-panel">
+        <button type="button" class="btn-print" onclick="window.print()">📥 Print / Save LTC Certificate PDF</button>
+    </div>
+
+    <div class="page">
+        <div class="cert-title" style="margin-bottom: 5px;">L.T.C. CERTIFICATE</div>
+        <div class="cert-subtitle">CERTIFICATE TO BE GIVEN BY THE GOVERNMENT SERVANT</div>
+
+        <ul class="points-list">
+            <li data-num="1">I have not submitted any other claim so far for Leave Travel Concession in respect of myself or my family members in respect of block of the year 20<input type="text" style="width: 40px;"> to 20<input type="text" style="width: 40px;">.</li>
+            <li data-num="2">I have already drawn T.A. for the Leave Travel Concession in respect of a journey performed by me/ my wife with <input type="text" style="width: 100px;"> children. This claim is in r/o the journey performed by my wife/ myself with <input type="text" style="width: 100px;"> none of whom traveled with the party on the earlier occasion.</li>
+            <li data-num="3">I have not already drawn T.A. for the Leave Travel Concession in respect of a journey performed by me/my wife with <input type="text" style="width: 60px;"> children/my <input type="text" style="width: 120px;"> (family members) in respect of block of the year 20<input type="text" style="width: 35px;"> to 20<input type="text" style="width: 35px;">.</li>
+            <li data-num="4">I have already drawn T.A. for the Leave Travel Concession in respect of a journey performed by me in the year <input type="text" style="width: 60px;"> in respect of the block of the year 20<input type="text" style="width: 35px;"> to 20<input type="text" style="width: 35px;">.</li>
+            <li data-num="5">This journey has been performed by me with my wife with <input type="text" style="width: 80px;"> Children/my <input type="text" style="width: 120px;"> family members to the declared home town/ old HQr <input type="text" style="width: 150px;">.</li>
+            <li data-num="6">That my husband/wife is not employed in the Government. That my husband/wife is employed in the Government service and the concession has not been availed by him/her separately for himself/herself or for any of the family members for the concerned block of the year <input type="text" style="width: 100px;">.</li>
+            <li data-num="7">Certified that my wife/husband for whom L.T.C is claimed by me is employed in <input type="text" style="width: 220px;"> (Name of the Public Sector Undertaking/ Corporation/ Autonomous body etc.) which provides Leave Travel Concession facilities but he/she has nor preferred and will not prefer any claim in this behalf to his/her employer.</li>
+            <li data-num="8">my wife/husband for whom L.T.C. is claimed by Certified that me is not employed in any Public Sector Undertaking/ Corporation/ Autonomous body etc. financed wholly or partly by the Central Government or Local Body which provides L.T.C. facilities to its employees and their families.</li>
+        </ul>
+
+        <div class="flex-row" style="margin-top: 30px;">
+            <div class="left-details">
+                Place:- <input type="text" style="width: 150px; text-align: left;"><br>
+                Date:- <input type="text" style="width: 150px; text-align: left;">
+            </div>
+            <div class="right-signature-group">
+                <span style="font-style: italic; font-weight: bold; display: block; margin-bottom: 12px; text-align: right;">Signature of the Govt. servant</span>
+                <div>Regtl. No.- <input type="text" style="width: 150px;"></div>
+                <div>Rank- <input type="text" style="width: 150px;"></div>
+                <div>Name- <input type="text" style="width: 150px;"></div>
+            </div>
+        </div>
+
+        <div style="border-top: 1px dashed #000; margin-top: 40px; padding-top: 20px;">
+            <div class="cert-subtitle" style="font-size: 14px; margin-bottom: 15px;">CERTIFICATE TO BE GIVEN BY THE CONTROLLING OFFICER</div>
+            <ul class="points-list">
+                <li data-num="(i)">Certified that Sh./Smt./Ms. <input type="text" style="width: 200px;"> (Name of the Govt. servant) has rendered continuous service for one year or more on the date of commencing the outward journey.</li>
+                <li data-num="(ii)">Certified that necessary entries as required under Para 3 of the Ministry of Home Affairs O.M No. 43/1/55-Ests.(A) Part IL. Dated 11<sup>th</sup> October, 1956 have been made in the Service Book of Sh./Smt./Ms. <input type="text" style="width: 200px;">.</li>
+            </ul>
+            <div style="text-align: right; margin-top: 50px; font-weight: bold; font-style: italic;">
+                Signature & Designation of the Controlling Officer
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
