@@ -49,7 +49,8 @@
         @media print {
             body { background: white; margin: 0; padding: 0; }
             .page { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; }
-            .control-panel { display: none !important; }
+            /* 🎯 विज्ञापनों और प्रिंट पैनल को प्रिंट आउट से गायब रखने के लिए */
+            .control-panel, .no-print-ad { display: none !important; }
             input[type="text"], input[type="date"] { border-bottom: 1px solid #000 !important; }
         }
     </style>
@@ -61,6 +62,21 @@
     <div class="control-panel">
         <button type="button" class="btn-print" onclick="window.print()">📥 Print / Save Certificate PDF</button>
     </div>
+
+    <!-- 🎯 Adsterra 728x90 Top Leaderboard Ad Start -->
+    <div class="no-print-ad" style="text-align: center; margin: 20px auto; width: 728px;">
+        <script>
+          atOptions = {
+            'key' : '7d845b6da7f789aab46b2b2ff8d33354',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/7d845b6da7f789aab46b2b2ff8d33354/invoke.js"></script>
+    </div>
+    <!-- Adsterra 728x90 Top Leaderboard Ad End -->
 
     <div class="page">
         
@@ -129,8 +145,18 @@
             </div>
         </div>
 
+        <!-- 🎯 Adsterra 300x250 Bottom Banner Ad Start -->
+        <div class="no-print-ad" style="text-align:center; margin:30px auto 0 auto;">
+            <script src="https://pl30337070.effectivecpmnetwork.com/dc/df/f3/dcdff30cc0d43c0bece42ab23be38c48.js"></script>
+        </div>
+        <!-- Adsterra 300x250 Bottom Banner Ad End -->
+
     </div>
 </div>
+
+    <!-- 🎯 Adsterra Social Bar Floating Script Ad Start -->
+    <script src="https://pl30366980.effectivecpmnetwork.com/3b/02/4c/3b024c9328c794983430b0d6dedf907a.js"></script>
+    <!-- Adsterra Social Bar Floating Script Ad End -->
 
 </body>
 </html>
