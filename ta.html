@@ -67,16 +67,99 @@
         .identity-row label { font-weight: bold; }
         .identity-row input { border: none; border-bottom: 1px solid #ff0000; outline: none; font-size: 12px; color: #000; width: 150px; padding-left: 4px; background: transparent; }
         
+        /* स्काई ब्लू निर्देश पॉपअप की स्टाइल शीट */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+        .modal-box {
+            background-color: #29b6f6; /* प्रीमियम स्काई ब्लू */
+            color: #ffffff;
+            width: 90%;
+            max-width: 580px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            text-align: left;
+        }
+        .modal-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+        .modal-subtitle {
+            font-size: 13.5px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+        .modal-list {
+            margin-left: 20px;
+            margin-bottom: 22px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .modal-list li {
+            margin-bottom: 10px;
+        }
+        .modal-btn-container {
+            text-align: center;
+        }
+        .modal-btn {
+            background-color: #ffcc00; /* पीला बटन */
+            color: #000000;
+            border: none;
+            padding: 10px 40px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .modal-btn:hover {
+            background-color: #ffb300;
+        }
+        
         @media print {
             body { background: none; padding: 0; margin: 0; }
             .page { box-shadow: none; margin: 0; padding: 10mm; width: 210mm; }
             .screenshot-btn-panel { display: none !important; }
+            .modal-overlay { display: none !important; } /* प्रिंट में पॉपअप स्वतः गायब */
             tr { page-break-inside: avoid !important; }
             input::placeholder, textarea::placeholder { color: transparent !important; opacity: 0 !important; }
         }
     </style>
 </head>
 <body>
+
+    <!-- स्काई ब्लू निर्देश पॉपअप खंड -->
+    <div class="modal-overlay" id="instructionModal">
+        <div class="modal-box">
+            <div class="modal-title">फार्म भरने के निर्देश (Instructions)</div>
+            <div class="modal-subtitle">यह यात्रा भत्ता बिल (TA Bill) फॉर्म एक इंटरैक्टिव टूल है। कृपया ध्यान दें :</div>
+            <ul class="modal-list">
+                <li>सभी संबंधित फ़ील्ड्स (जैसे नाम, वेतन, पद, तिथि और समय) सावधानी से भरें।</li>
+                <li>यात्रा विवरण तालिका में तारीख और समय <strong>DD.MM.YY HH:MM</strong> फॉर्मेट में भरें।</li>
+                <li>राशि (Amount) कॉलम में केवल संख्या और दशमलव अंक दर्ज करें।</li>
+                <li>नया यात्रा विवरण या विश्राम विवरण जोड़ने के लिए नीचे दिए गए <strong>बटन</strong> का उपयोग करें।</li>
+                <li>सभी विवरण सही भरने के बाद '<strong>PDF डाउनलोड करें</strong>' बटन पर क्लिक करें।</li>
+            </ul>
+            <div class="modal-btn-container">
+                <button type="button" class="modal-btn" onclick="closeModal()">समझ गया / OK</button>
+            </div>
+        </div>
+    </div>
 
     <div class="page-container">
         
@@ -326,7 +409,7 @@
             </div>
         </div>
 
-        <!-- ================= PAGE 4 (Uptodate exactly as per Image) ================= -->
+        <!-- ================= PAGE 4 ================= -->
         <div class="page">
             <div style="text-align: center; font-weight: bold; margin-bottom: 5px;">:: 4 ::</div>
             <div class="form-section-title">भाग-ख (बिल अनुभाग में भरा जाना है)</div>
@@ -376,7 +459,6 @@
                 </div>
             </div>
 
-            <!-- हस्ताक्षर ब्लॉक (Signatures Block) -->
             <div style="display: flex; justify-content: space-between; margin-top: 60px; font-size: 12px; text-align: center; line-height: 1.4;">
                 <div style="width: 30%;">
                     <strong>बिल लिपिक के हस्ताक्षर</strong><br>
@@ -395,12 +477,11 @@
             <div style="display: flex; justify-content: flex-end; margin-top: 55px; font-size: 12px; text-align: center; padding-right: 15px;">
                 <div style="width: 35%; line-height: 1.4;">
                     ---------------------------------------<br>
-                    <strong>नियंत्रक अधिकारी के हस्ताक्षर</strong><br>
+                    <strong>नियंत्रण अधिकारी के हस्ताक्षर</strong><br>
                     <span style="font-size: 11px; font-style: italic; color: #444;">Signature of the Controlling Officer</span>
                 </div>
             </div>
 
-            <!-- गवर्नमेंट प्रेस कोडिंग प्रिंट (Footer Print Code) -->
             <div style="margin-top: 45px; font-size: 9.5px; border-top: 1px solid #555; padding-top: 5px; font-family: 'Times New Roman', serif; color: #000; line-height: 1.2;">
                 <strong>म०प्र०मु०—47 वाई०टी०बी०पी०/हरियाणा/2004—23-8-2004—1,31,700</strong><br>
                 GMGIPN-47 I.T.B.P./Haryana<br>
@@ -411,6 +492,11 @@
     </div>
 
     <script>
+        // पॉपअप बंद करने का फ़ंक्शन
+        function closeModal() {
+            document.getElementById('instructionModal').style.display = 'none';
+        }
+
         function autoResize(textarea) {
             textarea.style.height = 'auto';
             textarea.style.height = textarea.scrollHeight + 'px';
