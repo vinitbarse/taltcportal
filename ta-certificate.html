@@ -132,6 +132,39 @@
     <!-- 🎯 Adsterra Social Bar Floating Script Ad Start -->
     <script src="https://pl30366980.effectivecpmnetwork.com/3b/02/4c/3b024c9328c794983430b0d6dedf907a.js"></script>
     <!-- Adsterra Social Bar Floating Script Ad End -->
+    <!-- Start Auto-Save Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const inputs = document.querySelectorAll("input");
+        const pageKey = window.location.pathname;
+
+        // 1. Restore saved data on page load
+        inputs.forEach((input, index) => {
+            const savedValue = localStorage.getItem(`${pageKey}_input_${index}`);
+            if (savedValue) {
+                input.value = savedValue;
+            }
+
+            // 2. Save data on every input change
+            input.addEventListener("input", () => {
+                localStorage.setItem(`${pageKey}_input_${index}`, input.value);
+            });
+        });
+
+        // 3. Clear memory after print button is clicked
+        const printBtn = document.querySelector(".btn-print");
+        if (printBtn) {
+            printBtn.addEventListener("click", () => {
+                setTimeout(() => {
+                    inputs.forEach((input, index) => {
+                        localStorage.removeItem(`${pageKey}_input_${index}`);
+                    });
+                }, 2000); 
+            });
+        }
+    });
+    </script>
+    <!-- End Auto-Save Script -->
 
 </body>
 </html>
