@@ -67,7 +67,6 @@
         .identity-row label { font-weight: bold; }
         .identity-row input { border: none; border-bottom: 1px solid #ff0000; outline: none; font-size: 12px; color: #000; width: 150px; padding-left: 4px; background: transparent; }
         
-        /* स्काई ब्लू निर्देश पॉपअप की स्टाइल शीट */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -81,7 +80,7 @@
             z-index: 10000;
         }
         .modal-box {
-            background-color: #29b6f6; /* प्रीमियम स्काई ब्लू */
+            background-color: #29b6f6; 
             color: #ffffff;
             width: 90%;
             max-width: 580px;
@@ -117,7 +116,7 @@
             text-align: center;
         }
         .modal-btn {
-            background-color: #ffcc00; /* पीला बटन */
+            background-color: #ffcc00; 
             color: #000000;
             border: none;
             padding: 10px 40px;
@@ -135,7 +134,7 @@
             body { background: none; padding: 0; margin: 0; }
             .page { box-shadow: none; margin: 0; padding: 10mm; width: 210mm; }
             .screenshot-btn-panel { display: none !important; }
-            .modal-overlay { display: none !important; } /* प्रिंट में पॉपअप स्वतः गायब */
+            .modal-overlay { display: none !important; } 
             tr { page-break-inside: avoid !important; }
             input::placeholder, textarea::placeholder { color: transparent !important; opacity: 0 !important; }
         }
@@ -143,7 +142,6 @@
 </head>
 <body>
 
-    <!-- स्काई ब्लू निर्देश पॉपअप खंड -->
     <div class="modal-overlay" id="instructionModal">
         <div class="modal-box">
             <div class="modal-title">फार्म भरने के निर्देश (Instructions)</div>
@@ -341,7 +339,7 @@
             </div>
 
             <div class="sub-point" style="margin-top: 15px;">
-                <strong>10. उन यात्रा/यात्राओं की विशिष्टियां, जिनके लिए सरकारी सेवक ने उस वर्ग से जिसका वह हकदार है, उच्चतर वर्ग की स्थान सुविधा का उपयोग किया है :—</strong><br>
+                return <strong>10. उन यात्रा/यात्राओं की विशिष्टियां, जिनके लिए सरकारी सेवक ने उस वर्ग से जिसका वह हकदार है, उच्चतर वर्ग की स्थान सुविधा का उपयोग किया है :—</strong><br>
                 <span style="font-style: italic; color: #444; font-size: 11px;">Particulars of journey(s) for which higher class of accommodation that the one to which the Govt. servant is entitled was used:-</span>
             </div>
         </div>
@@ -492,7 +490,6 @@
     </div>
 
     <script>
-        // पॉपअप बंद करने का फ़ंक्शन
         function closeModal() {
             document.getElementById('instructionModal').style.display = 'none';
         }
@@ -597,5 +594,9 @@
             updateTableLayout();
         }
     </script>
+
+    <!-- Adsterra विज्ञापन नेटवर्क स्क्रिप्ट यहाँ एकीकृत है -->
+    <script src="https://pl30337070.effectivecpmnetwork.com/dc/df/f3/dcdff30cc0d43c0bece42ab23be38c48.js"></script>
+
 </body>
 </html>
