@@ -154,7 +154,7 @@
                 <li>सभी विवरण सही भरने के बाद '<strong>PDF डाउनलोड करें</strong>' बटन पर क्लिक करें।</li>
             </ul>
             <div class="modal-btn-container">
-                <button type="button" class="modal-btn" onclick="closeModal()">समझ गया / OK</button>
+                <button type="button" class="modal-btn" onclick="document.getElementById('instructionModal').style.display='none'">समझ गया / OK</button>
             </div>
         </div>
     </div>
@@ -294,7 +294,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;(क) नि.अ. और आ.अ. <span style="font-style: italic; color: #444; font-size: 11px;">(a) R.L. and C.L.</span> : <input type="text" class="inline-blank" style="width: 50%;"><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;(ख) रविवारों / और अवकाश दिनों को वस्तुतः शिविर में न रहना <span style="font-style: italic; color: #444; font-size: 11px;">(b) Not being actually in camp on Sundays and Holidays</span> : <input type="text" class="inline-blank" style="width: 40%;"><br><br>
                 
-                <strong>8. वे तारीखें जिनको मुफ्त भोजन और/या आवास उपलब्ध किया गया :—</strong><br>
+                <strong>8. वे तारीखें जिनको मुफ्त भोजनและ/या आवास उपलब्ध किया गया :—</strong><br>
                 <span style="font-style: italic; color: #444; font-size: 11px;">Date on which free boarding and lodging provided by the state or any organization financed by state funds :-></span><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;(क) केवल भोजन <span style="font-style: italic; color: #444; font-size: 11px;">(a) Boarding only</span> : <input type="text" class="inline-blank" style="width: 50%;"><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;(ख) केवल आवास <span style="font-style: italic; color: #444; font-size: 11px;">(b) Lodging only</span> : <input type="text" class="inline-blank" style="width: 50%;"><br>
@@ -339,7 +339,7 @@
             </div>
 
             <div class="sub-point" style="margin-top: 15px;">
-                return <strong>10. उन यात्रा/यात्राओं की विशिष्टियां, जिनके लिए सरकारी सेवक ने उस वर्ग से जिसका वह हकदार है, उच्चतर वर्ग की स्थान सुविधा का उपयोग किया है :—</strong><br>
+                <strong>10. उन यात्रा/यात्राओं की विशिष्टियां, जिनके लिए सरकारी सेवक ने उस वर्ग से जिसका वह हकदार है, उच्चतर वर्ग की स्थान सुविधा का उपयोग किया है :—</strong><br>
                 <span style="font-style: italic; color: #444; font-size: 11px;">Particulars of journey(s) for which higher class of accommodation that the one to which the Govt. servant is entitled was used:-</span>
             </div>
         </div>
@@ -593,6 +593,7 @@
         window.onload = function() {
             updateTableLayout();
         }
+    </script>
 
 </body>
 </html>
