@@ -31,7 +31,7 @@
         input::placeholder { color: #888; font-style: italic; font-size: 11px; }
 
         .points-list { list-style: none; padding-left: 0; margin: 0; }
-        .points-list li { font-size: 13.5px; line-height: 1.45; text-align: justify; margin-bottom: 6px; position: relative; padding-left: 22px; }
+        .points-list li { font-size: 13.5px; line-height: 1.55; text-align: justify; margin-bottom: 8px; position: relative; padding-left: 22px; }
         .points-list li::before { content: attr(data-num) ". "; position: absolute; left: 0; top: 0; font-weight: bold; }
 
         .rate-section {
@@ -46,29 +46,26 @@
         .control-panel { text-align: center; margin-bottom: 15px; }
         .btn-print { background-color: #007bff; color: white; border: none; padding: 10px 30px; cursor: pointer; border-radius: 6px; font-weight: bold; font-size: 15px; box-shadow: 0 4px 10px rgba(0,123,255,0.3); }
 
+        /* 🎯 Prevent breaking label and input apart */
+        .nobrk { white-space: nowrap; display: inline-block; }
+
         @media print {
             body { background: white; margin: 0; padding: 0; }
             .page { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; }
             
-            /* 🎯 विज्ञापनों, प्रिंट पैनल और 'Please hold' जैसी चीज़ों को PDF से गायब रखने के लिए */
+            /* विज्ञापनों, प्रिंट पैनल और 'no-print' वाली चीज़ों को PDF से गायब रखने के लिए */
             .control-panel, .no-print-ad, .no-print { display: none !important; }
             
             input[type="text"], input[type="date"] { border-bottom: 1px solid #000 !important; }
+            
+            /* 🎯 लिखने वाली जगह के अंदर लिखे हिंट (Placeholders) को प्रिंट में छुपाने के लिए */
+            input::placeholder { color: transparent !important; opacity: 0 !important; }
         }
     </style>
 </head>
 <body>
 
 <div class="form-container">
-
-    <!-- 🚨 [START] NO-PRINT BLOCK: इसके अंदर का सारा माल स्क्रीन पर दिखेगा, पर प्रिंट में गायब हो जाएगा -->
-    <div class="no-print" style="text-align: center; margin-bottom: 15px;">
-        <!-- यदि आपके पास कोई 'Please hold...' लोडिंग टेक्स्ट या Adsterra का विज्ञापन कोड है, तो उसे ठीक इस लाइन के नीचे पेस्ट करें -->
-        
-        
-        <!-- [आपका स्क्रिप्ट या विज्ञापन यहाँ रहेगा] -->
-    </div>
-    <!-- 🚨 [END] NO-PRINT BLOCK -->
 
     <div class="control-panel">
         <button type="button" class="btn-print" onclick="window.print()">📥 Print / Save Certificate PDF</button>
@@ -83,9 +80,12 @@
             <li data-num="2">Certified that the railway fare claimed for the classes in which self and members of family traveled were actually paid.</li>
             <li data-num="3">Certified that I have claimed airfare for journey which performed on exchange order.</li>
             <li data-num="4">
-                Certified that my family consisting of my wife <input type="text" style="width: 180px;" placeholder="Wife's Name"> Daughter (s) <input type="text" style="width: 130px;" placeholder="Daughter(s)"> 
-                Son (s) <input type="text" style="width: 130px;" placeholder="Son(s)"> Father <input type="text" style="width: 160px;" placeholder="Father's Name"> Mother <input type="text" style="width: 160px;" placeholder="Mother's Name"> 
-                Ages <input type="text" style="width: 160px;" placeholder="e.g. 32, 8, 5, 65, 60"> Which are residing with/wholly dependent on me accompanied/followed me on transfer.
+                Certified that my family consisting of my <span class="nobrk">wife <input type="text" style="width: 170px;" placeholder="Wife's Name"></span>, 
+                <span class="nobrk">Daughter (s) <input type="text" style="width: 120px;" placeholder="Daughter(s)"></span>, 
+                <span class="nobrk">Son (s) <input type="text" style="width: 120px;" placeholder="Son(s)"></span>, 
+                <span class="nobrk">Father <input type="text" style="width: 150px;" placeholder="Father's Name"></span>, 
+                <span class="nobrk">Mother <input type="text" style="width: 150px;" placeholder="Mother's Name"></span>, 
+                <span class="nobrk">Ages <input type="text" style="width: 150px;" placeholder="e.g. 32, 8, 5, 65, 60"></span> which are residing with/wholly dependent on me accompanied/followed me on transfer.
             </li>
             <li data-num="5">
                 Certified that personal effects weighing <input type="text" style="width: 80px;" placeholder="Weight in Kg"> <strong>Kgs.</strong> Were actually transported by from 
