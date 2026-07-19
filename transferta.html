@@ -14,11 +14,15 @@
         .header-left { width: 25%; text-align: left; }
         .header-center { width: 50%; display: flex; justify-content: center; }
         .header-right { width: 25%; text-align: right; font-size: 10px; }
-        .identity-box { border: 1px solid #000; padding: 4px 8px; background-color: #fafafa; font-size: 10.5px; width: 250px; line-height: 1.3; margin: 0 auto; }
+        .identity-box { border: 1px solid #000; padding: 4px 8px; background-color: #fafafa; font-size: 10.5px; width: 260px; line-height: 1.3; margin: 0 auto; }
         .identity-row { display: flex; justify-content: space-between; margin-bottom: 2px; align-items: baseline; }
         .identity-row:last-child { margin-bottom: 0; }
         .identity-row label { font-weight: bold; white-space: nowrap; margin-right: 4px; }
         .identity-row input { border: none; border-bottom: 1px dotted #333; outline: none; font-family: inherit; font-size: 10.5px; background: transparent; width: 100%; padding-left: 2px; }
+        
+        /* विशेष रूप से कृपया वाली लाइन के लिए स्टाइल ताकि स्क्रीन पर साफ़ दिखे */
+        .identity-row input.readonly-notice::placeholder { color: #0066cc; font-weight: bold; font-size: 10px; }
+        
         .center-heading { text-align: center; margin-bottom: 6px; width: 100%; }
         .center-heading h2 { font-size: 14px; text-transform: uppercase; text-decoration: underline; }
         .center-heading h3 { font-size: 12px; margin-bottom: 2px; }
@@ -65,7 +69,9 @@
             .page:last-of-type { page-break-after: avoid !important; }
             .control-panel { display: none !important; }
             tr, .flex-container, .part-b-container { page-break-inside: avoid !important; break-inside: avoid !important; }
-            input::placeholder, textarea::placeholder { color: transparent !important; opacity: 0 !important; }
+            
+            /* प्रिंट और PDF बनाते समय कृपया वाली लाइन और सभी प्लेसहोल्डर्स को पूरी तरह गायब करने का नियम */
+            input::placeholder, textarea::placeholder, input.readonly-notice::placeholder { color: transparent !important; opacity: 0 !important; display: none !important; }
         }
     </style>
 </head>
@@ -83,12 +89,13 @@
                 
                 <div class="header-center">
                     <div class="identity-box">
-                        <!-- खाता संख्या और आधार में सिर्फ नंबर वैलिडेशन जोड़ा गया -->
-                        <div class="identity-row"><label>AC/NO:</label><input type="text" placeholder="खाता संख्या" oninput="this.value = this.value.replace(/[^0-9]/g, '');"></div>
+                        <!-- बदलाव: आधार और पैन हटा दिया गया है, अकाउंट नंबर को readonly करके नो-प्रिंट निर्देश प्लेसहोल्डर लगाया है -->
+                        <div class="identity-row">
+                            <label>AC/NO:</label>
+                            <input type="text" class="readonly-notice" placeholder="कृपया प्रिंट आउट निकालने के बाद लिखे" readonly>
+                        </div>
                         <div class="identity-row"><label>IFSC CODE:</label><input type="text" placeholder="IFSC कोड"></div>
                         <div class="identity-row"><label>VENDOR ID:</label><input type="text" placeholder="वेंडर आई.डी."></div>
-                        <div class="identity-row"><label>PAN NO:</label><input type="text" placeholder="पैन नंबर"></div>
-                        <div class="identity-row"><label>AADHAR NO:</label><input type="text" placeholder="[Aadhaar Redacted]" oninput="this.value = this.value.replace(/[^0-9]/g, '');"></div>
                     </div>
                 </div>
                 
@@ -108,14 +115,12 @@
             <div class="inputs-container">
                 <div class="input-row">
                     <div class="input-label" style="width: 50%;">1. नाम / Name: <input type="text" class="input-val" placeholder="पूरा नाम" style="width: 70%;"></div>
-                    <!-- दल संख्या में सिर्फ नंबर और मैक्सिमम 9 डिजिट का वैलिडेशन जोड़ा गया -->
                     <div class="input-label" style="width: 50%;">दल संख्या / Regimental No: <input type="text" class="input-val" placeholder="110150363" style="width: 50%;" maxlength="9" oninput="this.value = this.value.replace(/[^0-9]/g, '');"></div>
                 </div>
                 <div class="input-row">
                     <div class="input-label" style="width: 100%;">2. पदनाम / Designation: <input type="text" class="input-val" style="width: 80%;"></div>
                 </div>
                 <div class="input-row">
-                    <!-- स्थानांतरण के समय वेतन में सिर्फ नंबर वैलिडेशन जोड़ा गया -->
                     <div class="input-label" style="width: 100%;">3. स्थानांतरण के समय वेतन / Pay the time Of transfer: <input type="text" class="input-val" style="width: 65%;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"></div>
                 </div>
                 <div class="input-row">
@@ -339,7 +344,7 @@
             <div class="form-section-title" style="margin: 4px 0;">भाग-ख (बिल/अनुभाग में भरा जाना है) PART-B (To be filled in the Bill Section)</div>
             
             <div class="sub-point" style="font-size: 10.5px; margin-bottom: 2px;">
-                 यात्रा हकदारी...........................................................................................रू० बनी है जिसके ब्यौरे नीचे दिये गये हैं :—<br>
+                 यात्रा हकदारी...........................................................................................रू० बनी है जिसके ब्यैरे नीचे दिये गये हैं :—<br>
                 <span style="font-style: italic; color:#333; font-size: 10px;">The entitlement on account of traveling allowance works out to Rs..................................as detailed below: -</span>
             </div>
 
