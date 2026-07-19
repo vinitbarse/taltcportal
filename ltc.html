@@ -33,7 +33,10 @@
             padding: 12mm 15mm;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             position: relative;
+            page-break-after: always;
+            break-after: page;
         }
+        .page:last-of-type { page-break-after: avoid; break-after: avoid; }
         
         /* Strict Page Break so Page 2 always starts on a fresh page */
         .force-new-page {
@@ -84,6 +87,8 @@
             width: 100%;
             padding-left: 2px;
         }
+        
+        .identity-row input.readonly-notice::placeholder { color: #0066cc; font-weight: bold; font-size: 9.5px; }
 
         .center-heading { text-align: center; margin-bottom: 8px; width: 100%; }
         .center-heading h2 { font-size: 14.5px; font-weight: bold; margin-top: 5px; }
@@ -141,11 +146,11 @@
         }
         td { padding: 2px; vertical-align: middle; font-size: 10.5px; }
         
-        td textarea, td input[type="number"], td input[type="text"] {
+        td textarea, td input[type="text"] {
             width: 100% !important;
             border: none !important;
             box-sizing: border-box;
-            font-size: 11px;
+            font-size: 12px;
             font-family: inherit;
             background: transparent;
             text-align: center;
@@ -199,6 +204,7 @@
             font-size: 11.5px;
             background: transparent;
             padding: 0 2px;
+            text-align: center;
         }
         
         /* Copyright Link Style */
@@ -220,9 +226,11 @@
 
         @media print {
             body { background: none; padding: 0; margin: 0; }
-            .page { box-shadow: none; margin: 0 auto; padding: 10mm 15mm; width: 210mm; }
+            .page { box-shadow: none; margin: 0 auto; padding: 10mm 15mm; width: 210mm; height: 297mm; max-height: 297mm; overflow: hidden; }
             .control-panel, .copyright-footer { display: none !important; } /* Hidden during print */
-            tr { page-break-inside: avoid; }
+            tr, .flex-container { page-break-inside: avoid !important; }
+            /* प्रिंट और PDF में सभी प्लेसहोल्डर छुपाने का नियम */
+            input::placeholder, textarea::placeholder, input.readonly-notice::placeholder { color: transparent !important; opacity: 0 !important; display: none !important; }
         }
     </style>
 </head>
@@ -235,14 +243,14 @@
             <div class="top-sub-header">
                 <div class="header-left">
                     कार्यालय सं० / Sub Bill No <input type="text" class="inline-blank" style="width: 100px;"><br>
-                    वर्ष <input type="text" class="inline-blank" style="width: 60px;"> से <input type="text" class="inline-blank" style="width: 60px;"> तक के ब्लॉक के लिए छुट्टी यात्रा<br> रियायत बिल
+                    वर्ष <input type="text" class="inline-blank" style="width: 60px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"> से <input type="text" class="inline-blank" style="width: 60px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"> तक के ब्लॉक के लिए छुट्टी यात्रा<br> रियायत बिल
                 </div>
                 
                 <div class="header-center">
                     <div class="identity-box">
                         <div class="identity-row">
                             <label>Account No:</label>
-                            <input type="text" placeholder="खाता संख्या">
+                            <input type="text" class="readonly-notice" placeholder="कृपया प्रिंट आउट निकालने के बाद लिखे" readonly>
                         </div>
                         <div class="identity-row">
                             <label>IFSC Code:</label>
@@ -262,7 +270,7 @@
 
             <div class="center-heading">
                 <h2>Leave Travel Concession Bill for the Block of</h2>
-                <strong>Year.................................................................................</strong><br>
+                <strong>Year <input type="text" class="inline-blank" style="width: 100px;" oninput="this.value = this.value.replace(/[^0-9-]/g, '');"></strong><br>
                 <span>प्रेषक / To: <input type="text" class="inline-blank" style="width: 80%;"></span>
                 <p style="margin-top: 5px; font-size:11px; font-style: italic;">टिप्पणी — यह बिल दो प्रतियों में एक संदाय के लिए दूसरा कार्यालय प्रति के लिए तैयार किया जाना चाहिए ।<br>Note:- This bill should be prepared in duplicate – one for payment and the other as office copy.</p>
             </div>
@@ -272,21 +280,21 @@
             <div class="inputs-container">
                 <div class="input-row">
                     <div style="width: 50%;">1. नाम/Name: <input type="text" class="input-val" placeholder="पूरा नाम" style="width: 70%;"></div>
-                    <div style="width: 50%;">2. दल संख्या/Regt No. <input type="text" class="input-val" placeholder="110150363" style="width: 60%;"></div>
+                    <div style="width: 50%;">2. दल संख्या/Regt No. <input type="text" class="input-val" placeholder="110150363" style="width: 60%;" maxlength="9" oninput="this.value = this.value.replace(/[^0-9]/g, '');"></div>
                 </div>
                 <div class="input-row">
                     <div style="width: 35%;">3. पद/Designation: <input type="text" class="input-val" style="width: 55%;"></div>
                     <div style="width: 30%;">4. समवाय /Coy- <input type="text" class="input-val" placeholder="Coy No." style="width: 55%;"></div>
-                    <div style="width: 35%;">5. वेतन/Pay: <input type="text" class="input-val" style="width: 70%;"></div>
+                    <div style="width: 35%;">5. वेतन/Pay: <input type="text" class="input-val" style="width: 70%;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"></div>
                 </div>
                 <div class="input-row">
                     <div style="width: 100%;">6. मुख्यालय/Headquarters: <input type="text" class="input-val" style="width: 80%;"></div>
                 </div>
                 <div class="input-row" style="border-bottom: none;">
-                    <div style="width: 100%;">7. to तक मंजूर की गई छुट्टी की अवधि <input type="text" class="inline-blank" placeholder="(e.g.) 30 day EL/15 day CL 08-07-2026 to 07-08-2026" style="width: 360px;"><br>
-                    Nature and period of leave sanctioned from .......................................................................<br>
+                    <div style="width: 100%;">7. मंजूर की गई छुट्टी की अवधि: <input type="text" class="inline-blank" placeholder="(e.g. 30 day EL)" style="width: 200px;"> से: <input type="text" class="inline-blank" style="width: 100px;" oninput="this.value = this.value.replace(/[^0-9.:\/\s-]/g, '');"> तक: <input type="text" class="inline-blank" style="width: 100px;" oninput="this.value = this.value.replace(/[^0-9.:\/\s-]/g, '');"><br>
+                    Nature and period of leave sanctioned.<br>
                     कुटुम्ब के सदस्यों की विशिष्टियाँ जिन के बाबत छुट्टी यात्रा रियायत का दावा किया गया है ।<br>
-                    Particulars of members of family in respect of on he L.T.C has been claimed.</div>
+                    Particulars of members of family in respect of whom L.T.C has been claimed.</div>
                 </div>
             </div>
 
@@ -303,12 +311,12 @@
                         <th style="width: 10%;">क्रम सं०<br>Sl. No</th>
                         <th style="width: 45%;">नाम<br>Name</th>
                         <th style="width: 15%;">आयु<br>Age</th>
-                        <th style="width: 30%;">सरकारीसेवकसेसंबंध<br>Relationship with Govt. Servant</th>
+                        <th style="width: 30%;">सरकारी सेवक से संबंध<br>Relationship with Govt. Servant</th>
                     </tr>
                 </thead>
                 <tbody id="familyBody">
-                    <tr><td>1</td><td><textarea rows="1" placeholder="Self" style="font-weight: bold;"></textarea></td><td><textarea rows="1"></textarea></td><td><textarea rows="1" placeholder="Self" style="font-weight: bold;"></textarea></td></tr>
-                    <tr><td>2</td><td><textarea rows="1" oninput="autoResize(this)"></textarea></td><td><textarea rows="1" oninput="autoResize(this)"></textarea></td><td><textarea rows="1" oninput="autoResize(this)"></textarea></td></tr>
+                    <tr class="family-row"><td>1</td><td><textarea rows="1" placeholder="Self" style="font-weight: bold;"></textarea></td><td><textarea rows="1" oninput="this.value = this.value.replace(/[^0-9]/g, '');"></textarea></td><td><textarea rows="1" placeholder="Self" style="font-weight: bold;"></textarea></td></tr>
+                    <tr class="family-row"><td>2</td><td><textarea rows="1" oninput="autoResize(this)"></textarea></td><td><textarea rows="1" oninput="autoResize(this); this.value = this.value.replace(/[^0-9]/g, '');"></textarea></td><td><textarea rows="1" oninput="autoResize(this)"></textarea></td></tr>
                 </tbody>
             </table>
 
@@ -335,14 +343,14 @@
                 </thead>
                 <tbody id="journeyBody">
                     <tr class="journey-row">
-                        <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY\\nHH:MM" oninput="autoResize(this)"></textarea></td>
-                        <td><textarea class="cell-expand" rows="1" placeholder="स्थान (From)" oninput="autoResize(this)"></textarea></td>
-                        <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY\\nHH:MM" oninput="autoResize(this)"></textarea></td>
-                        <td><textarea class="cell-expand" rows="1" placeholder="स्थान (To)" oninput="autoResize(this)"></textarea></td>
+                        <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY&#10;HH:MM" oninput="autoResize(this); this.value = this.value.replace(/[^0-9.:\/\s\n-]/g, '');"></textarea></td>
                         <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
-                        <td><textarea class="cell-expand" rows="1" placeholder="Mode/Class" oninput="autoResize(this)"></textarea></td>
+                        <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY&#10;HH:MM" oninput="autoResize(this); this.value = this.value.replace(/[^0-9.:\/\s\n-]/g, '');"></textarea></td>
                         <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
-                        <td><input type="number" class="fare-rs" placeholder="0" oninput="calculateJourneyTotal()"></td>
+                        <td><textarea class="cell-expand" rows="1" oninput="autoResize(this); this.value = this.value.replace(/[^0-9]/g, '');"></textarea></td>
+                        <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
+                        <td><textarea class="cell-expand" rows="1" oninput="autoResize(this); this.value = this.value.replace(/[^0-9]/g, '');"></textarea></td>
+                        <td><input type="text" class="fare-rs" placeholder="0" oninput="this.value = this.value.replace(/[^0-9]/g, ''); calculateJourneyTotal()"></td>
                         <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
                     </tr>
                 </tbody>
@@ -370,8 +378,8 @@
             <div style="text-align: center; font-weight: bold; margin-bottom: 15px;">:: 2 ::</div>
             
             <div class="sub-point" style="line-height: 1.6; margin-bottom: 10px;">
-                <strong>7. लिये गये अग्रिम की रकम यदि कोई है</strong> <input type="text" class="inline-blank" style="width: 60%;"><br>
-                ....रु Amount of advance, if any, drawn Rs. <input type="text" class="inline-blank" style="width: 55%;"><br>
+                <strong>7. लिये गये अग्रिम की रकम यदि कोई है</strong> <input type="text" class="inline-blank" style="width: 60%;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"><br>
+                ....रु Amount of advance, if any, drawn Rs. <input type="text" class="inline-blank" style="width: 55%;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"><br>
                 ........................................................................................................................
             </div>
 
@@ -397,10 +405,23 @@
                         <th>पै./p</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                <tbody id="bodyPoint8">
+                    <tr class="point8-row">
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '');"></td>
+                        <td><input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '');"></td>
+                        <td><input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '');"></td>
+                    </tr>
                 </tbody>
             </table>
+            <div class="control-panel" style="margin-top: 2px; margin-bottom: 6px;">
+                <button type="button" class="scr-btn btn-grey" onclick="addRowPoint8()">रो जोड़ें (+)</button>
+                <button type="button" class="scr-btn btn-red" onclick="deleteRowPoint8()">रो हटाएं (-)</button>
+            </div>
 
             <div class="sub-point" style="font-weight: bold; margin-top: 10px; margin-bottom: 2px;">
                 9. रेल से जुड़े स्थानों के बीच, सड़क मार्ग से की गई यात्रा/यात्राओं के ब्यौरे:<br>
@@ -419,10 +440,19 @@
                         <th>तक / To</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                <tbody id="bodyPoint9">
+                    <tr class="point9-row">
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '');"></td>
+                    </tr>
                 </tbody>
             </table>
+            <div class="control-panel" style="margin-top: 2px; margin-bottom: 6px;">
+                <button type="button" class="scr-btn btn-grey" onclick="addRowPoint9()">रो जोड़ें (+)</button>
+                <button type="button" class="scr-btn btn-red" onclick="deleteRowPoint9()">रो हटाएं (-)</button>
+            </div>
 
             <div class="sub-point" style="margin-top: 12px; line-height: 1.5;">
                 <strong>1. प्रमाणित किया जाता है कि ऊपर दी गई जानकारी मेरे सर्वोत्तम ज्ञान और विश्वास के अनुसार सत्य है।</strong><br>
@@ -439,19 +469,19 @@
 
             <div class="form-section-title">भाग-ख — (बिल अनुभाग द्वारा भरा जाना है) (To be filled in the Bill Section)</div>
             <div class="sub-point" style="line-height: 1.8;">
-                <strong>1. यात्रा भत्ता मददे हकदारी</strong> <input type="text" class="inline-blank" style="width: 200px;"> <strong>रु० बनी है जिसके ब्योर नीचे दिये गये हैं:</strong><br>
+                <strong>1. यात्रा भत्ता मददे हकदारी</strong> <input type="text" class="inline-blank" style="width: 200px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"> <strong>रु० बनी है जिसके ब्योर नीचे दिये गये हैं:</strong><br>
                 <span style="font-size: 11px;">The net entitlement on account of travelling allowance works out to Rs. ......................... as detailed below:</span>
                 
                 <div style="padding-left: 20px; margin-top: 5px;">
-                    (क) रेल/वायुयान/बस/स्टीमर यात्री भाड़ा <span style="float:right;">रु० <input type="text" class="inline-blank" style="width: 120px;"> पै० <input type="text" class="inline-blank" style="width: 60px;"></span><br>
-                    <span style="font-size:10.5px; color:#333;">(a) Railway/air/Bus/Steamer fare</span> <span style="float:right;">Rs <input type="text" class="inline-blank" style="width: 120px;"> P <input type="text" class="inline-blank" style="width: 60px;"></span><br><br>
+                    (क) रेल/वायुयान/बस/स्टीमर यात्री भाड़ा <span style="float:right;">रु० <input type="text" class="inline-blank" style="width: 120px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"> पै० <input type="text" class="inline-blank" style="width: 60px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"></span><br>
+                    <span style="font-size:10.5px; color:#333;">(a) Railway/air/Bus/Steamer fare</span> <span style="float:right;">Rs <input type="text" class="inline-blank" style="width: 120px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"> P <input type="text" class="inline-blank" style="width: 60px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"></span><br><br>
                     
                     (ख) वाउचर सं० <input type="text" class="inline-blank" style="width: 100px;"> तारीख <input type="text" class="inline-blank" style="width: 100px;"> के अनुसार लिए गये अग्रिम(अग्रिमो) की रकम यदि कोई हो तो घटायें।<br>
                     <span style="font-size:10.5px; color:#333;">(b) Less amount of advance(s) if any drawn vide voucher(s) No .................... date ..................</span><br>
                     
                     <div style="text-align: right; font-weight: bold; margin-top: 5px;">
-                        रु० / Rs. <input type="text" class="inline-blank" style="width: 120px;"> . पै. / P. <input type="text" class="inline-blank" style="width: 60px;"><br>
-                        शुद्ध रकम / Net amount &nbsp;&nbsp;&nbsp;&nbsp; रु० / Rs <input type="text" class="inline-blank" style="width: 120px;"> . पै./P. <input type="text" class="inline-blank" style="width: 60px;">
+                        रु० / Rs. <input type="text" class="inline-blank" style="width: 120px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"> . पै. / P. <input type="text" class="inline-blank" style="width: 60px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"><br>
+                        शुद्ध रकम / Net amount &nbsp;&nbsp;&nbsp;&nbsp; रु० / Rs <input type="text" class="inline-blank" style="width: 120px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');"> . पै./P. <input type="text" class="inline-blank" style="width: 60px;" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                     </div>
                 </div>
 
@@ -506,14 +536,13 @@
             nRow.innerHTML = `
                 <td>${currentRows + 1}</td>
                 <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
-                <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
+                <td><textarea rows="1" oninput="autoResize(this); this.value = this.value.replace(/[^0-9]/g, '');"></textarea></td>
                 <td><textarea rows="1" oninput="autoResize(this)"></textarea></td>
             `;
         }
 
         function deleteLastFamilyRow() {
             var tbody = document.getElementById("familyBody");
-            // Keeps at least the first row (Self entry)
             if (tbody.rows.length > 1) {
                 tbody.deleteRow(tbody.rows.length - 1);
             }
@@ -536,14 +565,14 @@
             var nRow = tbody.insertRow();
             nRow.className = "journey-row";
             nRow.innerHTML = `
-                <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY\\nHH:MM" oninput="autoResize(this)"></textarea></td>
+                <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY\\nHH:MM" oninput="autoResize(this); this.value = this.value.replace(/[^0-9.:\\/\\s\\n-]/g, '');"></textarea></td>
                 <td><textarea class="cell-expand" rows="1" placeholder="स्थान (From)" oninput="autoResize(this)"></textarea></td>
-                <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY\\nHH:MM" oninput="autoResize(this)"></textarea></td>
+                <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY\\nHH:MM" oninput="autoResize(this); this.value = this.value.replace(/[^0-9.:\\/\\s\\n-]/g, '');"></textarea></td>
                 <td><textarea class="cell-expand" rows="1" placeholder="स्थान (To)" oninput="autoResize(this)"></textarea></td>
-                <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
+                <td><textarea class="cell-expand" rows="1" oninput="autoResize(this); this.value = this.value.replace(/[^0-9]/g, '');"></textarea></td>
                 <td><textarea class="cell-expand" rows="1" placeholder="Mode/Class" oninput="autoResize(this)"></textarea></td>
-                <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
-                <td><input type="number" class="fare-rs" placeholder="0" oninput="calculateJourneyTotal()"></td>
+                <td><textarea class="cell-expand" rows="1" oninput="autoResize(this); this.value = this.value.replace(/[^0-9]/g, '');"></textarea></td>
+                <td><input type="text" class="fare-rs" placeholder="0" oninput="this.value = this.value.replace(/[^0-9]/g, ''); calculateJourneyTotal()"></td>
                 <td><textarea class="cell-expand" rows="1" oninput="autoResize(this)"></textarea></td>
             `;
             calculateJourneyTotal();
@@ -566,26 +595,24 @@
             }
         }
     </script>
-        <!-- Start Auto-Save Script -->
+    
+    <!-- Start Auto-Save Script -->
     <script>
     document.addEventListener("DOMContentLoaded", () => {
         const inputs = document.querySelectorAll("input");
         const pageKey = window.location.pathname;
 
-        // 1. Restore saved data on page load
         inputs.forEach((input, index) => {
             const savedValue = localStorage.getItem(`${pageKey}_input_${index}`);
             if (savedValue) {
                 input.value = savedValue;
             }
 
-            // 2. Save data on every input change
             input.addEventListener("input", () => {
                 localStorage.setItem(`${pageKey}_input_${index}`, input.value);
             });
         });
 
-        // 3. Clear memory after print button is clicked
         const printBtn = document.querySelector(".btn-print");
         if (printBtn) {
             printBtn.addEventListener("click", () => {
@@ -598,7 +625,5 @@
         }
     });
     </script>
-    <!-- End Auto-Save Script -->
-
 </body>
 </html>
