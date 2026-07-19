@@ -32,7 +32,7 @@
         @media print {
             body { background: white; margin: 0; padding: 0; }
             .page { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; }
-            /* 🎯 विज्ञापनों और प्रिंट पैनल को प्रिंट आउट से गायब रखने के लिए */
+            /* विज्ञापनों और प्रिंट पैनल को प्रिंट आउट से गायब रखने के लिए */
             .control-panel, .no-print-ad { display: none !important; }
         }
     </style>
@@ -43,7 +43,6 @@
     <div class="control-panel">
         <button type="button" class="btn-print" onclick="window.print()">📥 Print / Save LTC Certificate PDF</button>
     </div>
-
 
     <div class="page">
         <div class="cert-title" style="margin-bottom: 5px;">L.T.C. CERTIFICATE</div>
@@ -57,7 +56,7 @@
             <li data-num="5">This journey has been performed by me with my wife with <input type="text" style="width: 80px;"> Children/my <input type="text" style="width: 120px;"> family members to the declared home town/ old HQr <input type="text" style="width: 150px;">.</li>
             <li data-num="6">That my husband/wife is not employed in the Government. That my husband/wife is employed in the Government service and the concession has not been availed by him/her separately for himself/herself or for any of the family members for the concerned block of the year <input type="text" style="width: 100px;">.</li>
             <li data-num="7">Certified that my wife/husband for whom L.T.C is claimed by me is employed in <input type="text" style="width: 220px;"> (Name of the Public Sector Undertaking/ Corporation/ Autonomous body etc.) which provides Leave Travel Concession facilities but he/she has nor preferred and will not prefer any claim in this behalf to his/her employer.</li>
-            <li data-num="8">my wife/husband for whom L.T.C. is claimed by Certified that me is not employed in any Public Sector Undertaking/ Corporation/ Autonomous body etc. financed wholly or partly by the Central Government or Local Body which provides L.T.C. facilities to its employees and their families.</li>
+            <li data-num="8">Certified that my wife/husband for whom L.T.C. is claimed by me is not employed in any Public Sector Undertaking/ Corporation/ Autonomous body etc. financed wholly or partly by the Central Government or Local Body which provides L.T.C. facilities to its employees and their families.</li>
         </ul>
 
         <div class="flex-row" style="margin-top: 30px;">
@@ -81,10 +80,10 @@
             </ul>
             <div style="text-align: right; margin-top: 50px; font-weight: bold; font-style: italic;">
                 Signature & Designation of the Controlling Officer
-
-    </div>
-</div>
-
+            </div>
+        </div>
+    </div> <!-- .page closed -->
+</div> <!-- .form-container closed -->
 
     <script>
     document.addEventListener("DOMContentLoaded", () => {
