@@ -24,7 +24,7 @@
             padding: 30px 40px;
         }
         
-        /* --- भाग 1: दिशानिर्देश स्टाईल --- */
+        /* --- भाग 1: दिशानिर्देश --- */
         .guidelines-section {
             border-top: 5px solid #0056b3;
             padding-top: 10px;
@@ -79,7 +79,6 @@
             top: 0;
         }
 
-        /* बटन स्टाईल */
         .download-btn {
             display: block;
             width: 280px;
@@ -102,7 +101,7 @@
             margin: 20px 0;
         }
 
-        /* --- भाग 2: ऑफिसियल फॉर्म स्टाईल --- */
+        /* --- भाग 2: ऑफिसियल फॉर्म --- */
         .form-section {
             font-family: 'Times New Roman', Times, serif;
             color: #000;
@@ -126,7 +125,6 @@
             margin-bottom: 12px;
         }
         
-        /* इनपुट फील्ड्स: टाइप करने पर अपने आप चौड़े हो जाएंगे */
         input[type="text"] {
             border: none;
             border-bottom: 1px dotted #000;
@@ -137,8 +135,8 @@
             padding: 0px 4px;
             text-align: center;
             color: #000;
-            
             field-sizing: content; 
+            min-width: 800px;
             min-width: 80px;
             max-width: 100%;
         }
@@ -147,7 +145,6 @@
             background-color: #f0f4f8;
         }
         
-        /* फॉर्म पैराग्राफ के अंदर इनपुट की न्यूनतम सेटिंग्स */
         .form-p input[type="text"] {
             min-width: 120px;
         }
@@ -180,25 +177,28 @@
             field-sizing: normal;
         }
         
-        /* फुटर लेआउट */
-        .sig-block-container {
+        /* 🎯 फुटर लेआउट फिक्स: टेबल मैकेनिज्म से एलाइनमेंट एकदम सटीक नीचे रहेगा */
+        .footer-layout-table {
             width: 100%;
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-between;
+            margin-top: 40px;
+            border: none !important;
+        }
+        .footer-layout-table td {
+            border: none !important;
+            vertical-align: bottom; /* सब कुछ नीचे से एक लाइन में अलाइन होगा */
+            padding: 0 !important;
         }
         .recipient-left-side {
-            width: 40%;
             text-align: left;
-            line-height: 1.4;
-            margin-top: 20px;
+            line-height: 1.5;
+            width: 45%;
         }
         .sig-right-side {
-            width: 55%;
             text-align: left;
+            width: 50%;
         }
         .sig-space {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-weight: bold;
         }
         .meta-line {
@@ -209,7 +209,7 @@
             min-width: 180px;
         }
 
-        /* 🎯 1-Page Print Engine Settings & Placeholder Hider */
+        /* 1-Page Print Engine Settings */
         @media print {
             body { 
                 background-color: #fff; 
@@ -231,7 +231,6 @@
                 padding: 5mm 10mm;
             }
             
-            /* 🔥 प्रिंट में हिडन रखने के लिए प्लेसहोल्डर का कलर पारदर्शी (Transparent) किया */
             input[type="text"]::placeholder {
                 color: transparent !important;
                 opacity: 0 !important;
@@ -266,10 +265,10 @@
         </p>
         
         <div class="verification-note">
-            <strong>✅ पीडीएफ फिक्स एक्टिवेटेड:</strong> फॉर्म के अंदर दिखने वाले हल्के संकेत (Placeholders) अब प्रिंट करने या PDF सेव करने पर बिल्कुल दिखाई नहीं देंगे। आपका फाइनल प्रिंटआउट एकदम साफ आएगा।
+            <strong>✅ लेआउट फिक्स एक्टिवेटेड:</strong> "To" (सेवा में) ब्लॉक को आपकी आवश्यकतानुसार बिल्कुल नीचे बाईं तरफ सेट कर दिया गया है।
         </div>
         
-        <div class="doc-title"> यात्रा से संबंधित आवश्यक दस्तावेज़ सुरक्षित रखें:</div>
+        <div class="doc-title">यात्रा से संबंधित आवश्यक दस्तावेज़ सुरक्षित रखें:</div>
         <ul class="doc-list">
             <li>Air Ticket</li>
             <li>Boarding Pass</li>
@@ -336,21 +335,22 @@
             4. In case the above declaration given by me is not found true at any stage I shall be liable to disciplinary action under Central Civil Services (Classification Control and Appeal) 1965, as amended from time to time.
         </div>
         
-        <!-- फुटर लेआउट -->
-        <div class="sig-block-container">
-            <div class="recipient-left-side">
-                <strong>To</strong><br><br>
-                Admin/Establishment Section<br>
-                Ministry/Department
-            </div>
-            
-            <div class="sig-right-side">
-                <div class="sig-space">(Signature of the Govt. Servant)</div>
-                <div class="meta-line">Name : <input type="text" placeholder="पूरा नाम भरें"></div>
-                <div class="meta-line">Designation : <input type="text" placeholder="पद का नाम"></div>
-                <div class="meta-line">Dept/Ministry : <input type="text" placeholder="विभाग/मंत्रालय"></div>
-            </div>
-        </div>
+        <!-- 🎯 नया फुटर लेआउट: "To" सेक्शन बिल्कुल नीचे बाईं तरफ आ गया है -->
+        <table class="footer-layout-table">
+            <tr>
+                <td class="recipient-left-side">
+                    <strong>To</strong><br><br>
+                    Admin/Establishment Section<br>
+                    Ministry/Department
+                </td>
+                <td class="sig-right-side">
+                    <div class="sig-space">(Signature of the Govt. Servant)</div>
+                    <div class="meta-line">Name : <input type="text" placeholder="पूरा नाम भरें"></div>
+                    <div class="meta-line">Designation : <input type="text" placeholder="पद का नाम"></div>
+                    <div class="meta-line">Dept/Ministry : <input type="text" placeholder="विभाग/मंत्रालय"></div>
+                </td>
+            </tr>
+        </table>
     </div>
 
 </div>
