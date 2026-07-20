@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>हवाई टिकट बुकिंग दिशानिर्देश एवं स्व-घोषणा पत्र</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+            /* मोबाइल पर भी डेस्कटॉप व्यू फिक्स रखने के लिए */
+            min-width: 800px; 
+        }
+        .main-container {
+            width: 794px; /* A4 पेपर की स्टैंडर्ड चौड़ाई */
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #d3d3d3;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+        
+        /* --- भाग 1: दिशानिर्देश स्टाईल --- */
+        .guidelines-section {
+            border-top: 5px solid #0056b3;
+            padding-top: 10px;
+            margin-bottom: 20px;
+        }
+        .guidelines-section h2 {
+            color: #0056b3;
+            font-size: 22px;
+            margin-top: 0;
+            border-bottom: 2px solid #eaeeed;
+            padding-bottom: 10px;
+        }
+        .instruction {
+            font-size: 16px;
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .highlight {
+            color: #d9534f;
+            font-weight: bold;
+        }
+        .verification-note {
+            background-color: #eef7ee;
+            border-left: 4px solid #28a745;
+            padding: 12px 15px;
+            border-radius: 0 4px 4px 0;
+            margin: 20px 0;
+            font-size: 15px;
+        }
+        .doc-title {
+            color: #333;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+        .doc-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .doc-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            font-weight: 500;
+            font-size: 15px;
+        }
+        .doc-list li::before {
+            content: "📄";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* बटन स्टाईल */
+        .download-btn {
+            display: block;
+            width: 280px;
+            margin: 25px auto 10px auto;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .divider {
+            border: none;
+            border-top: 2px dashed #ccc;
+            margin: 30px 0;
+        }
+
+        /* --- भाग 2: ऑफिसियल फॉर्म स्टाईल --- */
+        .form-section {
+            font-family: 'Times New Roman', Times, serif;
+            color: #000;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .form-header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .form-annexure {
+            text-align: center;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 35px;
+        }
+        .form-p {
+            text-align: justify;
+            margin-bottom: 15px;
+            padding-left: 25px;
+            text-indent: -25px;
+        }
+        .or-text {
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .dots {
+            letter-spacing: 0.5px;
+        }
+        .family-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .family-table th, .family-table td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        .family-table th {
+            text-align: center;
+            font-weight: bold;
+        }
+        .family-table td {
+            height: 32px;
+        }
+        
+        /* फुटर लेआउट: सिग्नेचर ब्लॉक ऊपर दाहिने तरफ रहेगा */
+        .sig-block-container {
+            width: 100%;
+            margin-top: 40px;
+        }
+        .sig-right-side {
+            margin-left: auto;
+            width: 55%;
+            text-align: left;
+        }
+        .sig-space {
+            margin-bottom: 35px;
+        }
+        .meta-line {
+            margin-bottom: 6px;
+        }
+
+        /* "To" सेक्शन जो "Name of Ministry" के नीचे बाईं तरफ आएगा */
+        .recipient-left-side {
+            width: 45%;
+            margin-top: 20px;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        /* प्रिंट सेटिंग्स: केवल फॉर्म प्रिंट होगा */
+        @media print {
+            body { 
+                background-color: #fff; 
+                padding: 0; 
+                margin: 0;
+                min-width: 100%;
+            }
+            .main-container { 
+                box-shadow: none; 
+                border: none;
+                padding: 0; 
+                width: 100%;
+                margin: 0;
+            }
+            .guidelines-section, .divider, .download-btn { 
+                display: none !important; 
+            }
+            .form-section { 
+                padding: 10mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+
+    <!-- भाग 1: दिशानिर्देश -->
+    <div class="guidelines-section">
+        <h2>महत्वपूर्ण निर्देश: हवाई टिकट बुकिंग</h2>
+        
+        <p class="instruction">
+            यदि आप <strong>Tour TA / LTC / Transfer TA</strong> हेतु हवाई टिकट बुक करते हैं, तो booking के समय Airline/Booking Portal के Dashboard पर दिखाई देने वाले <span class="highlight">"Best Available Fare (Lowest Fare)"</span> का Screenshot अवश्य सुरक्षित रखें।
+        </p>
+        
+        <div class="verification-note">
+            <strong>✅ आवश्यक सूचना:</strong> यह Screenshot Audit एवं Claim Verification के दौरान यह प्रमाणित करने के लिए आवश्यक हो सकता है कि टिकट बुकिंग के समय उपलब्ध सबसे कम (Best Available) किराए पर खरीदा गया था।
+        </div>
+        
+        <div class="doc-title">यात्रा से संबंधित आवश्यक दस्तावेज़ सुरक्षित रखें:</div>
+        <ul class="doc-list">
+            <li>Air Ticket</li>
+            <li>Boarding Pass</li>
+            <li>Best Available Fare (Dashboard) Screenshot</li>
+            <li>Self-Declaration Certificate (प्रारूप नीचे संलग्न है)</li>
+        </ul>
+
+        <button class="download-btn" onclick="window.print()">📥 Download PDF / Print Form</button>
+    </div>
+
+    <hr class="divider">
+
+    <!-- भाग 2: स्व-घोषणा पत्र -->
+    <div class="form-section">
+        <div class="form-header">Self-declaration Certificate for Completion of Journey</div>
+        <div class="form-annexure">[Annexure to O.M. No-19024/03/2021-E.IV dated 31<sup>st</sup> December 2021]</div>
+        
+        <div class="form-p">
+            1. I (Name of the employee ..........................................................................................) hereby declare and certify that :
+        </div>
+        
+        <div class="form-p">
+            2. I have actually performed the onward journey from .............................................. to ........................................ on .......................... (date) and return journey from ......................................... to ........................................ on .......................... for the purpose of Tour/Training.
+        </div>
+        
+        <div class="or-text">OR</div>
+        
+        <div class="form-p">
+            3. I/We have actually performed the onward journey from .............................................. to ........................................ on .......................... (date) and return journey from ......................................... to ........................................ on .......................... for the purpose of Transfer/LTC/Retirement. The particulars of the self and family members who have performed journey either with the Government servant or separately are as under:-
+        </div>
+        
+        <table class="family-table">
+            <thead>
+                <tr>
+                    <th style="width: 10%;">S/N</th>
+                    <th style="width: 45%;">Name</th>
+                    <th style="width: 15%;">Age</th>
+                    <th style="width: 30%;">Relationship with Govt. Servant</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="form-p">
+            4. In case the above declaration given by me is not found true at any stage I shall be liable to disciplinary action under Central Civil Services (Classification Control and Appeal) 1965, as amended from time to time.
+        </div>
+        
+        <!-- फुटर लेआउट -->
+        <div class="sig-block-container">
+            <div class="sig-right-side">
+                <div class="sig-space">(Signature)</div>
+                <div class="meta-line">Name of the Govt. servant : ....................................</div>
+                <div class="meta-line">Designation : ....................................</div>
+                <div class="meta-line">Name of Ministry/Department : ....................................</div>
+            </div>
+            
+            <div class="recipient-left-side">
+                <strong>To</strong><br><br>
+                Admin/Establishment Section<br>
+                Ministry/Department
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
