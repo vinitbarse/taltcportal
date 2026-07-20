@@ -126,7 +126,7 @@
             margin-bottom: 12px;
         }
         
-        /* 🎯 इनपुट फील्ड्स: टाइप करने पर अपने आप चौड़े हो जाएंगे */
+        /* इनपुट फील्ड्स: टाइप करने पर अपने आप चौड़े हो जाएंगे */
         input[type="text"] {
             border: none;
             border-bottom: 1px dotted #000;
@@ -138,7 +138,6 @@
             text-align: center;
             color: #000;
             
-            /* 🔥 ये तीन लाइनें नाम के हिसाब से बॉक्स को बड़ा करेंगी */
             field-sizing: content; 
             min-width: 80px;
             max-width: 100%;
@@ -178,7 +177,7 @@
             border: none !important;
             text-align: left;
             padding: 2px 0;
-            field-sizing: normal; /* टेबल के अंदर सामान्य रहेगा */
+            field-sizing: normal;
         }
         
         /* फुटर लेआउट */
@@ -210,7 +209,7 @@
             min-width: 180px;
         }
 
-        /* 1-Page Print Engine Settings */
+        /* 🎯 1-Page Print Engine Settings & Placeholder Hider */
         @media print {
             body { 
                 background-color: #fff; 
@@ -231,14 +230,21 @@
             .form-section { 
                 padding: 5mm 10mm;
             }
+            
+            /* 🔥 प्रिंट में हिडन रखने के लिए प्लेसहोल्डर का कलर पारदर्शी (Transparent) किया */
+            input[type="text"]::placeholder {
+                color: transparent !important;
+                opacity: 0 !important;
+            }
+            
             input[type="text"] {
                 background: transparent !important;
-                border-bottom: none; /* प्रिंट में नीचे की लाइन हटाना चाहें तो */
+                border-bottom: none;
                 text-align: left;
             }
             .form-p input[type="text"] {
                 text-align: center;
-                border-bottom: 1px dotted #000; /* पैराग्राफ में डॉटेड लाइन दिखेगी */
+                border-bottom: 1px dotted #000;
             }
             html, body, .main-container, .form-section {
                 page-break-inside: avoid !important;
@@ -260,10 +266,10 @@
         </p>
         
         <div class="verification-note">
-            <strong>✅ स्मार्ट इनपुट एक्टिवेटेड:</strong> नीचे दिए गए फॉर्म में आप जितना भी बड़ा नाम टाइप करेंगे, लिखने वाला बॉक्स अपने आप बड़ा होता जाएगा और टेक्स्ट कभी नहीं कटेगा!
+            <strong>✅ पीडीएफ फिक्स एक्टिवेटेड:</strong> फॉर्म के अंदर दिखने वाले हल्के संकेत (Placeholders) अब प्रिंट करने या PDF सेव करने पर बिल्कुल दिखाई नहीं देंगे। आपका फाइनल प्रिंटआउट एकदम साफ आएगा।
         </div>
         
-        <div class="doc-title">यात्रा से संबंधित आवश्यक दस्तावेज़ सुरक्षित रखें:</div>
+        <div class="doc-title"> यात्रा से संबंधित आवश्यक दस्तावेज़ सुरक्षित रखें:</div>
         <ul class="doc-list">
             <li>Air Ticket</li>
             <li>Boarding Pass</li>
