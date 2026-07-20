@@ -136,7 +136,6 @@
             text-align: center;
             color: #000;
             field-sizing: content; 
-            min-width: 800px;
             min-width: 80px;
             max-width: 100%;
         }
@@ -177,28 +176,15 @@
             field-sizing: normal;
         }
         
-        /* 🎯 फुटर लेआउट फिक्स: टेबल मैकेनिज्म से एलाइनमेंट एकदम सटीक नीचे रहेगा */
-        .footer-layout-table {
-            width: 100%;
-            margin-top: 40px;
-            border: none !important;
-        }
-        .footer-layout-table td {
-            border: none !important;
-            vertical-align: bottom; /* सब कुछ नीचे से एक लाइन में अलाइन होगा */
-            padding: 0 !important;
-        }
-        .recipient-left-side {
-            text-align: left;
-            line-height: 1.5;
-            width: 45%;
-        }
-        .sig-right-side {
-            text-align: left;
+        /* फुटर लेआउट: सिग्नेचर ब्लॉक दाहिनी तरफ */
+        .sig-block-right {
+            margin-left: auto;
             width: 50%;
+            text-align: left;
+            margin-top: 30px;
         }
         .sig-space {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-weight: bold;
         }
         .meta-line {
@@ -207,6 +193,14 @@
         .meta-line input[type="text"] {
             text-align: left;
             min-width: 180px;
+        }
+
+        /* 🎯 "To" ब्लॉक: अब यह Dept/Ministry के ठीक नीचे बाईं तरफ सेट है */
+        .recipient-block-bottom {
+            text-align: left;
+            line-height: 1.5;
+            width: 100%;
+            margin-top: 15px; /* 'Dept/Ministry' लाइन के ठीक नीचे सटीक गैप */
         }
 
         /* 1-Page Print Engine Settings */
@@ -265,7 +259,7 @@
         </p>
         
         <div class="verification-note">
-            <strong>✅ लेआउट फिक्स एक्टिवेटेड:</strong> "To" (सेवा में) ब्लॉक को आपकी आवश्यकतानुसार बिल्कुल नीचे बाईं तरफ सेट कर दिया गया है।
+            <strong>✅ गैप फिक्स एक्टिवेटेड:</strong> "To" ब्लॉक अब दाहिनी तरफ की अंतिम लाइन (Dept/Ministry) के ठीक नीचे बाईं तरफ आ गया है।
         </div>
         
         <div class="doc-title">यात्रा से संबंधित आवश्यक दस्तावेज़ सुरक्षित रखें:</div>
@@ -335,22 +329,20 @@
             4. In case the above declaration given by me is not found true at any stage I shall be liable to disciplinary action under Central Civil Services (Classification Control and Appeal) 1965, as amended from time to time.
         </div>
         
-        <!-- 🎯 नया फुटर लेआउट: "To" सेक्शन बिल्कुल नीचे बाईं तरफ आ गया है -->
-        <table class="footer-layout-table">
-            <tr>
-                <td class="recipient-left-side">
-                    <strong>To</strong><br><br>
-                    Admin/Establishment Section<br>
-                    Ministry/Department
-                </td>
-                <td class="sig-right-side">
-                    <div class="sig-space">(Signature of the Govt. Servant)</div>
-                    <div class="meta-line">Name : <input type="text" placeholder="पूरा नाम भरें"></div>
-                    <div class="meta-line">Designation : <input type="text" placeholder="पद का नाम"></div>
-                    <div class="meta-line">Dept/Ministry : <input type="text" placeholder="विभाग/मंत्रालय"></div>
-                </td>
-            </tr>
-        </table>
+        <!-- 1. सिग्नेचर ब्लॉक (दाहिनी तरफ) -->
+        <div class="sig-block-right">
+            <div class="sig-space">(Signature of the Govt. Servant)</div>
+            <div class="meta-line">Name : <input type="text" placeholder="पूरा नाम भरें"></div>
+            <div class="meta-line">Designation : <input type="text" placeholder="पद का नाम"></div>
+            <div class="meta-line">Dept/Ministry : <input type="text" placeholder="विभाग/मंत्रालय"></div>
+        </div>
+
+        <!-- 2. "To" ब्लॉक (Dept/Ministry के ठीक नीचे बाईं तरफ) -->
+        <div class="recipient-block-bottom">
+            <strong>To</strong><br><br>
+            Admin/Establishment Section<br>
+            Ministry/Department
+        </div>
     </div>
 
 </div>
