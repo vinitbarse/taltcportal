@@ -13,7 +13,6 @@
             color: #333;
             padding: 20px;
             margin: 0;
-            /* मोबाइल पर भी डेस्कटॉप व्यू फिक्स रखने के लिए */
             min-width: 800px; 
         }
         .main-container {
@@ -22,26 +21,26 @@
             background-color: #ffffff;
             border: 1px solid #d3d3d3;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            padding: 40px;
+            padding: 30px 40px;
         }
         
         /* --- भाग 1: दिशानिर्देश स्टाईल --- */
         .guidelines-section {
             border-top: 5px solid #0056b3;
             padding-top: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .guidelines-section h2 {
             color: #0056b3;
-            font-size: 22px;
+            font-size: 20px;
             margin-top: 0;
             border-bottom: 2px solid #eaeeed;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
         .instruction {
-            font-size: 16px;
+            font-size: 14.5px;
             text-align: justify;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         .highlight {
             color: #d9534f;
@@ -50,16 +49,16 @@
         .verification-note {
             background-color: #eef7ee;
             border-left: 4px solid #28a745;
-            padding: 12px 15px;
+            padding: 10px 12px;
             border-radius: 0 4px 4px 0;
-            margin: 20px 0;
-            font-size: 15px;
+            margin: 15px 0;
+            font-size: 14px;
         }
         .doc-title {
             color: #333;
-            font-size: 18px;
-            margin-top: 25px;
-            margin-bottom: 12px;
+            font-size: 16px;
+            margin-top: 15px;
+            margin-bottom: 8px;
             font-weight: bold;
         }
         .doc-list {
@@ -68,10 +67,10 @@
         }
         .doc-list li {
             position: relative;
-            padding-left: 28px;
-            margin-bottom: 12px;
+            padding-left: 25px;
+            margin-bottom: 8px;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 14px;
         }
         .doc-list li::before {
             content: "📄";
@@ -84,12 +83,12 @@
         .download-btn {
             display: block;
             width: 280px;
-            margin: 25px auto 10px auto;
+            margin: 20px auto 5px auto;
             background-color: #28a745;
             color: white;
             padding: 12px 20px;
             text-align: center;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: bold;
             border-radius: 5px;
             border: none;
@@ -100,86 +99,118 @@
         .divider {
             border: none;
             border-top: 2px dashed #ccc;
-            margin: 30px 0;
+            margin: 20px 0;
         }
 
         /* --- भाग 2: ऑफिसियल फॉर्म स्टाईल --- */
         .form-section {
             font-family: 'Times New Roman', Times, serif;
             color: #000;
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.8;
         }
         .form-header {
             text-align: center;
             font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 5px;
+            font-size: 16px;
+            margin-bottom: 4px;
         }
         .form-annexure {
             text-align: center;
             font-weight: bold;
-            font-size: 13px;
-            margin-bottom: 35px;
+            font-size: 12px;
+            margin-bottom: 25px;
         }
         .form-p {
             text-align: justify;
-            margin-bottom: 15px;
-            padding-left: 25px;
-            text-indent: -25px;
+            margin-bottom: 12px;
         }
+        
+        /* 🎯 इनपुट फील्ड्स: टाइप करने पर अपने आप चौड़े हो जाएंगे */
+        input[type="text"] {
+            border: none;
+            border-bottom: 1px dotted #000;
+            outline: none;
+            background: transparent;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 14px;
+            padding: 0px 4px;
+            text-align: center;
+            color: #000;
+            
+            /* 🔥 ये तीन लाइनें नाम के हिसाब से बॉक्स को बड़ा करेंगी */
+            field-sizing: content; 
+            min-width: 80px;
+            max-width: 100%;
+        }
+        input[type="text"]:focus {
+            border-bottom: 1px solid #0056b3;
+            background-color: #f0f4f8;
+        }
+        
+        /* फॉर्म पैराग्राफ के अंदर इनपुट की न्यूनतम सेटिंग्स */
+        .form-p input[type="text"] {
+            min-width: 120px;
+        }
+        
         .or-text {
             text-align: center;
             font-weight: bold;
-            margin: 15px 0;
-        }
-        .dots {
-            letter-spacing: 0.5px;
+            margin: 10px 0;
         }
         .family-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 15px 0;
         }
         .family-table th, .family-table td {
             border: 1px solid #000;
-            padding: 8px;
+            padding: 6px 8px;
             text-align: left;
         }
         .family-table th {
             text-align: center;
             font-weight: bold;
+            background-color: #f9f9f9;
         }
-        .family-table td {
-            height: 32px;
+        .family-table td input {
+            width: 100% !important;
+            border: none !important;
+            text-align: left;
+            padding: 2px 0;
+            field-sizing: normal; /* टेबल के अंदर सामान्य रहेगा */
         }
         
-        /* फुटर लेआउट: सिग्नेचर ब्लॉक ऊपर दाहिने तरफ रहेगा */
+        /* फुटर लेआउट */
         .sig-block-container {
             width: 100%;
-            margin-top: 40px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .recipient-left-side {
+            width: 40%;
+            text-align: left;
+            line-height: 1.4;
+            margin-top: 20px;
         }
         .sig-right-side {
-            margin-left: auto;
             width: 55%;
             text-align: left;
         }
         .sig-space {
-            margin-bottom: 35px;
+            margin-bottom: 25px;
+            font-weight: bold;
         }
         .meta-line {
             margin-bottom: 6px;
         }
-
-        /* "To" सेक्शन जो "Name of Ministry" के नीचे बाईं तरफ आएगा */
-        .recipient-left-side {
-            width: 45%;
-            margin-top: 20px;
+        .meta-line input[type="text"] {
             text-align: left;
-            line-height: 1.5;
+            min-width: 180px;
         }
 
-        /* प्रिंट सेटिंग्स: केवल फॉर्म प्रिंट होगा */
+        /* 1-Page Print Engine Settings */
         @media print {
             body { 
                 background-color: #fff; 
@@ -198,7 +229,20 @@
                 display: none !important; 
             }
             .form-section { 
-                padding: 10mm;
+                padding: 5mm 10mm;
+            }
+            input[type="text"] {
+                background: transparent !important;
+                border-bottom: none; /* प्रिंट में नीचे की लाइन हटाना चाहें तो */
+                text-align: left;
+            }
+            .form-p input[type="text"] {
+                text-align: center;
+                border-bottom: 1px dotted #000; /* पैराग्राफ में डॉटेड लाइन दिखेगी */
+            }
+            html, body, .main-container, .form-section {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
             }
         }
     </style>
@@ -216,7 +260,7 @@
         </p>
         
         <div class="verification-note">
-            <strong>✅ आवश्यक सूचना:</strong> यह Screenshot Audit एवं Claim Verification के दौरान यह प्रमाणित करने के लिए आवश्यक हो सकता है कि टिकट बुकिंग के समय उपलब्ध सबसे कम (Best Available) किराए पर खरीदा गया था।
+            <strong>✅ स्मार्ट इनपुट एक्टिवेटेड:</strong> नीचे दिए गए फॉर्म में आप जितना भी बड़ा नाम टाइप करेंगे, लिखने वाला बॉक्स अपने आप बड़ा होता जाएगा और टेक्स्ट कभी नहीं कटेगा!
         </div>
         
         <div class="doc-title">यात्रा से संबंधित आवश्यक दस्तावेज़ सुरक्षित रखें:</div>
@@ -227,7 +271,7 @@
             <li>Self-Declaration Certificate (प्रारूप नीचे संलग्न है)</li>
         </ul>
 
-        <button class="download-btn" onclick="window.print()">📥 Download PDF / Print Form</button>
+        <button class="download-btn" onclick="window.print()">📥 Type & Download PDF / Print</button>
     </div>
 
     <hr class="divider">
@@ -238,17 +282,17 @@
         <div class="form-annexure">[Annexure to O.M. No-19024/03/2021-E.IV dated 31<sup>st</sup> December 2021]</div>
         
         <div class="form-p">
-            1. I (Name of the employee ..........................................................................................) hereby declare and certify that :
+            1. I (Name of the employee <input type="text" placeholder="यहाँ पूरा नाम टाइप करें">) hereby declare and certify that :
         </div>
         
         <div class="form-p">
-            2. I have actually performed the onward journey from .............................................. to ........................................ on .......................... (date) and return journey from ......................................... to ........................................ on .......................... for the purpose of Tour/Training.
+            2. I have actually performed the onward journey from <input type="text" placeholder="कहाँ से"> to <input type="text" placeholder="कहाँ तक"> on <input type="text" placeholder="दिनांक"> (date) and return journey from <input type="text" placeholder="कहाँ से"> to <input type="text" placeholder="कहाँ तक"> on <input type="text" placeholder="दिनांक"> for the purpose of Tour/Training.
         </div>
         
         <div class="or-text">OR</div>
         
         <div class="form-p">
-            3. I/We have actually performed the onward journey from .............................................. to ........................................ on .......................... (date) and return journey from ......................................... to ........................................ on .......................... for the purpose of Transfer/LTC/Retirement. The particulars of the self and family members who have performed journey either with the Government servant or separately are as under:-
+            3. I/We have actually performed the onward journey from <input type="text" placeholder="कहाँ से"> to <input type="text" placeholder="कहाँ तक"> on <input type="text" placeholder="दिनांक"> (date) and return journey from <input type="text" placeholder="कहाँ से"> to <input type="text" placeholder="कहाँ तक"> on <input type="text" placeholder="दिनांक"> for the purpose of Transfer/LTC/Retirement. The particulars of the self and family members who have performed journey either with the Government servant or separately are as under:-
         </div>
         
         <table class="family-table">
@@ -262,22 +306,22 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td style="text-align: center;">1</td>
+                    <td><input type="text" placeholder="नाम दर्ज करें"></td>
+                    <td><input type="text" style="text-align: center;" placeholder="उम्र"></td>
+                    <td><input type="text" placeholder="संबंध"></td>
                 </tr>
                 <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td style="text-align: center;">2</td>
+                    <td><input type="text" placeholder="नाम दर्ज करें"></td>
+                    <td><input type="text" style="text-align: center;" placeholder="उम्र"></td>
+                    <td><input type="text" placeholder="संबंध"></td>
                 </tr>
                 <tr>
-                    <td>3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td style="text-align: center;">3</td>
+                    <td><input type="text" placeholder="नाम दर्ज करें"></td>
+                    <td><input type="text" style="text-align: center;" placeholder="उम्र"></td>
+                    <td><input type="text" placeholder="संबंध"></td>
                 </tr>
             </tbody>
         </table>
@@ -288,22 +332,38 @@
         
         <!-- फुटर लेआउट -->
         <div class="sig-block-container">
-            <div class="sig-right-side">
-                <div class="sig-space">(Signature)</div>
-                <div class="meta-line">Name of the Govt. servant : ....................................</div>
-                <div class="meta-line">Designation : ....................................</div>
-                <div class="meta-line">Name of Ministry/Department : ....................................</div>
-            </div>
-            
             <div class="recipient-left-side">
                 <strong>To</strong><br><br>
                 Admin/Establishment Section<br>
                 Ministry/Department
+            </div>
+            
+            <div class="sig-right-side">
+                <div class="sig-space">(Signature of the Govt. Servant)</div>
+                <div class="meta-line">Name : <input type="text" placeholder="पूरा नाम भरें"></div>
+                <div class="meta-line">Designation : <input type="text" placeholder="पद का नाम"></div>
+                <div class="meta-line">Dept/Ministry : <input type="text" placeholder="विभाग/मंत्रालय"></div>
             </div>
         </div>
     </div>
 
 </div>
 
+    <!-- डेटा रीफ्रेश प्रोटेक्शन -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const inputs = document.querySelectorAll("input[type='text']");
+        const pageKey = window.location.pathname;
+
+        inputs.forEach((input, index) => {
+            const savedValue = localStorage.getItem(`${pageKey}_input_${index}`);
+            if (savedValue) input.value = savedValue;
+
+            input.addEventListener("input", () => {
+                localStorage.setItem(`${pageKey}_input_${index}`, input.value);
+            });
+        });
+    });
+    </script>
 </body>
 </html>
