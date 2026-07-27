@@ -72,22 +72,29 @@
         <h2 class="section-title">Online Bill Generators & Utility Tools</h2>
         
         <div class="grid">
-            <!-- 🎯 नाम बदला गया: LTC Form -->
+            <!-- LTC Form -->
             <div class="card">
                 <h3>LTC Form (अवकाश यात्रा रियायत बिल)</h3>
                 <p>Apna Leave Travel Concession bill online banayein dynamic details ke sath.</p>
                 <a href="ltc.html" class="btn" target="_blank">Open Tool ➔</a>
             </div>
 
-            <!-- 🎯 नाम बदला गया: Tour TA Form -->
+            <!-- Tour TA Form -->
             <div class="card">
                 <h3>Tour TA Form (दौरे के लिए यात्रा भत्ता बिल)</h3>
                 <p>Official duty ya tours ke liye Travelling Allowance bill online generate karein.</p>
                 <a href="ta.html" class="btn" target="_blank">Open Tool ➔</a>
                 <button type="button" class="btn" style="background-color: #25D366; color: white; border: none; margin-top: 8px; cursor: pointer; display: block; width: 100%; text-align: center;" onclick="sharePortal()">Share Portal 🔗</button>
             </div>
+
+            <!-- TA Rate Calculator -->
+            <div class="card" style="border-top-color: #1a73e8;">
+                <h3>TA Rate Calculator</h3>
+                <p>यातायात और दौरे के लिए अपना अनुमानित TA भत्ता (Gross & Net TA) ऑनलाइन कैलकुलेट करें।</p>
+                <a href="ta-calculator.html" class="btn" target="_blank">Open Tool ➔</a>
+            </div>
             
-            <!-- 🎯 नाम बदला गया: Transfer TA Form -->
+            <!-- Transfer TA Form -->
             <div class="card">
                 <h3>Transfer TA Form (स्थानांतरण के लिए यात्रा भत्ता बिल)</h3>
                 <p>Sarkari badli (Transfer) ke dauran hue safar ka bill online taiyar karein.</p>
@@ -175,7 +182,7 @@
                     <a href="nps-updates.html" class="btn-sm">दिशानिर्देश (Eng/Hindi) देखें ➔</a>
                 </div>
 
-                <!-- 🎯 8वां कार्ड: NPS Form S-2 (NPS दिशानिर्देश के बिल्कुल नीचे जोड़ा गया) -->
+                <!-- 8वां कार्ड: NPS Form S-2 -->
                 <div class="handbook-card" style="border-left: 4px solid #28a745; background-color: #f4fff6;">
                     <h4>8. NPS Form S-2 Generator (ऑनलाइन)</h4>
                     <p>Subscriber Master Details Correction (नाम, पता, बैंक खाता, नॉमिनेशन बदलाव) के लिए आधिकारिक 5-पेज Form S-2 ऑनलाइन भरें व प्रिंट करें।</p>
@@ -196,12 +203,22 @@
         </p>
     </footer>
 
+    <!-- 🎯 शेयर स्क्रिप्ट में नए पॉइंट्स जोड़े गए -->
     <script>
     function sharePortal() {
+        const shareText = 'केंद्रीय कर्मचारियों के लिए मोबाइल से ऑनलाइन फॉर्म और बिल बनाने का सबसे आसान पोर्टल:\n\n' +
+                          '• Tour TA Form\n' +
+                          '• TA Rate Calculator\n' +
+                          '• LTC Form\n' +
+                          '• Transfer TA Form\n' +
+                          '• HRA Form\n' +
+                          '• Form No 3\n' +
+                          '• NPS Form (S-2)';
+
         if (navigator.share) {
             navigator.share({
                 title: 'TA LTC Portal',
-                text: 'केंद्रीय कर्मचारियों के लिए मोबाइल से TA और LTC बिल बनाने का सबसे आसान portal.',
+                text: shareText,
                 url: 'https://taltcportal.in/index.html?shared=true'
             }).then(() => {
                 console.log('Shared successfully');
@@ -209,8 +226,8 @@
                 console.log('Error sharing:', error);
             });
         } else {
-            navigator.clipboard.writeText('https://taltcportal.in/index.html?shared=true');
-            alert("पोर्टल लिंक कॉपी हो गया है! अब आप इसे किसी को भी भेज सकते हैं।");
+            navigator.clipboard.writeText(shareText + '\n\n' + 'https://taltcportal.in/index.html?shared=true');
+            alert("पोर्टल लिंक और जानकारी कॉपी हो गई है! अब आप इसे किसी को भी भेज सकते हैं।");
         }
     }
     </script>
