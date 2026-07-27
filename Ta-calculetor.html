@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TA Rate Calculator</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --primary-dark: #1557b0;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #202124;
+            --border-color: #dadce0;
+            --accent-bg: #e8f0fe;
+            --danger-bg: #fce8e6;
+            --danger-text: #c5221f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .calculator-card {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 20px;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .subtitle-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #5f6368;
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* Warning / Error Alert Box */
+        .error-alert {
+            display: none;
+            background-color: var(--danger-bg);
+            color: var(--danger-text);
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        /* Results / Summary Table */
+        .summary-box {
+            background: #fafafa;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+
+        .summary-row.deduction {
+            background-color: var(--danger-bg);
+            color: var(--danger-text);
+        }
+
+        .summary-row.grand-total {
+            background-color: var(--accent-bg);
+            font-weight: bold;
+            font-size: 16px;
+            color: var(--primary-dark);
+        }
+
+        .label-text {
+            font-weight: 500;
+        }
+
+        .value-text {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 16px;
+            width: 100%;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #3c4043;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            outline: none;
+            transition: border-color 0.2s;
+            background-color: #fff;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+        }
+
+        .note {
+            font-size: 12px;
+            color: #5f6368;
+            margin-top: 4px;
+        }
+
+        /* Disclaimer Note Styling */
+        .disclaimer-text {
+            font-size: 12px;
+            color: #d93025;
+            background-color: #fef7e0;
+            border: 1px solid #fce8e6;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 14px;
+            text-align: center;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        /* Reset Button Styling */
+        .btn-reset {
+            width: 100%;
+            padding: 12px;
+            background-color: #5f6368;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-reset:hover {
+            background-color: #3c4043;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator-card">
+    <h1>TA Rate Calculator <span class="subtitle-text">(यहाँ जानें अपना TA कितना बन सकता है)</span></h1>
+
+    <!-- Warning / Error Alert Box -->
+    <div class="error-alert" id="errorAlert">⚠️ जाने/आने की तारीख या समय की जाँच करें!</div>
+
+    <!-- Results Table -->
+    <div class="summary-box">
+        <div class="summary-row">
+            <span class="label-text">प्रभावी प्रारंभ तिथि</span>
+            <span class="value-text" id="effStart">-</span>
+        </div>
+        <div class="summary-row">
+            <span class="label-text">प्रभावी समाप्ति तिथि</span>
+            <span class="value-text" id="effEnd">-</span>
+        </div>
+        <div class="summary-row">
+            <span class="label-text">कुल दिन (Total Days)</span>
+            <span class="value-text" id="totalDays">0</span>
+        </div>
+        <div class="summary-row">
+            <span class="label-text">सकल भत्ता (Gross TA)</span>
+            <span class="value-text" id="grossAllowance">₹0</span>
+        </div>
+        <div class="summary-row deduction">
+            <span class="label-text">पूर्ण महीने की कटौती (<span id="fullMonthsCount">0</span> महीने)</span>
+            <span class="value-text" id="totalDeduction">- ₹0</span>
+        </div>
+        <div class="summary-row">
+            <span class="label-text">शुद्ध TA भत्ता (Net TA)</span>
+            <span class="value-text" id="netAllowance">₹0</span>
+        </div>
+        <div class="summary-row">
+            <span class="label-text">टिकट की धनराशि</span>
+            <span class="value-text" id="dispTicket">₹0</span>
+        </div>
+        <div class="summary-row grand-total">
+            <span class="label-text">कुल धनराशि (Grand Total)</span>
+            <span class="value-text" id="grandTotal">₹0</span>
+        </div>
+    </div>
+
+    <!-- Inputs Vertical Stack -->
+    <form id="taForm">
+        <div class="form-group">
+            <label for="startDate">जाने की तारीख (Start Date)</label>
+            <input type="date" id="startDate">
+        </div>
+
+        <div class="form-group">
+            <label for="startTime">जाने का समय (Departure Time)</label>
+            <input type="time" id="startTime">
+            <span class="note">12:00 PM से पहले = वही दिन | 12:00 PM या बाद = अगला दिन</span>
+        </div>
+
+        <div class="form-group">
+            <label for="endDate">आने की तारीख (End Date)</label>
+            <input type="date" id="endDate">
+        </div>
+
+        <div class="form-group">
+            <label for="endTime">आने का समय (Arrival Time)</label>
+            <input type="time" id="endTime">
+            <span class="note">12:00 PM से पहले = पिछला दिन | 12:00 PM या बाद = वही दिन</span>
+        </div>
+
+        <div class="form-group">
+            <label for="dailyRate">दैनिक दर (Daily Rate ₹)</label>
+            <input type="number" id="dailyRate" value="625" placeholder="दैनिक दर दर्ज करें">
+        </div>
+
+        <div class="form-group">
+            <label for="rationMoney">राशन मनी धनराशि (Ration Money Deduction ₹)</label>
+            <input type="number" id="rationMoney" value="4621" placeholder="राशन मनी की धनराशि दर्ज करें">
+        </div>
+
+        <div class="form-group">
+            <label for="tpt">TPT (TPT Deduction ₹)</label>
+            <input type="number" id="tpt" placeholder="TPT की राशि दर्ज करें">
+        </div>
+
+        <div class="form-group">
+            <label for="ticketAmount">टिकट की धनराशि (Ticket Amount ₹)</label>
+            <input type="number" id="ticketAmount" placeholder="टिकट की राशि दर्ज करें">
+        </div>
+
+        <!-- रिसेट बटन -->
+        <button type="button" class="btn-reset" onclick="resetCalculator()">🔄 रीसेट करें (Reset)</button>
+
+        <!-- डिस्क्लेमर लाइन -->
+        <div class="disclaimer-text">
+            ⚠️ <strong>नोट:</strong> यह केवल एक अनुमानित कैलकुलेटर है, हम 100% सटीकता की गारंटी नहीं देते हैं। अंतिम राशि नियमों एवं कार्यालयीन सत्यापन के अनुसार कम या ज्यादा हो सकती है।
+        </div>
+    </form>
+</div>
+
+<script>
+    function formatDate(date) {
+        const d = date.getDate().toString().padStart(2, '0');
+        const m = (date.getMonth() + 1).toString().padStart(2, '0');
+        const y = date.getFullYear();
+        return `${d}-${m}-${y}`;
+    }
+
+    function calculateTA() {
+        const startDateVal = document.getElementById('startDate').value;
+        const startTimeVal = document.getElementById('startTime').value;
+        const endDateVal = document.getElementById('endDate').value;
+        const endTimeVal = document.getElementById('endTime').value;
+
+        const dailyRate = Number(document.getElementById('dailyRate').value) || 0;
+        
+        // Raw Input string check for warning validation
+        const rationInputRaw = document.getElementById('rationMoney').value.trim();
+        const tptInputRaw = document.getElementById('tpt').value.trim();
+
+        const rationMoney = Number(rationInputRaw) || 0;
+        const tpt = Number(tptInputRaw) || 0;
+        const ticketAmount = Number(document.getElementById('ticketAmount').value) || 0;
+
+        const errorAlert = document.getElementById('errorAlert');
+
+        if (!startDateVal || !endDateVal) {
+            document.getElementById('effStart').innerText = "-";
+            document.getElementById('effEnd').innerText = "-";
+            document.getElementById('totalDays').innerText = "0";
+            document.getElementById('grossAllowance').innerText = "₹0";
+            document.getElementById('fullMonthsCount').innerText = "0";
+            document.getElementById('totalDeduction').innerText = "- ₹0";
+            document.getElementById('netAllowance').innerText = "₹0";
+            document.getElementById('dispTicket').innerText = "₹0";
+            document.getElementById('grandTotal').innerText = "₹0";
+            errorAlert.style.display = "none";
+            return;
+        }
+
+        // 1. Departure Effective Date Logic
+        let effStart = new Date(startDateVal + "T00:00:00");
+        if (startTimeVal) {
+            const [startH, startM] = startTimeVal.split(':').map(Number);
+            if (startH > 12 || (startH === 12 && startM >= 0)) {
+                effStart.setDate(effStart.getDate() + 1);
+            }
+        }
+
+        // 2. Arrival Effective Date Logic
+        let effEnd = new Date(endDateVal + "T00:00:00");
+        if (endTimeVal) {
+            const [endH, endM] = endTimeVal.split(':').map(Number);
+            if (endH < 12) {
+                effEnd.setDate(effEnd.getDate() - 1);
+            }
+        }
+
+        // Display Effective Dates
+        document.getElementById('effStart').innerText = formatDate(effStart);
+        document.getElementById('effEnd').innerText = formatDate(effEnd);
+
+        // 3. Inclusive Days Calculation & Invalid Date Error Checking
+        if (effEnd < effStart) {
+            errorAlert.innerText = "⚠️ जाने/आने की तारीख या समय की जाँच करें!";
+            errorAlert.style.display = "block";
+            document.getElementById('totalDays').innerText = "0";
+            document.getElementById('grossAllowance').innerText = "₹0";
+            document.getElementById('fullMonthsCount').innerText = "0";
+            document.getElementById('totalDeduction').innerText = "- ₹0";
+            document.getElementById('netAllowance').innerText = "₹0";
+            document.getElementById('dispTicket').innerText = "+ ₹" + ticketAmount.toLocaleString('en-IN');
+            document.getElementById('grandTotal').innerText = "₹" + ticketAmount.toLocaleString('en-IN');
+            return;
+        }
+
+        const diffTime = Math.abs(effEnd - effStart);
+        const totalDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+        document.getElementById('totalDays').innerText = totalDays;
+
+        // Gross Allowance
+        const grossAllowance = totalDays * dailyRate;
+        document.getElementById('grossAllowance').innerText = "₹" + grossAllowance.toLocaleString('en-IN');
+
+        // 4. Full Calendar Month Detection Logic
+        let fullMonths = 0;
+        let currYear = effStart.getFullYear();
+        let currMonth = effStart.getMonth();
+
+        const endYear = effEnd.getFullYear();
+        const endMonth = effEnd.getMonth();
+
+        while (currYear < endYear || (currYear === endYear && currMonth <= endMonth)) {
+            const firstDayOfMonth = new Date(currYear, currMonth, 1);
+            const lastDayOfMonth = new Date(currYear, currMonth + 1, 0);
+
+            if (effStart <= firstDayOfMonth && effEnd >= lastDayOfMonth) {
+                fullMonths++;
+            }
+
+            currMonth++;
+            if (currMonth > 11) {
+                currMonth = 0;
+                currYear++;
+            }
+        }
+
+        document.getElementById('fullMonthsCount').innerText = fullMonths;
+
+        // 🎯 1 या 1 से अधिक फुल कैलेंडर मंथ बनने पर Warning देने का लॉजिक
+        if (fullMonths >= 1 && (rationInputRaw === "" || tptInputRaw === "")) {
+            errorAlert.innerText = "⚠️ आप केलेंडर मंथ में बाहर रहे हो, कृपया राशन मनी और TPT की धनराशि दर्ज करें";
+            errorAlert.style.display = "block";
+        } else {
+            errorAlert.style.display = "none";
+        }
+
+        // Deductions calculation
+        const monthlyDeductionUnit = rationMoney + tpt;
+        const totalDeductions = fullMonths * monthlyDeductionUnit;
+        document.getElementById('totalDeduction').innerText = "- ₹" + totalDeductions.toLocaleString('en-IN');
+
+        // Net Allowance & Grand Total
+        const netAllowance = grossAllowance - totalDeductions;
+        document.getElementById('netAllowance').innerText = "₹" + netAllowance.toLocaleString('en-IN');
+        document.getElementById('dispTicket').innerText = "+ ₹" + ticketAmount.toLocaleString('en-IN');
+
+        const grandTotal = netAllowance + ticketAmount;
+        document.getElementById('grandTotal').innerText = "₹" + grandTotal.toLocaleString('en-IN');
+    }
+
+    // रिसेट फ़ंक्शन
+    function resetCalculator() {
+        document.getElementById('startDate').value = '';
+        document.getElementById('startTime').value = '';
+        document.getElementById('endDate').value = '';
+        document.getElementById('endTime').value = '';
+        document.getElementById('tpt').value = '';
+        document.getElementById('ticketAmount').value = '';
+
+        document.getElementById('dailyRate').value = '625';
+        document.getElementById('rationMoney').value = '4621';
+
+        calculateTA();
+    }
+
+    // Attach Event Listeners
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => {
+        input.addEventListener('input', calculateTA);
+        input.addEventListener('change', calculateTA);
+    });
+
+    // Initial Calculation
+    calculateTA();
+</script>
+
+</body>
+</html>
