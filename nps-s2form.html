@@ -27,7 +27,6 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        /* 🎯 A4 Height Control: har page ki fixed height taaki content agle page me overflow na ho */
         .main-container { 
             width: 794px; 
             height: 1080px; 
@@ -77,7 +76,7 @@
 
         .receipt-line { display: flex; align-items: center; justify-content: space-between; font-size: 9.5px; font-weight: bold; margin-bottom: 4px; padding: 1px 0; }
 
-        .sq-box { width: 12px; height: 12px; border: 1px solid #000; display: inline-block; text-align: center; line-height: 10px; font-size: 10px; font-weight: bold; cursor: pointer; background: #fff; user-select: none; }
+        .sq-box { width: 13px; height: 13px; border: 1px solid #000; display: inline-block; text-align: center; line-height: 11px; font-size: 10px; font-weight: bold; cursor: pointer; background: #fff; user-select: none; vertical-align: middle; }
 
         .char-grid-container { display: flex; flex-direction: row; flex-wrap: nowrap !important; gap: 0; border: 1px solid #ccc; width: 100%; }
         .char-box { width: 100%; height: 16px; border: none; border-right: 1px solid #ccc; text-align: center; font-family: 'Courier New', monospace; font-size: 9px; font-weight: bold; text-transform: uppercase; outline: none; background: #fff; flex: 1 1 0; min-width: 0; }
@@ -94,8 +93,6 @@
 
         .section-banner { background: #e0e0e0; color: #000; border: 1px solid #000; padding: 2px 6px; font-size: 10px; font-weight: bold; margin: 4px 0 2px 0; text-transform: uppercase; }
 
-        .sub-field-instruction { font-size: 8px; font-style: italic; color: #333; margin-top: 1px; display: block; font-weight: normal; line-height: 1.1; }
-        
         .page-number-footer { text-align: right; font-size: 9.5px; margin-top: 2px; font-weight: bold; }
         
         .action-bar { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
@@ -107,7 +104,6 @@
         .nominee-table td, .nominee-table th { border: 1px solid #000; padding: 2px 4px; font-size: 8.5px; vertical-align: middle; }
         .nominee-table th { background: #e0e0e0; font-weight: bold; text-align: center; }
 
-        /* 🎯 PRINT SETTINGS FOR 100% PERFECT 5-PAGE LAYOUT */
         @media print {
             @page {
                 size: A4 portrait;
@@ -152,9 +148,7 @@
 
 <div class="page-viewport-wrapper">
 
-    <!-- ==========================================
-         PAGE 1
-    ========================================== -->
+    <!-- PAGE 1 -->
     <div class="main-container" id="page-1">
         <div class="outer-header">
             <span class="ver-tag">Ver 1.1</span>
@@ -343,9 +337,7 @@
     </div>
 
 
-    <!-- ==========================================
-         PAGE 2
-    ========================================== -->
+    <!-- PAGE 2 (Fixed Clickable Box Added) -->
     <div class="main-container" id="page-2">
         <div class="outer-header">
             <span class="ver-tag">Ver 1.1</span>
@@ -379,16 +371,17 @@
 
             <div class="section-banner"><span class="sq-box" onclick="toggleMultiTick(this)"></span> 4.1 CORRESPONDENCE ADDRESS DETAILS</div>
             
-            <table class="form-row-table">
+            <!-- 4.1 ADDRESS TABLE -->
+            <table class="form-row-table" id="corr-address-table">
                 <tr>
                     <td class="label-cell">Address Type*</td>
                     <td>
                         <div style="display:flex; gap:6px; font-size:8.5px; font-weight:bold;">
-                            <div>Res/Bus <span class="sq-box" data-group="addtype1" onclick="toggleSingleTick(this)"></span></div>
-                            <div>Residential <span class="sq-box" data-group="addtype1" onclick="toggleSingleTick(this)"></span></div>
-                            <div>Business <span class="sq-box" data-group="addtype1" onclick="toggleSingleTick(this)"></span></div>
-                            <div>Reg Office <span class="sq-box" data-group="addtype1" onclick="toggleSingleTick(this)"></span></div>
-                            <div>Unspecified <span class="sq-box" data-group="addtype1" onclick="toggleSingleTick(this)"></span></div>
+                            <div>Res/Bus <span class="sq-box corr-addtype" data-group="addtype1" data-val="1" onclick="toggleSingleTick(this)"></span></div>
+                            <div>Residential <span class="sq-box corr-addtype" data-group="addtype1" data-val="2" onclick="toggleSingleTick(this)"></span></div>
+                            <div>Business <span class="sq-box corr-addtype" data-group="addtype1" data-val="3" onclick="toggleSingleTick(this)"></span></div>
+                            <div>Reg Office <span class="sq-box corr-addtype" data-group="addtype1" data-val="4" onclick="toggleSingleTick(this)"></span></div>
+                            <div>Unspecified <span class="sq-box corr-addtype" data-group="addtype1" data-val="5" onclick="toggleSingleTick(this)"></span></div>
                         </div>
                     </td>
                 </tr>
@@ -396,43 +389,45 @@
                     <td class="label-cell">Flat/Room/Door/Block no.</td>
                     <td>
                         <div style="display:flex; align-items:center; justify-content:space-between;">
-                            <div class="char-grid-container" data-cells="15" style="width:180px;"></div>
+                            <div class="char-grid-container corr-flat" data-cells="15" style="width:180px;"></div>
                             <span style="font-weight:bold; font-size:9px;">Landmark</span>
-                            <div class="char-grid-container" data-cells="12" style="width:150px;"></div>
+                            <div class="char-grid-container corr-landmark" data-cells="12" style="width:150px;"></div>
                         </div>
                     </td>
                 </tr>
-                <tr><td class="label-cell">Premises/Building/Village</td><td><div class="char-grid-container" data-cells="30"></div></td></tr>
-                <tr><td class="label-cell">Road/Street/Lane</td><td><div class="char-grid-container" data-cells="30"></div></td></tr>
-                <tr><td class="label-cell">Area/Locality/Taluk</td><td><div class="char-grid-container" data-cells="30"></div></td></tr>
+                <tr><td class="label-cell">Premises/Building/Village</td><td><div class="char-grid-container corr-premises" data-cells="30"></div></td></tr>
+                <tr><td class="label-cell">Road/Street/Lane</td><td><div class="char-grid-container corr-road" data-cells="30"></div></td></tr>
+                <tr><td class="label-cell">Area/Locality/Taluk</td><td><div class="char-grid-container corr-area" data-cells="30"></div></td></tr>
                 <tr>
                     <td class="label-cell">City/Town/District</td>
                     <td>
                         <div style="display:flex; align-items:center; justify-content:space-between;">
-                            <div class="char-grid-container" data-cells="20" style="width:230px;"></div>
+                            <div class="char-grid-container corr-city" data-cells="20" style="width:230px;"></div>
                             <span style="font-weight:bold; font-size:9px;">PIN Code</span>
-                            <div class="char-grid-container" data-cells="6" style="width:90px;"></div>
+                            <div class="char-grid-container corr-pin" data-cells="6" style="width:90px;"></div>
                         </div>
                     </td>
                 </tr>
-                <tr><td class="label-cell">State/U.T.</td><td><div class="char-grid-container" data-cells="30"></div></td></tr>
+                <tr><td class="label-cell">State/U.T.</td><td><div class="char-grid-container corr-state" data-cells="30"></div></td></tr>
             </table>
 
-            <div class="section-banner">
-                <span class="sq-box" onclick="toggleMultiTick(this)"></span> 4.2 PERMANENT ADDRESS DETAILS 
-                <span style="font-size:8.5px; font-weight:normal; margin-left:4px;">[Tick (✓) in case address is same as above]</span>
+            <!-- 🎯 4.2 HEADER WITH CLICKABLE SQUARE BOX ADDED HERE -->
+            <div class="section-banner" style="display:flex; align-items:center; gap:6px;">
+                <span class="sq-box" id="same-address-box" onclick="toggleSameAddress(this)"></span> 
+                <span>4.2 PERMANENT ADDRESS DETAILS <span style="font-size:8.5px; font-weight:normal;">[TICK (✓) IN CASE ADDRESS IS SAME AS ABOVE]</span></span>
             </div>
             
-            <table class="form-row-table">
+            <!-- 4.2 ADDRESS TABLE -->
+            <table class="form-row-table" id="perm-address-table">
                 <tr>
                     <td class="label-cell">Address Type*</td>
                     <td>
                         <div style="display:flex; gap:6px; font-size:8.5px; font-weight:bold;">
-                            <div>Res/Bus <span class="sq-box" data-group="addtype2" onclick="toggleSingleTick(this)"></span></div>
-                            <div>Residential <span class="sq-box" data-group="addtype2" onclick="toggleSingleTick(this)"></span></div>
-                            <div>Business <span class="sq-box" data-group="addtype2" onclick="toggleSingleTick(this)"></span></div>
-                            <div>Reg Office <span class="sq-box" data-group="addtype2" onclick="toggleSingleTick(this)"></span></div>
-                            <div>Unspecified <span class="sq-box" data-group="addtype2" onclick="toggleSingleTick(this)"></span></div>
+                            <div>Res/Bus <span class="sq-box perm-addtype" data-group="addtype2" data-val="1" onclick="toggleSingleTick(this)"></span></div>
+                            <div>Residential <span class="sq-box perm-addtype" data-group="addtype2" data-val="2" onclick="toggleSingleTick(this)"></span></div>
+                            <div>Business <span class="sq-box perm-addtype" data-group="addtype2" data-val="3" onclick="toggleSingleTick(this)"></span></div>
+                            <div>Reg Office <span class="sq-box perm-addtype" data-group="addtype2" data-val="4" onclick="toggleSingleTick(this)"></span></div>
+                            <div>Unspecified <span class="sq-box perm-addtype" data-group="addtype2" data-val="5" onclick="toggleSingleTick(this)"></span></div>
                         </div>
                     </td>
                 </tr>
@@ -440,26 +435,26 @@
                     <td class="label-cell">Flat/Room/Door/Block no.</td>
                     <td>
                         <div style="display:flex; align-items:center; justify-content:space-between;">
-                            <div class="char-grid-container" data-cells="15" style="width:180px;"></div>
+                            <div class="char-grid-container perm-flat" data-cells="15" style="width:180px;"></div>
                             <span style="font-weight:bold; font-size:9px;">Landmark</span>
-                            <div class="char-grid-container" data-cells="12" style="width:150px;"></div>
+                            <div class="char-grid-container perm-landmark" data-cells="12" style="width:150px;"></div>
                         </div>
                     </td>
                 </tr>
-                <tr><td class="label-cell">Premises/Building/Village</td><td><div class="char-grid-container" data-cells="30"></div></td></tr>
-                <tr><td class="label-cell">Road/Street/Lane</td><td><div class="char-grid-container" data-cells="30"></div></td></tr>
-                <tr><td class="label-cell">Area/Locality/Taluk</td><td><div class="char-grid-container" data-cells="30"></div></td></tr>
+                <tr><td class="label-cell">Premises/Building/Village</td><td><div class="char-grid-container perm-premises" data-cells="30"></div></td></tr>
+                <tr><td class="label-cell">Road/Street/Lane</td><td><div class="char-grid-container perm-road" data-cells="30"></div></td></tr>
+                <tr><td class="label-cell">Area/Locality/Taluk</td><td><div class="char-grid-container perm-area" data-cells="30"></div></td></tr>
                 <tr>
                     <td class="label-cell">City/Town/District</td>
                     <td>
                         <div style="display:flex; align-items:center; justify-content:space-between;">
-                            <div class="char-grid-container" data-cells="20" style="width:230px;"></div>
+                            <div class="char-grid-container perm-city" data-cells="20" style="width:230px;"></div>
                             <span style="font-weight:bold; font-size:9px;">PIN Code</span>
-                            <div class="char-grid-container" data-cells="6" style="width:90px;"></div>
+                            <div class="char-grid-container perm-pin" data-cells="6" style="width:90px;"></div>
                         </div>
                     </td>
                 </tr>
-                <tr><td class="label-cell">State/U.T.</td><td><div class="char-grid-container" data-cells="30"></div></td></tr>
+                <tr><td class="label-cell">State/U.T.</td><td><div class="char-grid-container perm-state" data-cells="30"></div></td></tr>
             </table>
 
             <div class="section-banner"><span class="sq-box" onclick="toggleMultiTick(this)"></span> 5. CONTACT DETAILS</div>
@@ -603,9 +598,7 @@
     </div>
 
 
-    <!-- ==========================================
-         PAGE 3
-    ========================================== -->
+    <!-- PAGE 3 -->
     <div class="main-container" id="page-3">
         <div class="outer-header">
             <span class="ver-tag">Ver 1.1</span>
@@ -813,9 +806,7 @@
     </div>
 
 
-    <!-- ==========================================
-         PAGE 4
-    ========================================== -->
+    <!-- PAGE 4 -->
     <div class="main-container" id="page-4">
         <div class="outer-header">
             <span class="ver-tag">Ver 1.1</span>
@@ -1027,9 +1018,7 @@
     </div>
 
 
-    <!-- ==========================================
-         PAGE 5
-    ========================================== -->
+    <!-- PAGE 5 -->
     <div class="main-container" id="page-5">
         <div class="outer-header">
             <span class="ver-tag">Ver 1.1</span>
@@ -1129,6 +1118,45 @@ function toggleSingleTick(element) {
     
     if (!isAlreadyTicked) {
         element.innerHTML = "✓";
+    }
+}
+
+// 🎯 4.1 के एड्रेस को 4.2 में ऑटो-कॉपी करने का फिक्स फ़ंक्शन
+function toggleSameAddress(chkElement) {
+    toggleMultiTick(chkElement);
+    const isChecked = (chkElement.innerHTML === "✓");
+
+    function copyGrid(srcSelector, destSelector) {
+        const srcBoxes = document.querySelectorAll(`${srcSelector} .char-box`);
+        const destBoxes = document.querySelectorAll(`${destSelector} .char-box`);
+        
+        srcBoxes.forEach((srcInput, idx) => {
+            if (destBoxes[idx]) {
+                destBoxes[idx].value = isChecked ? srcInput.value : "";
+            }
+        });
+    }
+
+    copyGrid('.corr-flat', '.perm-flat');
+    copyGrid('.corr-landmark', '.perm-landmark');
+    copyGrid('.corr-premises', '.perm-premises');
+    copyGrid('.corr-road', '.perm-road');
+    copyGrid('.corr-area', '.perm-area');
+    copyGrid('.corr-city', '.perm-city');
+    copyGrid('.corr-pin', '.perm-pin');
+    copyGrid('.corr-state', '.perm-state');
+
+    const corrTypeBoxes = document.querySelectorAll('.corr-addtype');
+    const permTypeBoxes = document.querySelectorAll('.perm-addtype');
+
+    permTypeBoxes.forEach(box => box.innerHTML = "");
+
+    if (isChecked) {
+        corrTypeBoxes.forEach((srcBox, idx) => {
+            if (srcBox.innerHTML === "✓" && permTypeBoxes[idx]) {
+                permTypeBoxes[idx].innerHTML = "✓";
+            }
+        });
     }
 }
 
