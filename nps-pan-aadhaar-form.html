@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=820, initial-scale=1.0">
+    <title>NATIONAL PENSION SYSTEM - PAN & AADHAAR UPDATION FORM</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: Arial, Helvetica, sans-serif; 
+            background-color: #525659; 
+            color: #000; 
+            padding: 20px 0; 
+            overflow-x: auto !important;
+            min-width: 820px;
+        }
+        
+        .page-viewport-wrapper { 
+            width: 100%; 
+            min-width: 820px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: auto !important;
+        }
+
+        .main-container { 
+            width: 794px; 
+            height: 1080px; 
+            background: #ffffff; 
+            padding: 15px 20px; 
+            position: relative;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* FULL HEIGHT DOUBLE BORDER WRAPPER */
+        .inner-content-box {
+            border: 1px solid #000;
+            padding: 12px 14px;
+            outline: 2px solid #000;
+            outline-offset: 1px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* 🎯 नीचे के हिस्से को बिल्कुल तली में धकेलेगा */
+        }
+
+        /* TOP LOGO HEADER ALIGNMENT */
+        .header-logo-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1.5px solid #000;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+
+        .nps-green-logo {
+            background-color: #1a7431;
+            color: #fff;
+            padding: 6px 10px;
+            font-weight: bold;
+            font-size: 13px;
+            line-height: 1.1;
+            border-radius: 2px;
+            text-align: left;
+        }
+
+        .emblem-center {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .emblem-center img {
+            height: 48px;
+            width: auto;
+        }
+
+        .pfrda-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .form-main-title {
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        /* NODAL OFFICE USE BOX */
+        .nodal-box {
+            border: 1px solid #000;
+            padding: 8px 10px;
+            margin-bottom: 14px;
+            font-size: 8.5px;
+            line-height: 1.6;
+        }
+
+        .nodal-title {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .nodal-grid-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .nodal-grid-table td {
+            vertical-align: middle;
+            padding: 4px 0;
+        }
+
+        .line-underline {
+            display: inline-block;
+            border-bottom: 1px solid #000;
+            min-width: 150px;
+        }
+
+        /* GRID CHAR BOXES */
+        .char-grid-container { display: flex; flex-direction: row; gap: 0; border: 1px solid #000; width: fit-content; }
+        .char-box { width: 16px; height: 19px; border: none; border-right: 1px solid #000; text-align: center; font-family: 'Courier New', monospace; font-size: 10px; font-weight: bold; text-transform: uppercase; outline: none; background: #fff; flex-shrink: 0; }
+        .char-box:last-child { border-right: none; }
+        .char-box:focus { background: #eef4fc; }
+
+        /* SUBSCRIBER DETAILS */
+        .sub-details-container {
+            font-size: 9px;
+            line-height: 1.8;
+            margin-bottom: 14px;
+        }
+
+        .pan-aadhaar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            border: 1px solid #000;
+        }
+
+        .pan-aadhaar-table td {
+            border: 1px solid #000;
+            padding: 6px 8px;
+            font-size: 8.5px;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        .label-cell-tag {
+            width: 25px;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        .label-cell-name {
+            width: 110px;
+            background-color: #f2f2f2;
+        }
+
+        /* DECLARATION SECTION */
+        .declaration-outer-box {
+            border: 1px solid #000;
+            margin-bottom: 14px;
+        }
+
+        .decl-header-banner {
+            background-color: #fff;
+            border-bottom: 1px solid #000;
+            padding: 4px;
+            font-size: 9px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .decl-body-text {
+            padding: 8px 10px;
+            font-size: 8px;
+            line-height: 1.45;
+            text-align: justify;
+            border-bottom: 1px solid #000;
+        }
+
+        .decl-bottom-grid {
+            display: flex;
+            width: 100%;
+        }
+
+        .decl-left-dateplace {
+            width: 45%;
+            border-right: 1px solid #000;
+            font-size: 8.5px;
+        }
+
+        .dateplace-row {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #000;
+            padding: 6px;
+        }
+
+        .dateplace-row:last-child {
+            border-bottom: none;
+        }
+
+        .dateplace-label {
+            width: 50px;
+            font-weight: bold;
+        }
+
+        .decl-right-signature {
+            width: 55%;
+            padding: 8px;
+            font-size: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 75px;
+        }
+
+        /* ATTESTATION BOXES (DDO & NODAL OFFICE) */
+        .attest-box {
+            border: 1px solid #000;
+            margin-bottom: 14px;
+        }
+
+        .attest-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .attest-table td {
+            vertical-align: bottom;
+            padding: 10px 8px;
+            font-size: 8.5px;
+        }
+
+        .attest-title-header {
+            font-weight: bold;
+            font-size: 8.5px;
+            margin-bottom: 45px;
+        }
+
+        .attest-stamp-cell {
+            width: 45%;
+            border-right: 1px solid #000;
+            text-align: center;
+            vertical-align: bottom !important;
+        }
+
+        .attest-sig-cell {
+            width: 55%;
+        }
+
+        /* FOOTER NOTES (ALWAYS STUCK TO THE BOTTOM) */
+        .footer-note-block {
+            font-size: 8px;
+            line-height: 1.4;
+            padding-top: 6px;
+            margin-top: auto; /* 🎯 नीचे धकेलने की चाबी */
+        }
+
+        .action-bar { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        .print-btn { background: #28a745; color: white; border: none; padding: 12px 25px; font-size: 15px; font-weight: bold; border-radius: 30px; cursor: pointer; box-shadow: 0px 4px 8px rgba(0,0,0,0.4); }
+
+        @media print {
+            @page { size: A4 portrait; margin: 0; }
+            body { background: #fff !important; padding: 0 !important; margin: 0 !important; min-width: 100% !important; }
+            .action-bar { display: none !important; }
+            .main-container { padding: 12px 18px !important; width: 210mm !important; height: 296mm !important; box-shadow: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="action-bar">
+    <button class="print-btn" onclick="window.print()">🖨️ Print Form (PAN & Aadhaar Updation)</button>
+</div>
+
+<div class="page-viewport-wrapper">
+
+    <div class="main-container" id="page-pan-aadhaar">
+
+        <!-- DOUBLE BORDER CONTAINER WITH FULL HEIGHT FLEX DISTRIBUTION -->
+        <div class="inner-content-box">
+            
+            <!-- TOP SECTION -->
+            <div>
+                <!-- HEADER LOGOS -->
+                <div class="header-logo-row">
+                    <div class="nps-green-logo">
+                        National<br>Pension<br>System
+                    </div>
+
+                    <!-- REAL STATE EMBLEM OF INDIA -->
+                    <div class="emblem-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Emblem of India">
+                    </div>
+
+                    <!-- EXACT PFRDA VECTOR LOGO -->
+                    <div class="pfrda-logo-container">
+                        <svg width="85" height="38" viewBox="0 0 100 45" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Blue Flower/Star Logo Accent -->
+                            <g fill="#0056b3">
+                                <polygon points="12,2 14,8 20,8 15,12 17,18 12,14 7,18 9,12 4,8 10,8"/>
+                            </g>
+                            <!-- pfrda Text -->
+                            <text x="22" y="24" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="25" fill="#11385b" letter-spacing="-1">pfrda</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- TITLE -->
+                <div class="form-main-title">
+                    NATIONAL PENSION SYSTEM – PAN & AADHAAR UPDATION FORM
+                </div>
+
+                <!-- FOR NODAL OFFICE USE BOX -->
+                <div class="nodal-box">
+                    <div class="nodal-title">For Nodal Office# use:</div>
+                    <table class="nodal-grid-table">
+                        <tr>
+                            <td colspan="2" style="padding-bottom:4px;">
+                                Nodal Office Registration No. : <span class="line-underline" style="min-width:240px;"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%;">Entered By: <span class="line-underline" style="min-width:180px;"></span></td>
+                            <td style="width:50%;">Date: <span class="line-underline" style="min-width:140px;"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Verified By: <span class="line-underline" style="min-width:180px;"></span></td>
+                            <td>Date: <span class="line-underline" style="min-width:140px;"></span></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top:8px;">
+                                <div style="display:flex; align-items:center; gap:4px; font-weight:bold;">
+                                    <span>Date</span>
+                                    <div class="char-grid-container" data-cells="6"></div>
+                                </div>
+                            </td>
+                            <td style="padding-top:8px;">
+                                <div style="display:flex; align-items:center; gap:4px; font-weight:bold;">
+                                    <span>Acknowledgement Number (Generated by CRA) :</span>
+                                    <div class="char-grid-container" data-cells="12"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- SUBSCRIBER REQUEST TEXT -->
+                <div class="sub-details-container">
+                    <div>Dear Sir/Madam,</div>
+                    <div>I hereby submit a request to update my PAN and/or seed Aadhaar in my NPS account.</div>
+                    
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:8px; font-weight:bold;">
+                        <span>PRAN*:</span>
+                        <div class="char-grid-container" data-cells="12"></div>
+                    </div>
+
+                    <div style="margin-top:8px; font-weight:bold;">
+                        Name of the Subscriber *: <input type="text" style="width:78%; border:none; border-bottom:1px solid #000; outline:none; font-weight:bold; font-size:10px; text-transform:uppercase;">
+                    </div>
+
+                    <!-- PAN & AADHAAR GRID TABLE -->
+                    <table class="pan-aadhaar-table">
+                        <tr>
+                            <td class="label-cell-tag">A</td>
+                            <td class="label-cell-name">PAN Number:</td>
+                            <td>
+                                <div class="char-grid-container" data-cells="10"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-cell-tag">B</td>
+                            <td class="label-cell-name">Aadhaar Number:</td>
+                            <td>
+                                <div class="char-grid-container" data-cells="12"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- DECLARATION SECTION -->
+                <div class="declaration-outer-box">
+                    <div class="decl-header-banner">Declaration</div>
+                    <div class="decl-body-text">
+                        I hereby authorize CRA registered with Pension Fund Regulatory and Development Authority (PFRDA) to use my Aadhaar details for National Pension System (NPS) and authenticate my identity through the Aadhaar Authentication system (Aadhaar based e-KYC services of UIDAI) in accordance with the provisions of the Aadhaar (Targeted Delivery of Financial and other Subsidies, Benefits and Services) Act, 2016 and the allied rules and regulations notified thereunder. I understand that the Aadhaar details (physical end / or digital, as the case maybe) submitted for availing services under NPS will be maintained in NPS till the time the account is not inactive in NPS or the timeframe decided by PFRDA, the regulator of NPS, whichever is later. I understand that Security and confidentiality of personal identity data provided, for the purpose of Aadhaar based authentication is ensured by CRA registered with PFRDA till such time it is acting as CRA for my NPS account.
+                    </div>
+
+                    <div class="decl-bottom-grid">
+                        <div class="decl-left-dateplace">
+                            <div class="dateplace-row">
+                                <span class="dateplace-label">Date</span>
+                                <div class="char-grid-container" data-cells="8"></div>
+                            </div>
+                            <div class="dateplace-row">
+                                <span class="dateplace-label">Place</span>
+                                <input type="text" style="width:100%; border:none; outline:none; font-size:9px; font-weight:bold; text-transform:uppercase;">
+                            </div>
+                        </div>
+
+                        <div class="decl-right-signature">
+                            <div>Signature / Thumb impression of the Subscriber (LTI in case of male and RTI in case of Female)</div>
+                            <div style="height:35px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DDO ATTESTATION BOX -->
+                <div class="attest-box">
+                    <table class="attest-table">
+                        <tr>
+                            <td class="attest-stamp-cell">
+                                <div class="attest-title-header" style="text-align:center;">TO BE FILLED/ATTESTED BY DDO</div>
+                                <div style="font-weight:bold; font-size:8.5px; margin-bottom:4px;">Rubber Stamp of the DDO</div>
+                            </td>
+                            <td class="attest-sig-cell">
+                                <div style="text-align:right; font-weight:bold; font-size:8.5px; margin-bottom:45px;">Signature of the DDO</div>
+                                <div>Name: <span class="line-underline" style="width:75%;"></span> Designation: <span class="line-underline" style="width:60%;"></span></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- NODAL OFFICE ATTESTATION BOX -->
+                <div class="attest-box">
+                    <table class="attest-table">
+                        <tr>
+                            <td class="attest-stamp-cell">
+                                <div class="attest-title-header" style="text-align:center;">TO BE FILLED/ATTESTED BY NODAL OFFICE</div>
+                                <div style="font-weight:bold; font-size:8.5px; margin-bottom:4px;">Rubber Stamp of the Nodal Office</div>
+                            </td>
+                            <td class="attest-sig-cell">
+                                <div style="text-align:right; font-weight:bold; font-size:8.5px; margin-bottom:45px;">Signature of the Nodal Office (PAO/DTO/DTA/POP/POP-SP)</div>
+                                <div>Name: <span class="line-underline" style="width:75%;"></span> Designation: <span class="line-underline" style="width:60%;"></span></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- FOOTER INSTRUCTIONS (FIXED TO BOTTOM) -->
+            <div class="footer-note-block">
+                <div># Nodal Office refers to PAO/DTO/DTA/POP/POP-SP</div>
+                <div>Submit the copy of self attested Aadhaar card or e-Aadhaar along with originals for verification.</div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".char-grid-container").forEach(container => {
+        const cellCount = parseInt(container.getAttribute("data-cells"));
+        for (let i = 0; i < cellCount; i++) {
+            const input = document.createElement("input");
+            input.type = "text";
+            input.maxLength = 1;
+            input.className = "char-box";
+            container.appendChild(input);
+        }
+    });
+
+    document.querySelectorAll(".char-grid-container").forEach(container => {
+        const boxes = container.querySelectorAll(".char-box");
+        boxes.forEach((input, index) => {
+            input.addEventListener("input", () => {
+                input.value = input.value.toUpperCase();
+            });
+            input.addEventListener("keyup", (e) => {
+                if (e.key === "Backspace" || e.keyCode === 8) {
+                    if (input.value.length === 0 && boxes[index - 1]) {
+                        boxes[index - 1].focus();
+                    }
+                    return;
+                }
+                if (input.value.length === 1 && boxes[index + 1]) {
+                    boxes[index + 1].focus();
+                }
+            });
+        });
+    });
+});
+</script>
+</body>
+</html>
