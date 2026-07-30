@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=820, initial-scale=1.0">
+    <title>Annexure S7 - Request For Change in Signature/Photo</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: Arial, Helvetica, sans-serif; 
+            background-color: #525659; 
+            color: #000; 
+            padding: 20px 0; 
+            overflow-x: auto !important;
+            min-width: 820px;
+        }
+        
+        .page-viewport-wrapper { 
+            width: 100%; 
+            min-width: 820px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: auto !important;
+        }
+
+        .main-container { 
+            width: 794px; 
+            height: 1080px; 
+            background: #ffffff; 
+            padding: 12px 18px; 
+            position: relative;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .outer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+            font-size: 10px;
+            padding: 0 2px;
+        }
+        .outer-header .ver-tag { font-size: 10px; }
+        .outer-header .annexure-tag { font-size: 12px; font-weight: bold; }
+
+        /* EXACT DOUBLE BORDER FROM S2 FORM CODE */
+        .inner-content-box {
+            border: 1px solid #000;
+            padding: 8px;
+            outline: 2px solid #000;
+            outline-offset: 1px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .gov-header { text-align: center; border-bottom: 1px solid #000; padding-bottom: 3px; position: relative; margin-bottom: 4px; }
+        .gov-header h1 { font-size: 13px; font-weight: bold; text-transform: uppercase; }
+        .gov-header p { font-size: 10px; font-weight: bold; }
+        .inst-text { font-size: 8.5px; text-align: center; margin-bottom: 8px; font-style: italic; }
+
+        /* GRID BOXES FROM S2 FORM */
+        .char-grid-container { display: flex; flex-direction: row; gap: 0; border: 1px solid #ccc; width: fit-content; }
+        .char-box { width: 16px; height: 18px; border: none; border-right: 1px solid #ccc; text-align: center; font-family: 'Courier New', monospace; font-size: 10px; font-weight: bold; text-transform: uppercase; outline: none; background: #fff; flex-shrink: 0; }
+        .char-box:last-child { border-right: none; }
+        .char-box:focus { background: #eef4fc; }
+
+        .sq-box { width: 13px; height: 13px; border: 1px solid #000; display: inline-block; text-align: center; line-height: 11px; font-size: 10px; font-weight: bold; cursor: pointer; background: #fff; vertical-align: middle; }
+
+        /* TOP SECTION */
+        .top-grid-box {
+            border: 1px solid #000;
+            display: flex;
+            margin-bottom: 8px;
+        }
+
+        .top-left-inputs {
+            flex-grow: 1;
+            border-right: 1px solid #000;
+            padding: 8px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* RIGHT COLUMN CONTAINER */
+        .top-right-photo-col {
+            width: 3.2cm;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 1. EXACT PHOTOGRAPH BOX (3.5cm Height x 2.5cm Width) */
+        .photo-space {
+            width: 2.5cm !important;
+            height: 3.5cm !important;
+            border: 1px solid #000;
+            margin: 6px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 8px;
+            padding: 2px;
+            color: #222;
+        }
+
+        /* 2. CLEAR RECTANGLE SIGNATURE / THUMB IMPRESSION BOX */
+        .sign-thumb-rect-box {
+            width: 100%;
+            height: 55px;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            background: #fff;
+        }
+
+        /* 3. INSTRUCTION TEXT BOX BELOW SIGNATURE BOX */
+        .sign-instruction-text-box {
+            width: 100%;
+            padding: 3px 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 7px;
+            line-height: 1.1;
+            background: #fff;
+            flex-grow: 1;
+        }
+
+        /* MIDDLE SECTION OUTER BOX */
+        .middle-outer-box {
+            border: 1px solid #000;
+            padding: 8px;
+            margin-bottom: 8px;
+        }
+
+        .checkbox-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 8.5px;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .section-header-banner {
+            background: #e0e0e0;
+            border: 1px solid #000;
+            padding: 2px 6px;
+            font-size: 9px;
+            font-weight: bold;
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        .section-line-input {
+            padding: 5px 4px;
+            font-size: 8.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .line-input {
+            flex-grow: 1;
+            border: none;
+            border-bottom: 1px solid #000;
+            outline: none;
+            font-weight: bold;
+            font-size: 9.5px;
+            text-transform: uppercase;
+        }
+
+        .subscriber-sig-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 12px;
+            padding: 0 4px;
+        }
+
+        /* OFFICE USE BOX */
+        .office-box {
+            border: 1px solid #000;
+            margin-bottom: 8px;
+        }
+
+        .office-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .office-table td {
+            border-right: 1px solid #000;
+            padding: 6px;
+            vertical-align: top;
+            font-size: 8.5px;
+            line-height: 1.4;
+        }
+
+        .office-table td:last-child { border-right: none; }
+        .office-title { font-weight: bold; text-decoration: underline; margin-bottom: 6px; font-size: 9px; }
+
+        /* INSTRUCTIONS AT BOTTOM */
+        .instructions-block {
+            font-size: 8px;
+            line-height: 1.35;
+            border-top: 1px solid #000;
+            padding-top: 4px;
+            margin-top: 2px;
+        }
+
+        .instructions-block ol {
+            padding-left: 14px;
+            margin-top: 2px;
+        }
+
+        .page-number-footer { text-align: right; font-size: 9.5px; margin-top: 2px; font-weight: bold; }
+
+        .action-bar { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        .print-btn { background: #28a745; color: white; border: none; padding: 12px 25px; font-size: 15px; font-weight: bold; border-radius: 30px; cursor: pointer; box-shadow: 0px 4px 8px rgba(0,0,0,0.4); }
+
+        @media print {
+            @page { size: A4 portrait; margin: 0; }
+            body { background: #fff !important; padding: 0 !important; margin: 0 !important; min-width: 100% !important; }
+            .action-bar { display: none !important; }
+            .main-container { padding: 12px 18px !important; width: 210mm !important; height: 296mm !important; box-shadow: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="action-bar">
+    <button class="print-btn" onclick="window.print()">🖨️ Print Form (Annexure S7)</button>
+</div>
+
+<div class="page-viewport-wrapper">
+
+    <div class="main-container" id="page-s7">
+        
+        <div class="outer-header">
+            <span class="ver-tag">Ver 1.1</span>
+            <span class="annexure-tag">Annexure S7</span>
+        </div>
+
+        <!-- INNER CONTENT BOX WITH S2 FORM DOUBLE BORDER -->
+        <div class="inner-content-box">
+            
+            <div>
+                <div class="gov-header">
+                    <h1>CENTRAL RECORD KEEPING AGENCY</h1>
+                    <p style="font-size:11px; margin-top:2px; font-weight:bold; text-decoration:underline;">
+                        Request For change in signature and/or change in photograph
+                    </p>
+                </div>
+                <div class="inst-text">(To avoid mistake(s), please follow the accompanying instructions carefully before filling up the form)</div>
+
+                <!-- TOP SECTION -->
+                <div class="top-grid-box">
+                    <div class="top-left-inputs">
+                        <div>
+                            <div style="font-size:8.5px; font-weight:bold; margin-bottom:3px;">
+                                Acknowledgement No. <br><span style="font-weight:normal; font-size:8px;">(To be filled by FC)</span>
+                            </div>
+                            <div class="char-grid-container" data-cells="18"></div>
+                        </div>
+
+                        <div>
+                            <div style="font-size:8.5px; font-weight:bold; margin-bottom:3px;">Subscribers Name</div>
+                            <div class="char-grid-container" data-cells="15"></div>
+                            <div class="char-grid-container" data-cells="15" style="margin-top:3px;"></div>
+                        </div>
+
+                        <div>
+                            <div style="font-size:8.5px; font-weight:bold; margin-bottom:3px;">Permanent Retirement Account Number</div>
+                            <div class="char-grid-container" data-cells="12"></div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT COLUMN: EXACT 3.5cm x 2.5cm PHOTO BOX + RECTANGLE SIGNATURE BOX -->
+                    <div class="top-right-photo-col">
+                        <!-- 1. Photo Space (3.5cm Height x 2.5cm Width) -->
+                        <div class="photo-space">
+                            To affix colour photograph<br>(3.5 cm x 2.5 cm)
+                        </div>
+                        
+                        <!-- 2. Clear Rectangle Signature/Thumb Space -->
+                        <div class="sign-thumb-rect-box"></div>
+
+                        <!-- 3. Instruction Box below Signature Box -->
+                        <div class="sign-instruction-text-box">
+                            <span style="width:65%;">Subscriber's sign/Thumb impression in black ink only.</span>
+                            <span style="width:35%; text-align:right;">(Applicable in case of change of Photograph)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MIDDLE SECTION -->
+                <div class="middle-outer-box">
+                    <div class="checkbox-row">
+                        <div>I hereby, request you to carry out the following change.The necessary details are provided as below:</div>
+                        <div style="display:flex; gap:20px;">
+                            <div><span class="sq-box" onclick="toggleMultiTick(this)"></span> Change in signature</div>
+                            <div><span class="sq-box" onclick="toggleMultiTick(this)"></span> Change in photograph</div>
+                        </div>
+                    </div>
+
+                    <div class="section-header-banner">Section A: Change in Signature</div>
+                    <div class="section-line-input">
+                        <span>Reason for change in signature:</span>
+                        <input type="text" class="line-input">
+                    </div>
+
+                    <div class="section-header-banner" style="margin-top:4px;">Section B: Change in photograph</div>
+                    <div class="section-line-input">
+                        <span>Reason for change in photograph:</span>
+                        <input type="text" class="line-input">
+                    </div>
+
+                    <div class="subscriber-sig-row">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div style="font-size:8.5px; font-weight:bold;">Subscriber's Signature<br><span style="font-weight:normal; font-size:7.5px;">(New Signature)</span></div>
+                            <div style="width:200px; height:42px; border:1px solid #000;"></div>
+                        </div>
+
+                        <div style="display:flex; align-items:center; gap:4px; font-size:8.5px; font-weight:bold;">
+                            <span>Date :</span>
+                            <div class="char-grid-container" data-cells="6"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OFFICE USE BOX -->
+                <div class="office-box">
+                    <table class="office-table">
+                        <tr>
+                            <td style="width:32%;">
+                                <div class="office-title">For DDO Use</div>
+                                <div>Date of Receipt ___________</div>
+                                <div style="margin-top:40px;">
+                                    Name & Signature of Authorised person/<br>
+                                    Stamp of DDO __________________
+                                </div>
+                            </td>
+
+                            <td style="width:32%;">
+                                <div class="office-title">For PAO Use</div>
+                                <div>Date of Receipt ___________</div>
+                                <div style="margin-top:40px;">
+                                    Name & Signature of Authorised person/<br>
+                                    Stamp of PAO __________________
+                                </div>
+                            </td>
+
+                            <td style="width:36%;">
+                                <div class="office-title">For FC Use</div>
+                                <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+                                    <div>Date of Receipt ______</div>
+                                    <div>Entered by ______</div>
+                                    <div>Date ______</div>
+                                </div>
+                                <div style="display:flex; justify-content:space-between;">
+                                    <div>Time of Receipt ______</div>
+                                    <div>Verified by ______</div>
+                                    <div>Date ______</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- INSTRUCTIONS AT BOTTOM -->
+                <div class="instructions-block">
+                    <strong>Instructions</strong>
+                    <ol>
+                        <li>This form is to be submitted to CRA appointed Facilitation Centre.</li>
+                        <li>Please indicate whether request is for change in signature and/or Photograph by ticking the relevant box.</li>
+                        <li>The change request will be chargeable.</li>
+                        <li>This request must be accompanied with a DDO Covering letter on official stationery.</li>
+                    </ol>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="page-number-footer">Annexure S7</div>
+    </div>
+
+</div>
+
+<script>
+function toggleMultiTick(element) {
+    element.innerHTML = (element.innerHTML === "✓") ? "" : "✓";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".char-grid-container").forEach(container => {
+        const cellCount = parseInt(container.getAttribute("data-cells"));
+        for (let i = 0; i < cellCount; i++) {
+            const input = document.createElement("input");
+            input.type = "text";
+            input.maxLength = 1;
+            input.className = "char-box";
+            container.appendChild(input);
+        }
+    });
+
+    document.querySelectorAll(".char-grid-container").forEach(container => {
+        const boxes = container.querySelectorAll(".char-box");
+        boxes.forEach((input, index) => {
+            input.addEventListener("input", () => {
+                input.value = input.value.toUpperCase();
+            });
+            input.addEventListener("keyup", (e) => {
+                if (e.key === "Backspace" || e.keyCode === 8) {
+                    if (input.value.length === 0 && boxes[index - 1]) {
+                        boxes[index - 1].focus();
+                    }
+                    return;
+                }
+                if (input.value.length === 1 && boxes[index + 1]) {
+                    boxes[index + 1].focus();
+                }
+            });
+        });
+    });
+});
+</script>
+</body>
+</html>
