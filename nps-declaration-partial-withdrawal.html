@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=820, initial-scale=1.0">
+    <title>Declaration Form for Partial Withdrawal - NPS</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: Arial, Helvetica, sans-serif; 
+            background-color: #525659; 
+            color: #000; 
+            padding: 20px 0; 
+            min-width: 820px; 
+        }
+        .page-viewport-wrapper { 
+            width: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        .main-container { 
+            width: 794px; 
+            height: 1080px; 
+            background: #fff; 
+            padding: 16px 20px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            flex-shrink: 0; 
+            position: relative; 
+        }
+        .outer-border-box {
+            border: 1px solid #000;
+            padding: 10px 12px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* 🎯 HEADER CENTER ALIGNMENT */
+        .header-top-center {
+            text-align: center;
+            font-size: 10px;
+            font-weight: bold;
+            position: relative;
+            margin-bottom: 2px;
+        }
+        .ver-tag-right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 8.5px;
+            font-weight: bold;
+        }
+
+        .header-title-box {
+            text-align: center;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            padding: 3px 0;
+            margin-bottom: 6px;
+        }
+        .header-title-box h3 {
+            font-size: 10.5px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .note-text {
+            font-size: 8px;
+            font-style: italic;
+            margin-bottom: 6px;
+        }
+        .sec-banner {
+            font-size: 8.5px;
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            padding-bottom: 2px;
+            margin-bottom: 4px;
+            margin-top: 4px;
+        }
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 8px;
+            font-size: 8.5px;
+        }
+        .details-table td {
+            border: 1px solid #000;
+            padding: 4px 6px;
+            vertical-align: middle;
+        }
+        .details-table td:first-child {
+            width: 35%;
+            font-weight: bold;
+        }
+        .line-input {
+            border: none;
+            border-bottom: 1px solid #000;
+            outline: none;
+            font-weight: bold;
+            font-size: 8.5px;
+            text-transform: uppercase;
+            background: transparent;
+        }
+        .sq-box {
+            width: 13px;
+            height: 13px;
+            border: 1px solid #000;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 6px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 11px;
+            font-size: 10px;
+            font-weight: bold;
+            background: #fff;
+        }
+        .option-outer-block {
+            border: 1px solid #000;
+            padding: 6px 8px;
+            margin-bottom: 6px;
+            font-size: 8px;
+            line-height: 1.4;
+        }
+        .sub-options-block {
+            border: 1px solid #000;
+            padding: 6px 8px;
+            margin-bottom: 8px;
+            font-size: 8px;
+            line-height: 1.6;
+        }
+        .decl-outer-block {
+            border: 1px solid #000;
+            padding: 8px;
+            font-size: 7.8px;
+            line-height: 1.4;
+        }
+
+        /* 🎯 DATE, PLACE & SIGNATURE SMALL BALANCED FONT */
+        .decl-footer-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 7.5px;
+        }
+        .decl-footer-table td {
+            vertical-align: bottom;
+        }
+
+        .action-bar { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        .print-btn { background: #28a745; color: white; border: none; padding: 12px 25px; font-size: 15px; font-weight: bold; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.4); }
+        
+        @media print {
+            @page { size: A4 portrait; margin: 0; }
+            body { background: #fff !important; padding: 0 !important; margin: 0 !important; min-width: 100% !important; }
+            .action-bar { display: none !important; }
+            .main-container { padding: 12px 16px !important; width: 210mm !important; height: 297mm !important; box-shadow: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="action-bar">
+    <button class="print-btn" onclick="window.print()">🖨️ Print Declaration Form</button>
+</div>
+
+<div class="page-viewport-wrapper">
+
+    <div class="main-container">
+        <div class="outer-border-box">
+            
+            <div>
+                <!-- HEADER TOP CENTERED -->
+                <div class="header-top-center">
+                    National Pension System (NPS)
+                    <span class="ver-tag-right">Ver.1.1</span>
+                </div>
+                <div style="font-size: 7.5px; text-align: center; margin-bottom: 4px;">
+                    Under Regulations 8 of PFRDA (Exit & Withdrawals under NPS) Regulations 2015, and amendments thereto
+                </div>
+
+                <div class="header-title-box">
+                    <h3>Declaration Form for Partial Withdrawal</h3>
+                </div>
+
+                <div class="note-text">Fields marked with '*' are mandatory.</div>
+
+                <!-- SECTION A -->
+                <div class="sec-banner">Section A – Subscriber’s Personal Details *</div>
+                <table class="details-table">
+                    <tr>
+                        <td>1. Name of the Subscriber</td>
+                        <td><input type="text" style="width:100%; border:none; outline:none; font-weight:bold; font-size:9px; text-transform:uppercase;"></td>
+                    </tr>
+                    <tr>
+                        <td>2. PRAN</td>
+                        <td><input type="text" style="width:100%; border:none; outline:none; font-weight:bold; font-size:9px; font-family:'Courier New', monospace;"></td>
+                    </tr>
+                    <tr>
+                        <td>3. Registered Mobile</td>
+                        <td><input type="text" style="width:100%; border:none; outline:none; font-weight:bold; font-size:9px;"></td>
+                    </tr>
+                    <tr>
+                        <td>4. Registered Email ID</td>
+                        <td><input type="text" style="width:100%; border:none; outline:none; font-weight:bold; font-size:9px; text-transform:none;"></td>
+                    </tr>
+                </table>
+
+                <!-- SECTION B -->
+                <div class="sec-banner">Section B – Withdrawal Request Details *</div>
+                <div style="font-size: 8px; margin-bottom: 4px;">Withdrawal Type (Please tick the applicable option)</div>
+
+                <!-- OPTION A -->
+                <div class="option-outer-block">
+                    <div style="display:flex; align-items:flex-start;">
+                        <span class="sq-box type-tick" onclick="selectSingleType(this)"></span>
+                        <div>
+                            <strong>A.</strong> For the marriage of children, including a legally adopted child<br><br>
+                            Age of Child: <input type="text" class="line-input" style="width: 80px;"> &nbsp;&nbsp;&nbsp;&nbsp; 
+                            Date of Marriage: <input type="text" class="line-input" style="width: 120px;" placeholder="DD / MM / YYYY"><br><br>
+                            Address of Marriage: <input type="text" class="line-input" style="width: 450px;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OPTION B -->
+                <div class="option-outer-block">
+                    <div style="display:flex; align-items:flex-start;">
+                        <span class="sq-box type-tick" onclick="selectSingleType(this)"></span>
+                        <div>
+                            <strong>B.</strong> For the purchase or construction of a residential house or flat in own name or in a joint name with legally wedded spouse (it is not available for already owned flat/house).<br><br>
+                            Property Address: <input type="text" class="line-input" style="width: 450px;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OPTIONS C TO G -->
+                <div class="sub-options-block">
+                    <div style="margin-bottom: 4px;">
+                        <span class="sq-box type-tick" onclick="selectSingleType(this)"></span> <strong>C.</strong> For Higher education of children including a legally adopted child
+                    </div>
+                    <div style="margin-bottom: 4px;">
+                        <span class="sq-box type-tick" onclick="selectSingleType(this)"></span> <strong>D.</strong> For treatment of specified illnesses
+                    </div>
+                    <div style="margin-bottom: 4px;">
+                        <span class="sq-box type-tick" onclick="selectSingleType(this)"></span> <strong>E.</strong> To meet medical and incidental expenses arising out of the disability or incapacitation suffered by the subscriber
+                    </div>
+                    <div style="margin-bottom: 4px;">
+                        <span class="sq-box type-tick" onclick="selectSingleType(this)"></span> <strong>F.</strong> For Skill development/re-skilling or any other self-development activities
+                    </div>
+                    <div>
+                        <span class="sq-box type-tick" onclick="selectSingleType(this)"></span> <strong>G.</strong> For Establishment of own venture or any start-up
+                    </div>
+                </div>
+
+                <!-- SUBSCRIBER DECLARATION -->
+                <div class="decl-outer-block">
+                    <div style="font-weight: bold; text-decoration: underline; margin-bottom: 4px;">Subscriber Declaration *:</div>
+                    
+                    <div style="margin-bottom: 6px; display: flex; align-items: flex-start;">
+                        <span class="sq-box" onclick="toggleTick(this)"></span>
+                        <div>
+                            I hereby declare and state that this withdrawal is only for the purpose of <input type="text" class="line-input" style="width: 250px;"> as is permitted under PFRDA (Exits and Withdrawals under National Pension System) Regulations 2015 and amendments thereto.
+                        </div>
+                    </div>
+
+                    <div style="text-align: justify; margin-bottom: 12px; line-height: 1.35;">
+                        I hereby confirm that the above declaration and details have been entered and signed/thumb impressed by me. Also, details furnished above are true and correct. PFRDA/NPS Trust/CRA shall not be responsible for any claims arising out of incorrect documents/information submitted related to partial withdrawal. I understand that funds will be transferred to Bank Account as registered in the CRA system, the proof of which is submitted alongwith Partial Withdrawal Form.
+                    </div>
+
+                    <table class="decl-footer-table">
+                        <tr>
+                            <td style="width: 45%;">
+                                Date : <input type="text" class="line-input" style="width: 120px;"><br><br>
+                                Place : <input type="text" class="line-input" style="width: 120px;">
+                            </td>
+                            <td style="width: 55%; text-align: center;">
+                                <div style="height: 35px; border-bottom: 1px dashed #000; width: 210px; margin: 0 auto 3px auto;"></div>
+                                <strong>Signature/Thumb impression of the Subscriber**</strong>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <div style="font-size: 6.8px; margin-top: 6px; font-style: italic;">
+                        **Left Thumb impression in respect of male claimant and right thumb impression in respect of female claimant.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+// Toggle normal tick box
+function toggleTick(el) {
+    el.innerHTML = el.innerHTML === "✓" ? "" : "✓";
+}
+
+// Single selection for A to G options
+function selectSingleType(clickedEl) {
+    document.querySelectorAll('.type-tick').forEach(el => {
+        el.innerHTML = "";
+    });
+    clickedEl.innerHTML = "✓";
+}
+</script>
+
+</body>
+</html>
