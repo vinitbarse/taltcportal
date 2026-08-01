@@ -227,7 +227,7 @@
         @media print {
             body { background: none; padding: 0; margin: 0; }
             .page { box-shadow: none; margin: 0 auto; padding: 10mm 15mm; width: 210mm; height: 297mm; max-height: 297mm; overflow: hidden; }
-            .control-panel, .copyright-footer { display: none !important; } /* Hidden during print */
+            .control-panel, .copyright-footer.no-print { display: none !important; } /* Hidden during print */
             tr, .flex-container { page-break-inside: avoid !important; }
             /* प्रिंट और PDF में सभी प्लेसहोल्डर छुपाने का नियम */
             input::placeholder, textarea::placeholder, input.readonly-notice::placeholder { color: transparent !important; opacity: 0 !important; display: none !important; }
@@ -625,5 +625,88 @@
         }
     });
     </script>
+    <section class="content-section no-print" style="max-width: 210mm; margin: 30px auto; padding: 25px; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #ffffff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+  
+  <!-- ================= ENGLISH SECTION ================= -->
+  <div class="english-content">
+    <h2 style="color: #1a73e8; border-bottom: 2px solid #1a73e8; padding-bottom: 6px;">How to Fill Official Leave Travel Concession (LTC) Bill Form (7th CPC Guidelines)</h2>
+    <p>The 2-Page Leave Travel Concession (LTC) Bill Form (Form I.T.B.P.F Accts 003 / T.R.-5c) is the standard claim document used by Central Government employees, Defense forces, and Central Armed Police Forces (CAPF) personnel to claim reimbursement for LTC journeys (Home Town LTC or All India LTC / Anywhere in India).</p>
+    
+    <p>Filing this form accurately ensures seamless verification by the Controlling Officer and quick settlement from the Pay & Accounts Office (PAO) without audit objections.</p>
+
+    <h3 style="color: #202124; margin-top: 20px;">Detailed Instructions for LTC Form Fields</h3>
+    
+    <h4 style="color: #3c4043;">Page 1: Personal Details, Family Particulars & Journey Table (Part-A)</h4>
+    <ul>
+      <li><strong>Header Details:</strong> Mention the Sub Bill Number, Block Year (e.g., 2022-2025 or 2026-2029), Bank Account Number, IFSC Code, and Vendor ID for direct Electronic Fund Transfer.</li>
+      <li><strong>Personal Information (Points 1 to 6):</strong> Enter your Name, Regimental/Employee Number, Rank/Designation, Company/Branch, Basic Pay, and Headquarters location.</li>
+      <li><strong>Leave Details (Point 7):</strong> Mention the type and period of sanctioned Earned Leave (EL) or Casual Leave (CL) along with leave order dates.</li>
+      <li><strong>Family Members Table:</strong> List all dependent family members (Self, Spouse, Children, Dependent Parents) traveling under the LTC claim, along with their age and exact relationship.</li>
+      <li><strong>Journey Particulars Table (Point 6):</strong> Enter departure and arrival dates/timings in <code>DD.MM.YY HH:MM</code> format. Fill in 'From' and 'To' stations, total distance in kilometers, entitled travel mode/class, number of fares, and total fare paid.</li>
+    </ul>
+
+    <h4 style="color: #3c4043;">Page 2: LTC Advance, Certificates & Accounts Audit Section (Part-B)</h4>
+    <ul>
+      <li><strong>Point 7 (LTC Advance):</strong> Specify the total LTC advance drawn prior to the journey (if any) along with the voucher details.</li>
+      <li><strong>Points 8 & 9 (Higher Accommodation & Road Travel):</strong> Declare details if travel was performed in a higher class than entitlement or if road journeys were undertaken between places connected by rail.</li>
+      <li><strong>Mandatory Declarations:</strong> Verify that the spouse is not claiming LTC separately for the same block year from any government organization, and sign Page 2 with the current date.</li>
+      <li><strong>Part-B (Bill Section):</strong> Reserved for DDO/Bill Clerk to calculate gross LTC entitlement, deduct LTC advance drawn, and compute the net payable/refundable amount. Service book entries are certified by the Authorized Officer at the bottom.</li>
+    </ul>
+
+    <h3 style="color: #202124; margin-top: 20px;">Essential Attachments for LTC Claim Submission</h3>
+    <ol>
+      <li>Original Train Tickets (e-Tickets / PRS tickets) showing train number, PNR, and fare amount.</li>
+      <li>Air Tickets with Original Boarding Passes and Authorized Booking Agency Invoices (IRCTC, Balmer Lawrie, or Ashok Travels).</li>
+      <li>Copy of Approved Leave Sanction Order & LTC Sanction Order.</li>
+      <li>Dependency Certificate for dependent parents or family members if applicable.</li>
+    </ol>
+  </div>
+
+  <hr style="margin: 40px 0; border: 2px dashed #dadce0;">
+
+  <!-- ================= HINDI SECTION ================= -->
+  <div class="hindi-content">
+    <h2 style="color: #1a73e8; border-bottom: 2px solid #1a73e8; padding-bottom: 6px;">छुट्टी यात्रा रियायत (LTC) बिल फॉर्म कैसे भरें (सम्पूर्ण गाइड)</h2>
+    <p>यह 2-पेज का LTC बिल फॉर्म (फॉर्म I.T.B.P.F Accts 003 / T.R.-5c) केंद्रीय सरकारी कर्मचारियों और सुरक्षा बलों के जवानों द्वारा गृह नगर एलटीसी (Home Town LTC) या भारत में कहीं भी एलटीसी (All India LTC) यात्रा के दावों के लिए उपयोग किया जाता है।</p>
+    
+    <p>फॉर्म को ध्यानपूर्वक और सटीक भरने से पे एंड अकाउंट्स ऑफिस (PAO) द्वारा क्लेम बिना किसी ऑडिट ऑब्जेक्शन के तुरंत पास कर दिया जाता है।</p>
+
+    <h3 style="color: #202124; margin-top: 20px;">फॉर्म भरने के चरण-दर-चरण निर्देश</h3>
+    
+    <h4 style="color: #3c4043;">पेज 1: व्यक्तिगत विवरण, परिवार का ब्यौरा एवं यात्रा विवरण (भाग-क)</h4>
+    <ul>
+      <li><strong>हेडर एवं बैंक ब्यौरा:</strong> उप बिल संख्या, ब्लॉक वर्ष (जैसे 2022-2025 या 2026-2029), बैंक खाता संख्या, IFSC कोड और वेंडर आईडी दर्ज करें।</li>
+      <li><strong>व्यक्तिगत जानकारी (बिंदु 1 से 6):</strong> अपना नाम, दल संख्या (Regt No), पद, कंपनी, मूल वेतन (Basic Pay) और मुख्यालय दर्ज करें।</li>
+      <li><strong>मंजूर छुट्टी का ब्यौरा (बिंदु 7):</strong> एलटीसी के लिए स्वीकृत छुट्टी (जैसे 30 दिन EL) की अवधि और तारीखें लिखें।</li>
+      <li><strong>परिवार के सदस्यों की तालिका:</strong> एलटीसी यात्रा करने वाले सभी आश्रित सदस्यों (स्वयं, पत्नी, बच्चे, माता-पिता) का नाम, आयु और संबंध दर्ज करें।</li>
+      <li><strong>यात्रा विवरण तालिका (बिंदु 6):</strong> जाने व आने की तारीख व समय <code>DD.MM.YY HH:MM</code> प्रारूप में लिखें। प्रस्थान/आगमन स्थान, दूरी (किमी), यात्रा की श्रेणी (3AC/2AC/Flight), टिकटों की संख्या और दिया गया कुल किराया भरें।</li>
+    </ul>
+
+    <h4 style="color: #3c4043;">पेज 2: अग्रिम राशि, घोषणाएं एवं बिल अनुभाग (भाग-ख)</h4>
+    <ul>
+      <li><strong>बिंदु 7 (एलटीसी अग्रिम):</strong> यदि यात्रा से पूर्व कोई LTC Advance लिया गया है, तो उसकी राशि दर्ज करें।</li>
+      <li><strong>बिंदु 8 एवं 9:</strong> यदि हकदारी से उच्च श्रेणी में यात्रा की है या रेल मार्ग के होते हुए सड़क से यात्रा की है, तो उसका ब्यौरा दें।</li>
+      <li><strong>घोषणा पत्र एवं हस्ताक्षर:</strong> यह प्रमाणित करें कि पति/पत्नी द्वारा अलग से एलटीसी का दावा नहीं किया गया है। अंत में अपने हस्ताक्षर करें।</li>
+      <li><strong>भाग-ख (बिल अनुभाग):</strong> यह हिस्सा DDO/पे-क्लर्क द्वारा भरा जाता है। इसमें कुल देय राशि, अग्रिम कटौती और अंतिम शुद्ध राशि (Net Amount) निकालकर सर्विस बुक में प्रविष्टि दर्ज की जाती है।</li>
+    </ul>
+
+    <h3 style="color: #202124; margin-top: 20px;">LTC बिल के साथ लगाए जाने वाले आवश्यक दस्तावेज़</h3>
+    <ol>
+      <li>ट्रेन के मूल ई-टिकट / पीआरएस टिकट (जिसमें PNR और किराया साफ़ दिखे)।</li>
+      <li>हवाई यात्रा के मामले में मूल बोर्डिंग पास (Original Boarding Pass) एवं अधिकृत एजेंसी (IRCTC, Balmer Lawrie, Ashok Travels) का इनवॉइस।</li>
+      <li>स्वीकृत छुट्टी आदेश (Leave Order) और LTC Sanction Order की प्रति।</li>
+      <li>आश्रितों के लिए आवश्यकतानुसार निर्भरता प्रमाण पत्र (Dependency Certificate)।</li>
+    </ol>
+
+    <h3 style="color: #202124; margin-top: 20px;">अक्सर पूछे जाने वाले सवाल (FAQs)</h3>
+    <p><strong>Q1: LTC यात्रा पूरी होने के कितने दिनों में बिल जमा करना होता है?</strong><br>
+    A: यदि आपने एलटीसी अग्रिम (Advance) लिया है, तो यात्रा पूरी होने के 1 महीने के भीतर और यदि अग्रिम नहीं लिया है तो 3 महीने के भीतर बिल जमा करना अनिवार्य है।</p>
+
+    <p><strong>Q2: क्या हवाई यात्रा के लिए किसी भी वेबसाइट से टिकट बुक कर सकते हैं?</strong><br>
+    A: नहीं, सरकारी नियमों (7th CPC) के अनुसार हवाई टिकट केवल IRCTC, Balmer Lawrie या Ashok Travels & Tours से ही बुक होने चाहिए।</p>
+  </div>
+
+</section>
+
 </body>
 </html>
