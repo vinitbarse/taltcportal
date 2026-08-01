@@ -224,14 +224,30 @@
             text-decoration: underline;
         }
 
-        @media print {
-            body { background: none; padding: 0; margin: 0; }
-            .page { box-shadow: none; margin: 0 auto; padding: 10mm 15mm; width: 210mm; height: 297mm; max-height: 297mm; overflow: hidden; }
-            .control-panel, .copyright-footer.no-print { display: none !important; } /* Hidden during print */
-            tr, .flex-container { page-break-inside: avoid !important; }
-            /* प्रिंट और PDF में सभी प्लेसहोल्डर छुपाने का नियम */
-            input::placeholder, textarea::placeholder, input.readonly-notice::placeholder { color: transparent !important; opacity: 0 !important; display: none !important; }
-        }
+       @media print {
+    body { background: none; padding: 0; margin: 0; }
+    .page-container { margin: 0; padding: 0; }
+    .page { 
+        box-shadow: none !important; 
+        margin: 0 auto !important; 
+        padding: 10mm 15mm !important; 
+        width: 210mm !important; 
+        height: 297mm !important; 
+        max-height: 297mm !important; 
+        overflow: hidden !important; 
+        page-break-inside: avoid !important;
+    }
+    .control-panel, .copyright-footer, .no-print, section.content-section { 
+        display: none !important; 
+    }
+    tr, .flex-container { page-break-inside: avoid !important; }
+    input::placeholder, textarea::placeholder, input.readonly-notice::placeholder { 
+        color: transparent !important; 
+        opacity: 0 !important; 
+        display: none !important; 
+    }
+}
+ 
     </style>
 </head>
 <body>
