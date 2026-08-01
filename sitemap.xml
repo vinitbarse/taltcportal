@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Homepage -->
+  <url>
+    <loc>https://taltcportal.in/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/index.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- TA & Travel Tools -->
+  <url>
+    <loc>https://taltcportal.in/ta-calculator.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/ta.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/ta-rules.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/ta-certificate.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/transferta.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/transferta-certificate.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/air_ticket.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- LTC Tools & Rules -->
+  <url>
+    <loc>https://taltcportal.in/ltc.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/ltc-rules.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/ltc-certificate.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- NPS Forms & Withdrawal Tools -->
+  <url>
+    <loc>https://taltcportal.in/nps-updates.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/nps-s2form.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/nps-s7form.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/nps-pan-aadhaar-form.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/nps-601pw-form.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/nps-declaration-partial-withdrawal.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Service Rules & CAPF -->
+  <url>
+    <loc>https://taltcportal.in/conduct-rules.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/capf-salary.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/hra-rules.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Essential Policy Pages -->
+  <url>
+    <loc>https://taltcportal.in/contact.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/privacy.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/disclaimer.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://taltcportal.in/copyright.html</loc>
+    <priority>0.5</priority>
+  </url>
+</urlset>
