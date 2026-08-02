@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      HRA Form - प्रमाण-पत्र
+    </title>
+    <style>
+      * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: &#39;Times New Roman&#39;, &#39;Mangal&#39;, serif;
+            line-height: 1.35;
+            background-color: #f4f4f9;
+            color: #000;
+            padding: 10px;
+        }
+
+        /* Strict Single Page A4 Frame */
+        .page {
+            background: #fff;
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            padding: 12mm 18mm 8mm 18mm;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: underline;
+            margin-bottom: 12px;
+        }
+
+        /* Point layout compact */
+        .point-container {
+            margin-bottom: 8px;
+            text-align: justify;
+            font-size: 13.5px;
+        }
+
+        .point-text {
+            text-indent: -20px;
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+
+        /* Input fields with safe matra padding */
+        .inline-blank {
+            border: none;
+            border-bottom: 1px dotted #000;
+            outline: none;
+            font-family: inherit;
+            font-size: 13.5px;
+            padding: 2px 2px 0px 2px;
+            line-height: 1.6; 
+            background: transparent;
+            text-align: center;
+        }
+
+        /* Bank Detail Box */
+        .bank-details-box {
+            border: 1.5px solid #000;
+            padding: 8px 10px;
+            margin: 6px 0 6px 20px;
+            width: 52%; 
+            background-color: #fafafa;
+        }
+
+        .bank-row {
+            display: flex;
+            margin-bottom: 4px;
+            align-items: baseline;
+        }
+        .bank-row:last-child {
+            margin-bottom: 0;
+        }
+        .bank-row label {
+            font-weight: bold;
+            width: 35%;
+            font-size: 13px;
+        }
+        .bank-row input {
+            width: 65%;
+            border: none;
+            border-bottom: 1px dashed #555;
+            outline: none;
+            font-family: inherit;
+            font-size: 13.5px;
+            padding: 1px 0 1px 4px;
+            line-height: 1.5;
+            background: transparent;
+        }
+
+        /* Signature Section */
+        .signature-section {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            font-size: 13.5px;
+        }
+
+        .sig-block {
+            width: 48%;
+            text-align: left;
+        }
+
+        .sig-block p {
+            margin-bottom: 3px;
+            line-height: 1.6;
+        }
+
+        .no-print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        .no-print-btn:hover {
+            background-color: #0056b3;
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            body { 
+                background: none; 
+                padding: 0; 
+                margin: 0;
+            }
+            .page { 
+                box-shadow: none; 
+                margin: 0; 
+                padding: 12mm 15mm 8mm 15mm; 
+                width: 210mm;
+                height: 297mm;
+            }
+            .no-print-btn { 
+                display: none !important; 
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <button class="no-print-btn" onclick="window.print()">
+      Print / Save as PDF
+    </button>
+    <div class="page">
+      <div class="title">
+        प्रमाण-पत्र
+      </div>
+      <!-- Point 1 -->
+      <div class="point-container">
+        <div class="point-text">
+          1. प्रमाणित किया जाता है कि दल संख्या-
+          <input type="text" class="inline-blank" style="width: 100px;" />
+          पद-
+          <input type="text" class="inline-blank" style="width: 100px;" />
+          नाम-
+          <input type="text" class="inline-blank" style="width: 190px;" />
+          <input type="text" class="inline-blank" style="width: 150px;" />
+          में दिनांक-
+          <input type="text" class="inline-blank" style="width: 100px;" placeholder="तारीख" />
+          से दिनांक-
+          <input type="text" class="inline-blank" style="width: 100px;" placeholder="तारीख" />
+          तक मैं पदस्थ हूँ। मेरा परिवार मेरे पर आश्रित (हाँ/नहीं) है। यदि मेरे आश्रित है तो मेरे परिवार के सदस्य जहाँ पर वर्तमान समय में दिनांक-
+          <input type="text" class="inline-blank" style="width: 100px;" />
+          से रह रहे है। जिसका पता निम्नानुसार है (हिन्दी एवं अंग्रेजी में)-
+          <br />
+          गाँँव/शहर-
+          <input type="text" class="inline-blank" style="width: 260px;" />
+          पो०-
+          <input type="text" class="inline-blank" style="width: 130px;" />
+          तहसील-
+          <input type="text" class="inline-blank" style="width: 110px;" />
+          जिला-
+          <input type="text" class="inline-blank" style="width: 120px;" />
+          राज्य-
+          <input type="text" class="inline-blank" style="width: 150px;" />
+          पिन कोड-
+          <input type="text" class="inline-blank" style="width: 110px;" />
+          <br />
+          Vill.
+          <input type="text" class="inline-blank" style="width: 240px;" />
+          PO.
+          <input type="text" class="inline-blank" style="width: 130px;" />
+          Teh.
+          <input type="text" class="inline-blank" style="width: 110px;" />
+          Distt.
+          <input type="text" class="inline-blank" style="width: 120px;" />
+          State.
+          <input type="text" class="inline-blank" style="width: 150px;" />
+          Pin code.
+          <input type="text" class="inline-blank" style="width: 100px;" />
+        </div>
+      </div>
+      <!-- Point 2 -->
+      <div class="point-container">
+        <div class="point-text">
+          2. जिस स्थान पर कर्मी के आश्रित रह रहे है/तैनाती स्थल/पूर्व में तैनाती स्थल एवं अन्य किसी स्थान पर सरकारी आवास की सुविधा है अथवा नहीं है। यदि है तो सरकारी आवास टाईप-
+          <input type="text" class="inline-blank" style="width: 45px;" />
+          आवास संख्या-
+          <input type="text" class="inline-blank" style="width: 120px;" />
+          स्थान-
+          <input type="text" class="inline-blank" style="width: 150px;" />
+          जिला-
+          <input type="text" class="inline-blank" style="width: 110px;" />
+          राज्य-
+          <input type="text" class="inline-blank" style="width: 150px;" />
+          में दिनांक-
+          <input type="text" class="inline-blank" style="width: 100px;" />
+          से आवंटित है।
+        </div>
+      </div>
+      <!-- Point 3 -->
+      <div class="point-container">
+        <div class="point-text">
+          3. जिस स्थान पर कर्मी के आश्रित रह रहे हैं, वो स्थान/शहर X, Y, Z श्रेणी में आता है।
+        </div>
+      </div>
+      <!-- Point 4 -->
+      <div class="point-container">
+        <div class="point-text">
+          4. चयनित स्थान पर जहाँ पर मेरा परिवार/आश्रित रह रहे हैं, पर कोई सरकारी आवास उपलब्ध है अथवा नहीं, तथा कर्मी द्वारा चयनित स्थान पर सरकारी आवास चाहने हेतु आवेदन किया गया है (हॉ/नहीं) यदि सरकारी आवास के लिए आवेदन किया गया है, तो आवेदन की स्थिति।
+        </div>
+      </div>
+      <!-- Point 5 -->
+      <div class="point-container">
+        <div class="point-text">
+          5. चयनित स्थान जहाँ पर मेरा परिवार/आश्रित रह रहे हैं, वह मेरा स्वयं का मकान है/किराये का मकान है।
+        </div>
+      </div>
+      <!-- Point 6 -->
+      <div class="point-container">
+        <div class="point-text">
+          6. यदि कर्मी की शादी नहीं हुई है तो क्या उसके माता या पिता सरकारी नौकरी में है या नहीं। यदि नही है तो उनकी न्यूनतम मासिक आय रुपये 9000/- से कम है, का निर्भरता प्रमाण पत्र संबंधित अपने गृह जिला अधिकारी से प्राप्त करके प्रस्तुत किया जाये।
+        </div>
+      </div>
+      <!-- Point 7 -->
+      <div class="point-container">
+        <div class="point-text">
+          7. मैं प्रशासनिक आवश्यकताओं के कारण दिनांक-
+          <input type="text" class="inline-blank" style="width: 100px;" />
+          से
+          <input type="text" class="inline-blank" style="width: 100px;" />
+          तक जवान बैरक/अधि० अधिकारी डोरमैट्री में रह रहा हूँ अर्थात स्वयं के इच्छानुसार नहीं रह रहा हूँ जिसके कारण नियमानुसार 7वें वेतन आयोग की सिफारिशों के अनुसार
+          <input type="text" class="inline-blank" style="width: 65px;" />
+          श्रेणी का हाउसिंग भत्ता/मकान किराया भत्ता स्वीकृत करवाने का कष्ट करें।
+        </div>
+        <!-- Bank Box directly under Point 7 -->
+        <div class="bank-details-box">
+          <div class="bank-row">
+            <label>
+              खाता संख्या-
+            </label>
+            <input type="text" />
+          </div>
+          <div class="bank-row">
+            <label>
+              आई.एफ.सी. कोड-
+            </label>
+            <input type="text" />
+          </div>
+          <div class="bank-row">
+            <label>
+              वेंडर आईडी-
+            </label>
+            <input type="text" />
+          </div>
+        </div>
+      </div>
+      <!-- Signature Block strictly inside Page 1 -->
+      <div class="signature-section">
+        <div class="sig-block">
+          <p style="text-align: center; font-weight: bold; margin-bottom: 8px;">
+            व्यक्ति विशेष के हस्ताक्षर
+          </p>
+          <p>
+            दल संख्या—
+            <input type="text" class="inline-blank" style="width: 68%;" />
+          </p>
+          <p>
+            पद—
+            <input type="text" class="inline-blank" style="width: 78%;" />
+          </p>
+          <p>
+            नाम—
+            <input type="text" class="inline-blank" style="width: 76%;" />
+          </p>
+          <p>
+            समवाय/शाखा—
+            <input type="text" class="inline-blank" style="width: 61%;" />
+          </p>
+          <p>
+            वाहिनी—
+            <input type="text" class="inline-blank" style="width: 71%;" />
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
