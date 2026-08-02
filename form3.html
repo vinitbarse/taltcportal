@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Form No. 3 - Details of Family & Nomination Forms</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Times New Roman', Times, serif;
+        line-height: 1.35;
+        background-color: #d1d8e0;
+        color: #000;
+        padding: 25px 10px;
+      }
+
+      /* Container standard to match portal layout (850px width) */
+      .form-container {
+        width: 850px;
+        margin: 0 auto;
+      }
+
+      /* Strict A4 Print Container */
+      .page {
+        background: #ffffff !important;
+        margin-bottom: 35px;
+        padding: 45px 45px;
+        border: 2px solid #718093;
+        border-radius: 6px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 1050px;
+        position: relative;
+      }
+
+      /* First Page top spacing for photo area */
+      .page-1-content {
+        padding-top: 80px;
+      }
+
+      h2, h3 {
+        text-align: center;
+        margin: 0 0 4px 0;
+        text-transform: uppercase;
+      }
+
+      .subtitle {
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 15px;
+        font-size: 13px;
+      }
+
+      .form-group {
+        display: flex;
+        margin-bottom: 8px;
+        align-items: baseline;
+      }
+      .form-group label {
+        font-weight: bold;
+        width: 38%;
+        font-size: 13.5px;
+      }
+      .form-group .dots {
+        width: 4%;
+        text-align: center;
+      }
+
+      .form-group input[type="text"], 
+      .form-group input[type="date"],
+      .inline-input {
+        width: 58%;
+        border: none;
+        border-bottom: 1px dotted #000;
+        padding: 1px 4px;
+        font-size: 13.5px;
+        font-family: inherit;
+        outline: none;
+        background: transparent;
+      }
+
+      /* Hide Calendar Indicator Arrows for clean paper look */
+      input[type="date"]::-webkit-calendar-picker-indicator,
+      input[type="date"]::-webkit-inner-spin-button,
+      input[type="date"]::-webkit-clear-button {
+        display: none !important;
+        -webkit-appearance: none;
+      }
+      input[type="date"] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+      }
+
+      /* Compact Table Styling */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0 6px 0;
+      }
+      table, th, td {
+        border: 1px solid #000;
+      }
+      th {
+        background-color: #f2f2f2;
+        font-size: 12px;
+        padding: 6px 4px;
+        text-align: center;
+      }
+      td {
+        padding: 4px;
+        vertical-align: top;
+      }
+
+      td input, td textarea {
+        width: 100%;
+        border: none !important;
+        box-shadow: none !important;
+        box-sizing: border-box;
+        font-size: 12.5px;
+        font-family: inherit;
+        background: transparent;
+        resize: none;
+        outline: none;
+        overflow: hidden;
+        line-height: 1.2;
+      }
+      
+      .auto-expand {
+        min-height: 28px;
+      }
+
+      /* Action Buttons Wrapper */
+      .action-btns {
+        margin-bottom: 12px;
+      }
+      .btn {
+        padding: 5px 12px;
+        font-size: 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+      .btn-add { background-color: #28a745; color: white; }
+      .btn-add:hover { background-color: #218838; }
+      .btn-del { background-color: #dc3545; color: white; }
+      .btn-del:hover { background-color: #c82333; }
+
+      .declaration {
+        margin-top: 12px;
+        text-align: justify;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .row-flex {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+      }
+      .col-flex {
+        width: 48%;
+      }
+
+      .note-section {
+        margin-top: 15px;
+        font-size: 11.5px;
+        border-top: 1px solid #000;
+        padding-top: 8px;
+        line-height: 1.4;
+      }
+
+      .control-panel { 
+        text-align: center; 
+        margin-bottom: 25px; 
+      }
+      .btn-print { 
+        background-color: #007bff; 
+        color: white; 
+        border: none; 
+        padding: 12px 35px; 
+        cursor: pointer; 
+        border-radius: 6px; 
+        font-weight: bold; 
+        font-size: 16px; 
+        box-shadow: 0 4px 10px rgba(0,123,255,0.3); 
+      }
+
+      /* ==================== Strict A4 Print Engine ==================== */
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+        body { 
+          background: white !important; 
+          padding: 0 !important; 
+          margin: 0 !important;
+        }
+        .form-container { 
+          width: 100% !important; 
+          margin: 0 !important; 
+        }
+        .page { 
+          border: none !important;
+          box-shadow: none !important; 
+          margin: 0 !important; 
+          padding: 12mm 12mm !important; 
+          width: 100% !important;
+          min-height: 297mm !important;
+          page-break-after: always !important;
+          break-after: page !important;
+        }
+        .page:last-of-type {
+          page-break-after: avoid !important;
+          break-after: avoid !important;
+        }
+        .control-panel, .action-btns, .no-print-ad, .no-print, section.content-section { 
+          display: none !important; 
+        }
+        input[type="text"], input[type="date"], .inline-input { 
+          border-bottom: 1px solid #000 !important; 
+        }
+        input::placeholder { 
+          color: transparent !important; 
+          opacity: 0 !important; 
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="form-container">
+
+      <div class="control-panel">
+        <button type="button" class="btn-print" onclick="window.print()">📥 Print / Save Form No.-3 PDF</button>
+      </div>
+
+      <!-- PAGE 1: DETAILS OF FAMILY -->
+      <div class="page">
+        <div class="page-1-content">
+          <h2>:FORM NO.-3:</h2>
+          <div class="subtitle">{See Rules 54 (12)}</div>
+          <h3>:DETAILS OF FAMILY:</h3>
+          <br />
+          <div class="form-group" style="margin-top: 15px;">
+            <label>1. Name of the Govt. Servant</label>
+            <div class="dots">:</div>
+            <input type="text" placeholder="Enter full name" />
+          </div>
+          <div class="form-group">
+            <label>2. Designation</label>
+            <div class="dots">:</div>
+            <input type="text" placeholder="Enter designation" />
+          </div>
+          <div class="form-group">
+            <label>3. Date of Birth</label>
+            <div class="dots">:</div>
+            <input type="date" placeholder="DD/MM/YYYY" />
+          </div>
+          <div class="form-group">
+            <label>4. Date of appointment</label>
+            <div class="dots">:</div>
+            <input type="date" placeholder="DD/MM/YYYY" />
+          </div>
+          <div class="form-group">
+            <label>5. Details of family members as On</label>
+            <div class="dots">:</div>
+            <input type="date" style="width: 30%;" placeholder="DD/MM/YYYY" />
+          </div>
+          <table id="tablePage1">
+            <thead>
+              <tr>
+                <th style="width: 7%;">Sl.No.</th>
+                <th style="width: 30%;">Name of members of "Family"</th>
+                <th style="width: 18%;">Date of Birth</th>
+                <th style="width: 20%;">Relationship with official</th>
+                <th style="width: 13%;">Initial of Head of Office</th>
+                <th style="width: 12%;">Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input type="text" value="1" style="text-align:center;" />
+                </td>
+                <td>
+                  <textarea class="auto-expand" oninput="autoResize(this)"></textarea>
+                </td>
+                <td>
+                  <input type="date" placeholder="DD/MM/YYYY" />
+                </td>
+                <td>
+                  <textarea class="auto-expand" oninput="autoResize(this)"></textarea>
+                </td>
+                <td>
+                  <input type="text" />
+                </td>
+                <td>
+                  <textarea class="auto-expand" oninput="autoResize(this)"></textarea>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="action-btns">
+            <button type="button" class="btn btn-add" onclick="addRowPage1()">+ Add Row</button>
+            <button type="button" class="btn btn-del" onclick="deleteRow('tablePage1')">- Delete Row</button>
+          </div>
+          <p class="declaration">
+            I hereby undertake to keep the above particulars up to date by notifying to the Accounts Officer/Head of Office any addition or alteration.
+          </p>
+          <div class="row-flex">
+            <div class="col-flex">
+              <div class="form-group">
+                <label style="width:30%">Place</label>
+                <div class="dots">:</div>
+                <input type="text" style="width:65%" />
+              </div>
+              <div class="form-group">
+                <label style="width:30%">Dated</label>
+                <div class="dots">:</div>
+                <input type="date" style="width:65%" placeholder="DD/MM/YYYY" />
+              </div>
+            </div>
+            <div class="col-flex" style="text-align: right; margin-top: 15px;">
+              <strong>SIGNATURE OF THE GOVT. SERVANT</strong>
+            </div>
+          </div>
+          <div class="note-section">
+            <p style="margin:2px 0;">* Family for this purpose means:-</p>
+            <p style="margin:2px 0;">
+              (a) Wife, in the case of male government servant.<br />
+              (b) Husband, in the case of a female government servant.<br />
+              (c) Son's below 25 years of age and unmarried daughters below 25 years of age;
+            </p>
+            <p style="margin:2px 0;">
+              Including such son or daughter adopted legally before retirement.
+            </p>
+            <p style="margin:2px 0;">
+              <strong><u>NOTE:</u></strong> Wife and husband shall include respectively judicially separated wife and husband.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 2: GRATUITY NOMINATION -->
+      <div class="page">
+        <h2>FORM - I</h2>
+        <h3><u>NOMINATION FOR DEATH CUM RETIREMENT GRATUITY</u></h3>
+        <p class="declaration" style="font-size: 12.5px;">
+          When the Government servant has a family and wishes to nominate one member or more than one member thereof.
+        </p>
+        <p class="declaration">
+          I <input type="text" class="inline-input" style="width: 35%;" placeholder="Name of Govt Servant" /> hereby nominate the person/persons mentioned below who is/are members(s) of my family, and confer on him/them the right to receive, to the extent specified below, any gratuity that may be sanctioned by the Central Government in the event of my death to the extent specified below, any gratuity which having become admissible terms on retirement may remain unpaid at my death:-
+        </p>
+        <table style="font-size: 11.5px;" id="tablePage2">
+          <thead>
+            <tr>
+              <th colspan="4">Original nominee(s)</th>
+              <th colspan="2">Alternate nominee(s)</th>
+            </tr>
+            <tr>
+              <th style="width: 25%;">Name &amp; address of nominee/nominees</th>
+              <th style="width: 15%;">Relationship with Govt. Servant</th>
+              <th style="width: 8%;">Age</th>
+              <th style="width: 12%;">Amount or share gratuity payable each*</th>
+              <th style="width: 28%;">Name, address, relationship &amp; age of person to whom right conferred shall pass if nominee predeceases Govt. Servant</th>
+              <th style="width: 12%;">Amount or share of gratuity payable to each**</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <textarea class="auto-expand" oninput="autoResize(this)"></textarea>
+              </td>
+              <td>
+                <textarea class="auto-expand" oninput="autoResize(this)"></textarea>
+              </td>
+              <td>
+                <input type="text" />
+              </td>
+              <td>
+                <input type="text" />
+              </td>
+              <td>
+                <textarea class="auto-expand" oninput="autoResize(this)"></textarea>
+              </td>
+              <td>
+                <input type="text" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="action-btns">
+          <button type="button" class="btn btn-add" onclick="addRowPage2()">+ Add Row</button>
+          <button type="button" class="btn btn-del" onclick="deleteRow('tablePage2')">- Delete Row</button>
+        </div>
+        <p style="font-size: 11px; margin:2px 0;">
+          * This column should be filled in so to cover the whole amount of the gratuity.
+        </p>
+        <p style="font-size: 11px; margin:2px 0;">
+          ** The amount share of gratuity shown in this column should cover whole share payable to original nominee(s)
+        </p>
+        <p class="declaration">
+          This nomination supersedes the nomination made by me earlier on
+          <input type="text" class="inline-input" style="width:15%;" />
+          which stands cancelled.
+        </p>
+        <p class="declaration">
+          Dated this
+          <input type="text" class="inline-input" style="width:8%; text-align:center;" />
+          day of
+          <input type="text" class="inline-input" style="width:15%; text-align:center;" />
+          20
+          <input type="text" class="inline-input" style="width:5%; text-align:center;" />
+          at
+          <input type="text" class="inline-input" style="width:20%;" />
+        </p>
+        <div class="row-flex">
+          <div class="col-flex">
+            <p style="margin:2px 0;"><strong>Witness to Signature:</strong></p>
+            <p style="margin:3px 0;">1. <input type="text" class="inline-input" style="width: 80%;" /></p>
+            <p style="margin:3px 0;">2. <input type="text" class="inline-input" style="width: 80%;" /></p>
+          </div>
+          <div class="col-flex" style="text-align: right; margin-top: 20px;">
+            <p style="margin:0;"><strong>Signature of Government Servant</strong></p>
+          </div>
+        </div>
+        <div style="border: 1px solid #000; padding: 10px; margin-top: 15px; font-size: 12px;">
+          <p style="text-align: center; margin:0 0 6px 0;">
+            <strong>(To be filled by the Head of Office / Audit Officer)</strong>
+          </p>
+          <p style="margin:3px 0;">
+            Signature of Head of Office / Audit Officer:
+            <input type="text" class="inline-input" style="width:50%;" />
+          </p>
+          <div class="row-flex" style="margin-top:6px;">
+            <div class="col-flex">
+              <p style="margin:2px 0;">Nomination by: <input type="text" class="inline-input" style="width:60%;" /></p>
+              <p style="margin:2px 0;">Designation: <input type="text" class="inline-input" style="width:65%;" /></p>
+              <p style="margin:2px 0;">Office: <input type="text" class="inline-input" style="width:75%;" /></p>
+            </div>
+            <div class="col-flex">
+              <p style="margin:2px 0;">Dated: <input type="date" class="inline-input" style="width:70%;" placeholder="DD/MM/YYYY" /></p>
+              <p style="margin:2px 0;">Designation: <input type="text" class="inline-input" style="width:65%;" /></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 3: FAMILY PENSION NOMINATION -->
+      <div class="page">
+        <h3><u>NOMINATION FOR FAMILY PENSION</u></h3>
+        <p class="declaration">
+          I hereby nominate the persons who are members of my family to receive in the order shown below the family pension which may be granted by Government in the event of my death after completion of qualifying service:-
+        </p>
+        <table id="tablePage3">
+          <thead>
+            <tr>
+              <th style="width: 35%;">Name &amp; Address of nominee</th>
+              <th style="width: 25%;">Relationship with official</th>
+              <th style="width: 15%;">Age</th>
+              <th style="width: 25%;">Whether married or unmarried</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <textarea class="auto-expand" oninput="autoResize(this)"></textarea>
+              </td>
+              <td>
+                <textarea class="auto-expand" oninput="autoResize(this)"></textarea>
+              </td>
+              <td>
+                <input type="text" />
+              </td>
+              <td>
+                <input type="text" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="action-btns">
+          <button type="button" class="btn btn-add" onclick="addRowPage3()">+ Add Row</button>
+          <button type="button" class="btn btn-del" onclick="deleteRow('tablePage3')">- Delete Row</button>
+        </div>
+        <p class="declaration">
+          This nomination supersedes the nomination made by me earlier on
+          <input type="text" class="inline-input" style="width:20%;" />
+          which stands cancelled.
+        </p>
+        <p class="declaration">
+          Dated this
+          <input type="text" class="inline-input" style="width:10%;" />
+          day of
+          <input type="text" class="inline-input" style="width:15%;" />
+          20
+          <input type="text" class="inline-input" style="width:5%;" />
+        </p>
+        <div class="row-flex">
+          <div class="col-flex">
+            <p style="margin:2px 0;"><strong>Witness of Signature:</strong></p>
+            <p style="margin:3px 0;">1. <input type="text" class="inline-input" style="width:80%;" /></p>
+            <p style="margin:3px 0;">2. <input type="text" class="inline-input" style="width:80%;" /></p>
+          </div>
+          <div class="col-flex" style="text-align: right; margin-top: 20px;">
+            <p><strong>Signature of Government Servant</strong></p>
+          </div>
+        </div>
+        <div style="border-top: 1px dashed #000; margin-top: 12px; padding-top: 10px;">
+          <p style="text-align: center; margin:0;">
+            <strong>(To be filled in by Head of Office in case of Non-Gazetted Officer)</strong>
+          </p>
+          <p style="margin:3px 0;">Nomination by: <input type="text" class="inline-input" style="width:40%;" /></p>
+          <p style="margin:3px 0;">Designation: <input type="text" class="inline-input" style="width:40%;" /></p>
+          <p style="margin:3px 0;">Office: <input type="text" class="inline-input" style="width:45%;" /></p>
+          <div class="row-flex" style="margin-top:4px;">
+            <div class="col-flex">
+              <p style="margin:2px 0;">Date: <input type="date" class="inline-input" style="width:70%;" placeholder="DD/MM/YYYY" /></p>
+            </div>
+            <div class="col-flex" style="text-align: right;">
+              <p style="margin:0;"><strong>Signature of Head Of Office</strong></p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 15px; font-size: 12.5px; border-top: 1px solid #000; padding-top: 8px;">
+          <p style="text-align: center; margin:0 0 4px 0;">
+            <strong>(Acknowledging the receipt of Nomination Form by Head of Office)</strong>
+          </p>
+          <p style="margin:2px 0;">To,</p>
+          <p style="padding-left: 20px; margin:2px 0;">Shri/Smt. <input type="text" class="inline-input" style="width:50%;" /></p>
+          <p style="padding-left: 20px; margin:2px 0;"><input type="text" class="inline-input" style="width:55%;" /></p>
+          <p class="declaration" style="margin-top: 6px;">
+            In acknowledging the receipt of your nomination dated
+            <input type="text" class="inline-input" style="width:15%;" />
+            / Cancellation dated
+            <input type="text" class="inline-input" style="width:15%;" />
+            of nomination made earlier, in respect of gratuity/pension, I am to state that it has been duly placed on record.
+          </p>
+          <div class="row-flex" style="margin-top: 10px;">
+            <div class="col-flex">
+              <p style="margin:2px 0;">Place: <input type="text" class="inline-input" style="width:70%;" /></p>
+              <p style="margin:2px 0;">Dated: <input type="date" class="inline-input" style="width:65%;" placeholder="DD/MM/YYYY" /></p>
+            </div>
+            <div class="col-flex" style="text-align: right;">
+              <p style="margin:0;"><strong>Signature of Head of Office</strong></p>
+              <p style="margin:2px 0;">Designation: <input type="text" class="inline-input" style="width:60%;" /></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- Closes .form-container -->
+
+    <!-- ================= 800+ Words SEO Guide Section ================= -->
+    <section class="content-section no-print" style="max-width: 850px; margin: 30px auto; padding: 25px; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #ffffff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); color: #333;">
+      
+      <!-- ENGLISH SECTION -->
+      <div class="english-content">
+        <h2 style="color: #1a73e8; border-bottom: 2px solid #1a73e8; padding-bottom: 6px;">Guide to Form No. 3 (Details of Family), Gratuity &amp; Family Pension Nomination</h2>
+        <p><strong>Form No. 3</strong> under Rule 54 (12) of the Central Civil Services (CCS) Pension Rules, 1972 is a mandatory statutory document submitted by Central Government employees, Defense personnel, and CAPF jawans upon joining service. It records official family details and facilitates valid nominations for <strong>Death-cum-Retirement Gratuity (DCRG)</strong> and <strong>Family Pension</strong>.</p>
+        
+        <p>Maintaining an updated Form No. 3 in your official Service Book ensures immediate settlement of pensionary benefits and gratuity claims to eligible family members without legal or administrative hurdles in the event of unforeseen contingencies.</p>
+
+        <h3 style="color: #202124; margin-top: 20px;">Page-by-Page Filling Instructions</h3>
+        
+        <h4 style="color: #3c4043;">Page 1: Details of Family (Form No. 3)</h4>
+        <ul>
+          <li><strong>Government Servant Particulars:</strong> Fill in your full official name, designation, date of birth, date of appointment, and the current date of declaration.</li>
+          <li><strong>Family Members Table:</strong> List dependent family members including spouse, sons below 25 years, and unmarried daughters below 25 years (including legally adopted children before retirement).</li>
+          <li><strong>Definition Note:</strong> Under CCS Pension Rules, spouse includes judicially separated husband or wife. Married daughters and sons above 25 years are generally excluded unless suffering from permanent disability.</li>
+        </ul>
+
+        <h4 style="color: #3c4043;">Page 2: Nomination for Death-cum-Retirement Gratuity (Form - I)</h4>
+        <ul>
+          <li><strong>Original Nominees:</strong> Specify nominee names, exact addresses, relationship with the employee, age, and percentage share of gratuity payable to each member (totaling 100%).</li>
+          <li><strong>Alternate Nominees:</strong> Nominate alternate individuals to whom the right shall pass if the primary nominee predeceases the employee.</li>
+          <li><strong>Attestation &amp; Witness:</strong> Must be signed in the presence of two independent witnesses and counter-signed by the Head of Office (HOO).</li>
+        </ul>
+
+        <h4 style="color: #3c4043;">Page 3: Family Pension Nomination &amp; Official Acknowledgement</h4>
+        <ul>
+          <li><strong>Order of Entitlement:</strong> Nominate family members to receive Family Pension in sequential priority order in case of death during service or post-retirement.</li>
+          <li><strong>Head of Office Receipt:</strong> Ensure the lower portion (Acknowledgement slip) is signed, stamped, and officially recorded in your Service Book by the Head of Office / Audit Officer.</li>
+        </ul>
+
+        <h3 style="color: #202124; margin-top: 20px;">Key Documents to Attach</h3>
+        <ol>
+          <li>Passport-size Joint / Family Photograph (affixed on Page 1 as applicable).</li>
+          <li>Attested copies of Birth Certificates / Aadhaar cards of dependent children.</li>
+          <li>Copy of Official Appointment / Joining Order.</li>
+        </ol>
+      </div>
+
+      <hr style="margin: 40px 0; border: 2px dashed #dadce0;">
+
+      <!-- HINDI SECTION -->
+      <div class="hindi-content">
+        <h2 style="color: #1a73e8; border-bottom: 2px solid #1a73e8; padding-bottom: 6px;">फ़ॉर्म नंबर 3 (परिवार का विवरण), ग्रेच्युटी एवं फैमिली पेंशन नामांकन मार्गदर्शिका</h2>
+        <p>केंद्रीय सिविल सेवा (CCS) पेंशन नियम, 1972 के नियम 54 (12) के तहत <strong>Form No. 3</strong> एक अति आवश्यक वैधानिक फॉर्म है। यह फॉर्म केंद्रीय सरकारी कर्मचारियों, सेना और अर्धसैनिक बलों (CRPF, BSF, ITBP, CISF, SSB) के कर्मचारियों द्वारा सेवा में शामिल होते समय और परिवार में बदलाव होने पर भरा जाता है। यह फॉर्म <strong>ग्रेच्युटी (DCRG)</strong> और <strong>फैमिली पेंशन</strong> के सही नामांकित व्यक्तियों का ब्यौरा दर्ज करता है।</p>
+
+        <h3 style="color: #202124; margin-top: 20px;">फॉर्म भरने के मुख्य चरण और नियम</h3>
+        
+        <h4 style="color: #3c4043;">पेज 1: परिवार का ब्यौरा (Form No. 3)</h4>
+        <ul>
+          <li><strong>कर्मचारी का विवरण:</strong> अपना पूरा नाम, पद (Designation), जन्म तिथि और नियुक्ति तिथि (Date of Appointment) दर्ज करें।</li>
+          <li><strong>परिवार के सदस्यों की सूची:</strong> पत्नी/पति, 25 वर्ष से कम आयु के पुत्र तथा 25 वर्ष से कम आयु की अविवाहित पुत्रियों (गोद ली गई संतान सहित) का नाम, जन्म तिथि और संबंध दर्ज करें।</li>
+        </ul>
+
+        <h4 style="color: #3c4043;">पेज 2: ग्रेच्युटी नामांकन (Form - I)</h4>
+        <ul>
+          <li><strong>मूल नामित व्यक्ति (Original Nominees):</strong> नामांकित परिजनों का नाम, पता, संबंध, आयु और प्रतिशत हिस्सा (Share of Gratuity) भरें।</li>
+          <li><strong>वैकल्पिक नामांकन (Alternate Nominee):</strong> यदि मूल नॉमिनी की मृत्यु कर्मचारी से पहले हो जाती है, तो अधिकार किसे मिलेगा उसका ब्यौरा दर्ज करें।</li>
+          <li><strong>गवाह (Witness):</strong> दो गवाहों के हस्ताक्षर करवाएँ और अपने कार्यालयाध्यक्ष (Head of Office) से सत्यापित करवाएँ।</li>
+        </ul>
+
+        <h4 style="color: #3c4043;">पेज 3: पारिवारिक पेंशन नामांकन एवं पावती (Acknowledgement)</h4>
+        <ul>
+          <li><strong>पेंशन क्रम:</strong> मृत्यु की स्थिति में फैमिली पेंशन प्राप्त करने वाले सदस्यों को प्राथमिकता क्रम में दर्ज करें।</li>
+          <li><strong>पावती रसीद:</strong> फॉर्म जमा करने के बाद निचले भाग (Acknowledgement Slip) पर कार्यालयाध्यक्ष के हस्ताक्षर एवं मुहर लगवाकर अपनी सर्विस बुक (Service Book) में दर्ज करवाएँ।</li>
+        </ul>
+
+        <h3 style="color: #202124; margin-top: 20px;">अक्सर पूछे जाने वाले प्रश्न (FAQs)</h3>
+        <p><strong>Q1: क्या विवाह या बच्चे के जन्म के बाद फ़ॉर्म नंबर 3 को अपडेट करना जरूरी है?</strong><br>
+        A: हाँ, परिवार में किसी भी नए सदस्य के जुड़ने (विवाह/बच्चे का जन्म) या बदलाव होने पर तुरंत नया Form 3 भरकर कार्यालयाध्यक्ष को देना अनिवार्य है।</p>
+
+        <p><strong>Q2: क्या 25 वर्ष से अधिक आयु के पुत्र या विवाहित पुत्री को इसमें शामिल किया जा सकता है?</strong><br>
+        A: सामान्यतः नहीं। केवल तब शामिल किया जा सकता है जब वे स्थायी रूप से शारीरिक या मानसिक विकलांगता से ग्रस्त हों और आय का कोई साधन न हो।</p>
+      </div>
+
+    </section>
+    <!-- ================= 800+ Words SEO Guide Section End ================= -->
+
+    <!-- Auto-Save & Dynamic Row Handling Script -->
+    <script>
+      function autoResize(element) {
+        element.style.height = 'auto';
+        element.style.height = element.scrollHeight + 'px';
+      }
+
+      // Page 1 Table Row Appending
+      function addRowPage1() {
+        var tbody = document.getElementById("tablePage1").getElementsByTagName("tbody")[0];
+        var nextIndex = tbody.rows.length + 1;
+        var newRow = tbody.insertRow();
+        newRow.innerHTML = `
+            <td><input type="text" value="${nextIndex}" style="text-align:center;"></td>
+            <td><textarea class="auto-expand" oninput="autoResize(this)"></textarea></td>
+            <td><input type="date" placeholder="DD/MM/YYYY"></td>
+            <td><textarea class="auto-expand" oninput="autoResize(this)"></textarea></td>
+            <td><input type="text"></td>
+            <td><textarea class="auto-expand" oninput="autoResize(this)"></textarea></td>
+        `;
+        attachInputListeners();
+      }
+
+      // Page 2 Table Row Appending
+      function addRowPage2() {
+        var tbody = document.getElementById("tablePage2").getElementsByTagName("tbody")[0];
+        var newRow = tbody.insertRow();
+        newRow.innerHTML = `
+            <td><textarea class="auto-expand" oninput="autoResize(this)"></textarea></td>
+            <td><textarea class="auto-expand" oninput="autoResize(this)"></textarea></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><textarea class="auto-expand" oninput="autoResize(this)"></textarea></td>
+            <td><input type="text"></td>
+        `;
+        attachInputListeners();
+      }
+
+      // Page 3 Table Row Appending
+      function addRowPage3() {
+        var tbody = document.getElementById("tablePage3").getElementsByTagName("tbody")[0];
+        var newRow = tbody.insertRow();
+        newRow.innerHTML = `
+            <td><textarea class="auto-expand" oninput="autoResize(this)"></textarea></td>
+            <td><textarea class="auto-expand" oninput="autoResize(this)"></textarea></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+        `;
+        attachInputListeners();
+      }
+
+      // Generic Delete Row Function
+      function deleteRow(tableId) {
+        var tbody = document.getElementById(tableId).getElementsByTagName("tbody")[0];
+        if (tbody.rows.length > 1) {
+          tbody.deleteRow(tbody.rows.length - 1);
+          saveAllData();
+        }
+      }
+
+      // ================= Auto-Save Logic =================
+      const pageKey = window.location.pathname;
+
+      function attachInputListeners() {
+        const fields = document.querySelectorAll("input, textarea");
+        fields.forEach((field, index) => {
+          field.addEventListener("input", () => {
+            localStorage.setItem(`${pageKey}_field_${index}`, field.value);
+          });
+        });
+      }
+
+      function restoreData() {
+        const fields = document.querySelectorAll("input, textarea");
+        fields.forEach((field, index) => {
+          const savedValue = localStorage.getItem(`${pageKey}_field_${index}`);
+          if (savedValue !== null) {
+            field.value = savedValue;
+            if (field.tagName.toLowerCase() === 'textarea') {
+              autoResize(field);
+            }
+          }
+        });
+      }
+
+      function saveAllData() {
+        const fields = document.querySelectorAll("input, textarea");
+        fields.forEach((field, index) => {
+          localStorage.setItem(`${pageKey}_field_${index}`, field.value);
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        restoreData();
+        attachInputListeners();
+
+        const printBtn = document.querySelector(".btn-print");
+        if (printBtn) {
+          printBtn.addEventListener("click", () => {
+            setTimeout(() => {
+              const fields = document.querySelectorAll("input, textarea");
+              fields.forEach((field, index) => {
+                localStorage.removeItem(`${pageKey}_field_${index}`);
+              });
+            }, 2000);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
