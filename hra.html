@@ -3,319 +3,434 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      HRA Form - प्रमाण-पत्र
-    </title>
+    <title>HRA Form - मकान किराया भत्ता प्रमाण-पत्र</title>
     <style>
       * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: &#39;Times New Roman&#39;, &#39;Mangal&#39;, serif;
-            line-height: 1.35;
-            background-color: #f4f4f9;
-            color: #000;
-            padding: 10px;
-        }
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Times New Roman', 'Mangal', serif;
+        line-height: 1.35;
+        background-color: #d1d8e0;
+        color: #000;
+        padding: 25px 10px;
+      }
 
-        /* Strict Single Page A4 Frame */
-        .page {
-            background: #fff;
-            width: 210mm;
-            height: 297mm;
-            margin: 0 auto;
-            padding: 12mm 18mm 8mm 18mm;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
+      /* Fixed container standard for portal view (850px width) */
+      .form-container {
+        width: 850px;
+        margin: 0 auto;
+      }
 
-        .title {
-            text-align: center;
-            font-weight: bold;
-            font-size: 18px;
-            text-decoration: underline;
-            margin-bottom: 12px;
-        }
+      /* Strict Single Page A4 Frame */
+      .page {
+        background: #ffffff !important;
+        margin-bottom: 35px;
+        padding: 35px 40px;
+        border: 2px solid #718093;
+        border-radius: 6px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 1020px;
+        position: relative;
+      }
 
-        /* Point layout compact */
-        .point-container {
-            margin-bottom: 8px;
-            text-align: justify;
-            font-size: 13.5px;
-        }
+      .title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        text-decoration: underline;
+        margin-bottom: 12px;
+      }
 
-        .point-text {
-            text-indent: -20px;
-            padding-left: 20px;
-            line-height: 1.6;
-        }
+      /* Point layout compact */
+      .point-container {
+        margin-bottom: 8px;
+        text-align: justify;
+        font-size: 13.5px;
+      }
 
-        /* Input fields with safe matra padding */
-        .inline-blank {
-            border: none;
-            border-bottom: 1px dotted #000;
-            outline: none;
-            font-family: inherit;
-            font-size: 13.5px;
-            padding: 2px 2px 0px 2px;
-            line-height: 1.6; 
-            background: transparent;
-            text-align: center;
-        }
+      .point-text {
+        text-indent: -20px;
+        padding-left: 20px;
+        line-height: 1.55;
+      }
 
-        /* Bank Detail Box */
-        .bank-details-box {
-            border: 1.5px solid #000;
-            padding: 8px 10px;
-            margin: 6px 0 6px 20px;
-            width: 52%; 
-            background-color: #fafafa;
-        }
+      /* Input fields with safe matra padding */
+      .inline-blank {
+        border: none;
+        border-bottom: 1px dotted #000;
+        outline: none;
+        font-family: inherit;
+        font-size: 13.5px;
+        padding: 2px 2px 0px 2px;
+        line-height: 1.5; 
+        background: transparent;
+        text-align: center;
+      }
 
-        .bank-row {
-            display: flex;
-            margin-bottom: 4px;
-            align-items: baseline;
-        }
-        .bank-row:last-child {
-            margin-bottom: 0;
-        }
-        .bank-row label {
-            font-weight: bold;
-            width: 35%;
-            font-size: 13px;
-        }
-        .bank-row input {
-            width: 65%;
-            border: none;
-            border-bottom: 1px dashed #555;
-            outline: none;
-            font-family: inherit;
-            font-size: 13.5px;
-            padding: 1px 0 1px 4px;
-            line-height: 1.5;
-            background: transparent;
-        }
+      /* Bank Detail Box */
+      .bank-details-box {
+        border: 1.5px solid #000;
+        padding: 8px 10px;
+        margin: 6px 0 6px 20px;
+        width: 52%; 
+        background-color: #fafafa;
+      }
 
-        /* Signature Section */
-        .signature-section {
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            font-size: 13.5px;
-        }
+      .bank-row {
+        display: flex;
+        margin-bottom: 4px;
+        align-items: baseline;
+      }
+      .bank-row:last-child {
+        margin-bottom: 0;
+      }
+      .bank-row label {
+        font-weight: bold;
+        width: 35%;
+        font-size: 13px;
+      }
+      .bank-row input {
+        width: 65%;
+        border: none;
+        border-bottom: 1px dashed #555;
+        outline: none;
+        font-family: inherit;
+        font-size: 13.5px;
+        padding: 1px 0 1px 4px;
+        line-height: 1.5;
+        background: transparent;
+      }
 
-        .sig-block {
-            width: 48%;
-            text-align: left;
-        }
+      /* Signature Section */
+      .signature-section {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        font-size: 13.5px;
+      }
 
-        .sig-block p {
-            margin-bottom: 3px;
-            line-height: 1.6;
-        }
+      .sig-block {
+        width: 48%;
+        text-align: left;
+      }
 
-        .no-print-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 15px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-        .no-print-btn:hover {
-            background-color: #0056b3;
-        }
+      .sig-block p {
+        margin-bottom: 3px;
+        line-height: 1.6;
+      }
 
-        @media print {
-            @page {
-                size: A4;
-                margin: 0;
-            }
-            body { 
-                background: none; 
-                padding: 0; 
-                margin: 0;
-            }
-            .page { 
-                box-shadow: none; 
-                margin: 0; 
-                padding: 12mm 15mm 8mm 15mm; 
-                width: 210mm;
-                height: 297mm;
-            }
-            .no-print-btn { 
-                display: none !important; 
-            }
+      .control-panel { 
+        text-align: center; 
+        margin-bottom: 25px; 
+      }
+      .btn-print { 
+        background-color: #007bff; 
+        color: white; 
+        border: none; 
+        padding: 12px 35px; 
+        cursor: pointer; 
+        border-radius: 6px; 
+        font-weight: bold; 
+        font-size: 16px; 
+        box-shadow: 0 4px 10px rgba(0,123,255,0.3); 
+      }
+
+      /* ==================== A4 PRINT ENGINE ==================== */
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
         }
+        body { 
+          background: white !important; 
+          padding: 0 !important; 
+          margin: 0 !important;
+        }
+        .form-container { 
+          width: 100% !important; 
+          margin: 0 !important; 
+        }
+        .page { 
+          border: none !important;
+          box-shadow: none !important; 
+          margin: 0 !important; 
+          padding: 12mm 15mm 8mm 15mm !important; 
+          width: 100% !important;
+          height: 297mm !important;
+        }
+        .control-panel, .no-print-ad, .no-print, section.content-section { 
+          display: none !important; 
+        }
+        .inline-blank, .bank-row input {
+          border-bottom: 1px solid #000 !important;
+        }
+        input::placeholder { 
+          color: transparent !important; 
+          opacity: 0 !important; 
+        }
+      }
     </style>
   </head>
   <body>
-    <button class="no-print-btn" onclick="window.print()">
-      Print / Save as PDF
-    </button>
-    <div class="page">
-      <div class="title">
-        प्रमाण-पत्र
+
+    <div class="form-container">
+
+      <div class="control-panel">
+        <button type="button" class="btn-print" onclick="window.print()">📥 Print / Save HRA Certificate PDF</button>
       </div>
-      <!-- Point 1 -->
-      <div class="point-container">
-        <div class="point-text">
-          1. प्रमाणित किया जाता है कि दल संख्या-
-          <input type="text" class="inline-blank" style="width: 100px;" />
-          पद-
-          <input type="text" class="inline-blank" style="width: 100px;" />
-          नाम-
-          <input type="text" class="inline-blank" style="width: 190px;" />
-          <input type="text" class="inline-blank" style="width: 150px;" />
-          में दिनांक-
-          <input type="text" class="inline-blank" style="width: 100px;" placeholder="तारीख" />
-          से दिनांक-
-          <input type="text" class="inline-blank" style="width: 100px;" placeholder="तारीख" />
-          तक मैं पदस्थ हूँ। मेरा परिवार मेरे पर आश्रित (हाँ/नहीं) है। यदि मेरे आश्रित है तो मेरे परिवार के सदस्य जहाँ पर वर्तमान समय में दिनांक-
-          <input type="text" class="inline-blank" style="width: 100px;" />
-          से रह रहे है। जिसका पता निम्नानुसार है (हिन्दी एवं अंग्रेजी में)-
-          <br />
-          गाँँव/शहर-
-          <input type="text" class="inline-blank" style="width: 260px;" />
-          पो०-
-          <input type="text" class="inline-blank" style="width: 130px;" />
-          तहसील-
-          <input type="text" class="inline-blank" style="width: 110px;" />
-          जिला-
-          <input type="text" class="inline-blank" style="width: 120px;" />
-          राज्य-
-          <input type="text" class="inline-blank" style="width: 150px;" />
-          पिन कोड-
-          <input type="text" class="inline-blank" style="width: 110px;" />
-          <br />
-          Vill.
-          <input type="text" class="inline-blank" style="width: 240px;" />
-          PO.
-          <input type="text" class="inline-blank" style="width: 130px;" />
-          Teh.
-          <input type="text" class="inline-blank" style="width: 110px;" />
-          Distt.
-          <input type="text" class="inline-blank" style="width: 120px;" />
-          State.
-          <input type="text" class="inline-blank" style="width: 150px;" />
-          Pin code.
-          <input type="text" class="inline-blank" style="width: 100px;" />
-        </div>
-      </div>
-      <!-- Point 2 -->
-      <div class="point-container">
-        <div class="point-text">
-          2. जिस स्थान पर कर्मी के आश्रित रह रहे है/तैनाती स्थल/पूर्व में तैनाती स्थल एवं अन्य किसी स्थान पर सरकारी आवास की सुविधा है अथवा नहीं है। यदि है तो सरकारी आवास टाईप-
-          <input type="text" class="inline-blank" style="width: 45px;" />
-          आवास संख्या-
-          <input type="text" class="inline-blank" style="width: 120px;" />
-          स्थान-
-          <input type="text" class="inline-blank" style="width: 150px;" />
-          जिला-
-          <input type="text" class="inline-blank" style="width: 110px;" />
-          राज्य-
-          <input type="text" class="inline-blank" style="width: 150px;" />
-          में दिनांक-
-          <input type="text" class="inline-blank" style="width: 100px;" />
-          से आवंटित है।
-        </div>
-      </div>
-      <!-- Point 3 -->
-      <div class="point-container">
-        <div class="point-text">
-          3. जिस स्थान पर कर्मी के आश्रित रह रहे हैं, वो स्थान/शहर X, Y, Z श्रेणी में आता है।
-        </div>
-      </div>
-      <!-- Point 4 -->
-      <div class="point-container">
-        <div class="point-text">
-          4. चयनित स्थान पर जहाँ पर मेरा परिवार/आश्रित रह रहे हैं, पर कोई सरकारी आवास उपलब्ध है अथवा नहीं, तथा कर्मी द्वारा चयनित स्थान पर सरकारी आवास चाहने हेतु आवेदन किया गया है (हॉ/नहीं) यदि सरकारी आवास के लिए आवेदन किया गया है, तो आवेदन की स्थिति।
-        </div>
-      </div>
-      <!-- Point 5 -->
-      <div class="point-container">
-        <div class="point-text">
-          5. चयनित स्थान जहाँ पर मेरा परिवार/आश्रित रह रहे हैं, वह मेरा स्वयं का मकान है/किराये का मकान है।
-        </div>
-      </div>
-      <!-- Point 6 -->
-      <div class="point-container">
-        <div class="point-text">
-          6. यदि कर्मी की शादी नहीं हुई है तो क्या उसके माता या पिता सरकारी नौकरी में है या नहीं। यदि नही है तो उनकी न्यूनतम मासिक आय रुपये 9000/- से कम है, का निर्भरता प्रमाण पत्र संबंधित अपने गृह जिला अधिकारी से प्राप्त करके प्रस्तुत किया जाये।
-        </div>
-      </div>
-      <!-- Point 7 -->
-      <div class="point-container">
-        <div class="point-text">
-          7. मैं प्रशासनिक आवश्यकताओं के कारण दिनांक-
-          <input type="text" class="inline-blank" style="width: 100px;" />
-          से
-          <input type="text" class="inline-blank" style="width: 100px;" />
-          तक जवान बैरक/अधि० अधिकारी डोरमैट्री में रह रहा हूँ अर्थात स्वयं के इच्छानुसार नहीं रह रहा हूँ जिसके कारण नियमानुसार 7वें वेतन आयोग की सिफारिशों के अनुसार
-          <input type="text" class="inline-blank" style="width: 65px;" />
-          श्रेणी का हाउसिंग भत्ता/मकान किराया भत्ता स्वीकृत करवाने का कष्ट करें।
-        </div>
-        <!-- Bank Box directly under Point 7 -->
-        <div class="bank-details-box">
-          <div class="bank-row">
-            <label>
-              खाता संख्या-
-            </label>
-            <input type="text" />
-          </div>
-          <div class="bank-row">
-            <label>
-              आई.एफ.सी. कोड-
-            </label>
-            <input type="text" />
-          </div>
-          <div class="bank-row">
-            <label>
-              वेंडर आईडी-
-            </label>
-            <input type="text" />
+
+      <div class="page">
+        <div class="title">प्रमाण-पत्र</div>
+        
+        <!-- Point 1 -->
+        <div class="point-container">
+          <div class="point-text">
+            1. प्रमाणित किया जाता है कि दल संख्या-
+            <input type="text" class="inline-blank" style="width: 100px;" />
+            पद-
+            <input type="text" class="inline-blank" style="width: 100px;" />
+            नाम-
+            <input type="text" class="inline-blank" style="width: 190px;" />
+            <input type="text" class="inline-blank" style="width: 150px;" />
+            में दिनांक-
+            <input type="text" class="inline-blank" style="width: 100px;" placeholder="तारीख" />
+            से दिनांक-
+            <input type="text" class="inline-blank" style="width: 100px;" placeholder="तारीख" />
+            तक मैं पदस्थ हूँ। मेरा परिवार मेरे पर आश्रित (हाँ/नहीं) है। यदि मेरे आश्रित है तो मेरे परिवार के सदस्य जहाँ पर वर्तमान समय में दिनांक-
+            <input type="text" class="inline-blank" style="width: 100px;" />
+            से रह रहे है। जिसका पता निम्नानुसार है (हिन्दी एवं अंग्रेजी में)-
+            <br />
+            गाँँव/शहर-
+            <input type="text" class="inline-blank" style="width: 240px;" />
+            पो०-
+            <input type="text" class="inline-blank" style="width: 130px;" />
+            तहसील-
+            <input type="text" class="inline-blank" style="width: 110px;" />
+            जिला-
+            <input type="text" class="inline-blank" style="width: 120px;" />
+            राज्य-
+            <input type="text" class="inline-blank" style="width: 140px;" />
+            पिन कोड-
+            <input type="text" class="inline-blank" style="width: 110px;" />
+            <br />
+            Vill.
+            <input type="text" class="inline-blank" style="width: 240px;" />
+            PO.
+            <input type="text" class="inline-blank" style="width: 130px;" />
+            Teh.
+            <input type="text" class="inline-blank" style="width: 110px;" />
+            Distt.
+            <input type="text" class="inline-blank" style="width: 120px;" />
+            State.
+            <input type="text" class="inline-blank" style="width: 140px;" />
+            Pin code.
+            <input type="text" class="inline-blank" style="width: 100px;" />
           </div>
         </div>
-      </div>
-      <!-- Signature Block strictly inside Page 1 -->
-      <div class="signature-section">
-        <div class="sig-block">
-          <p style="text-align: center; font-weight: bold; margin-bottom: 8px;">
-            व्यक्ति विशेष के हस्ताक्षर
-          </p>
-          <p>
-            दल संख्या—
-            <input type="text" class="inline-blank" style="width: 68%;" />
-          </p>
-          <p>
-            पद—
-            <input type="text" class="inline-blank" style="width: 78%;" />
-          </p>
-          <p>
-            नाम—
-            <input type="text" class="inline-blank" style="width: 76%;" />
-          </p>
-          <p>
-            समवाय/शाखा—
-            <input type="text" class="inline-blank" style="width: 61%;" />
-          </p>
-          <p>
-            वाहिनी—
-            <input type="text" class="inline-blank" style="width: 71%;" />
-          </p>
+
+        <!-- Point 2 -->
+        <div class="point-container">
+          <div class="point-text">
+            2. जिस स्थान पर कर्मी के आश्रित रह रहे है/तैनाती स्थल/पूर्व में तैनाती स्थल एवं अन्य किसी स्थान पर सरकारी आवास की सुविधा है अथवा नहीं है। यदि है तो सरकारी आवास टाईप-
+            <input type="text" class="inline-blank" style="width: 45px;" />
+            आवास संख्या-
+            <input type="text" class="inline-blank" style="width: 120px;" />
+            स्थान-
+            <input type="text" class="inline-blank" style="width: 150px;" />
+            जिला-
+            <input type="text" class="inline-blank" style="width: 110px;" />
+            राज्य-
+            <input type="text" class="inline-blank" style="width: 150px;" />
+            में दिनांक-
+            <input type="text" class="inline-blank" style="width: 100px;" />
+            से आवंटित है।
+          </div>
         </div>
+
+        <!-- Point 3 -->
+        <div class="point-container">
+          <div class="point-text">
+            3. जिस स्थान पर कर्मी के आश्रित रह रहे हैं, वो स्थान/शहर X, Y, Z श्रेणी में आता है।
+          </div>
+        </div>
+
+        <!-- Point 4 -->
+        <div class="point-container">
+          <div class="point-text">
+            4. चयनित स्थान पर जहाँ पर मेरा परिवार/आश्रित रह रहे हैं, पर कोई सरकारी आवास उपलब्ध है अथवा नहीं, तथा कर्मी द्वारा चयनित स्थान पर सरकारी आवास चाहने हेतु आवेदन किया गया है (हॉ/नहीं) यदि सरकारी आवास के लिए आवेदन किया गया है, तो आवेदन की स्थिति।
+          </div>
+        </div>
+
+        <!-- Point 5 -->
+        <div class="point-container">
+          <div class="point-text">
+            5. चयनित स्थान जहाँ पर मेरा परिवार/आश्रित रह रहे हैं, वह मेरा स्वयं का मकान है/किराये का मकान है।
+          </div>
+        </div>
+
+        <!-- Point 6 -->
+        <div class="point-container">
+          <div class="point-text">
+            6. यदि कर्मी की शादी नहीं हुई है तो क्या उसके माता या पिता सरकारी नौकरी में है या नहीं। यदि नही है तो उनकी न्यूनतम मासिक आय रुपये 9000/- से कम है, का निर्भरता प्रमाण पत्र संबंधित अपने गृह जिला अधिकारी से प्राप्त करके प्रस्तुत किया जाये।
+          </div>
+        </div>
+
+        <!-- Point 7 -->
+        <div class="point-container">
+          <div class="point-text">
+            7. मैं प्रशासनिक आवश्यकताओं के कारण दिनांक-
+            <input type="text" class="inline-blank" style="width: 100px;" />
+            से
+            <input type="text" class="inline-blank" style="width: 100px;" />
+            तक जवान बैरक/अधि० अधिकारी डोरमैट्री में रह रहा हूँ अर्थात स्वयं के इच्छानुसार नहीं रह रहा हूँ जिसके कारण नियमानुसार 7वें वेतन आयोग की सिफारिशों के अनुसार
+            <input type="text" class="inline-blank" style="width: 65px;" />
+            श्रेणी का हाउसिंग भत्ता/मकान किराया भत्ता स्वीकृत करवाने का कष्ट करें।
+          </div>
+          
+          <!-- Bank Box directly under Point 7 -->
+          <div class="bank-details-box">
+            <div class="bank-row">
+              <label>खाता संख्या-</label>
+              <input type="text" />
+            </div>
+            <div class="bank-row">
+              <label>आई.एफ.सी. कोड-</label>
+              <input type="text" />
+            </div>
+            <div class="bank-row">
+              <label>वेंडर आईडी-</label>
+              <input type="text" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Signature Block strictly inside Page 1 -->
+        <div class="signature-section">
+          <div class="sig-block">
+            <p style="text-align: center; font-weight: bold; margin-bottom: 8px;">
+              व्यक्ति विशेष के हस्ताक्षर
+            </p>
+            <p>
+              दल संख्या—
+              <input type="text" class="inline-blank" style="width: 68%;" />
+            </p>
+            <p>
+              पद—
+              <input type="text" class="inline-blank" style="width: 78%;" />
+            </p>
+            <p>
+              नाम—
+              <input type="text" class="inline-blank" style="width: 76%;" />
+            </p>
+            <p>
+              समवाय/शाखा—
+              <input type="text" class="inline-blank" style="width: 61%;" />
+            </p>
+            <p>
+              वाहिनी—
+              <input type="text" class="inline-blank" style="width: 71%;" />
+            </p>
+          </div>
+        </div>
+      </div> <!-- Closes .page -->
+
+    </div> <!-- Closes .form-container -->
+
+    <!-- ================= 800+ Words SEO Guide Section ================= -->
+    <section class="content-section no-print" style="max-width: 850px; margin: 30px auto; padding: 25px; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #ffffff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); color: #333;">
+      
+      <!-- ENGLISH SECTION -->
+      <div class="english-content">
+        <h2 style="color: #1a73e8; border-bottom: 2px solid #1a73e8; padding-bottom: 6px;">Comprehensive Guide to House Rent Allowance (HRA) Claim Certificate (7th CPC Rules)</h2>
+        <p>The <strong>House Rent Allowance (HRA) Certificate</strong> is an official declaration form submitted by Central Government employees, Defense personnel, and Central Armed Police Forces (CAPF - BSF, CRPF, ITBP, CISF, SSB) jawans to claim or draw monthly HRA as per 7th Pay Commission recommendations. It certifies whether official accommodation is allotted, whether dependents reside at the posting location or home town, and the classification (X, Y, Z city) of the residence.</p>
+        
+        <p>Under 7th CPC rules, HRA rates are categorized based on city classifications: <strong>X Class (27%/30%)</strong>, <strong>Y Class (18%/20%)</strong>, and <strong>Z Class (9%/10%)</strong>. Filling out this certificate with verified bank account details ensures prompt processing by the Pay &amp; Accounts Office (PAO).</p>
+
+        <h3 style="color: #202124; margin-top: 20px;">Detailed Explanation of Certificate Declarations (Points 1 to 7)</h3>
+        <ul>
+          <li><strong>Point 1 (Service &amp; Dependent Address):</strong> Declare your Regiment/IRLA number, rank, full name, posting tenure dates, and family dependency status. Enter the complete address of dependent family members in both Hindi and English with PIN code.</li>
+          <li><strong>Point 2 (Government Quarter Status):</strong> Specify whether government quarter (Type-I to IV) is allotted at the current posting, previous posting, or family location.</li>
+          <li><strong>Point 3 (City Classification):</strong> Declare the classification category (X, Y, or Z) of the station where your family is currently residing.</li>
+          <li><strong>Point 4 &amp; 5 (Accommodation Application &amp; Ownership):</strong> Certify whether you have applied for official accommodation at the family location and whether the residence is self-owned or rented.</li>
+          <li><strong>Point 6 (Unmarried Personnel Dependency Criteria):</strong> Unmarried personnel claiming HRA for dependent parents must certify that parents are not in government service and their monthly income is below ₹9,000/- (attested by District Revenue Officer).</li>
+          <li><strong>Point 7 &amp; Bank Details (Barrack/Dormitory Occupancy):</strong> Certify that you are occupying Jawan Barracks/Officer Dormitory due to administrative compulsions (and not out of personal choice), making you eligible for HRA. Enter Bank Account Number, IFSC Code, and Vendor ID for direct credit.</li>
+        </ul>
+
+        <h3 style="color: #202124; margin-top: 20px;">Mandatory Supporting Documents for HRA Claims</h3>
+        <ol>
+          <li>Original Rent Agreement (if living in rented accommodation exceeding threshold limits).</li>
+          <li>Rent Receipts with Revenue Stamp (with Landlord's PAN if annual rent exceeds ₹1,000,000).</li>
+          <li>No Accommodation Certificate (NAC) issued by the Quartermaster/Estate Officer.</li>
+          <li>Dependency Certificate from Home District Authority (for unmarried personnel claiming parent dependency).</li>
+        </ol>
       </div>
-    </div>
+
+      <hr style="margin: 40px 0; border: 2px dashed #dadce0;">
+
+      <!-- HINDI SECTION -->
+      <div class="hindi-content">
+        <h2 style="color: #1a73e8; border-bottom: 2px solid #1a73e8; padding-bottom: 6px;">मकान किराया भत्ता (HRA) प्रमाण-पत्र भरने की सम्पूर्ण नियम पुस्तिका</h2>
+        <p>यह <strong>मकान किराया भत्ता (HRA) प्रमाण-पत्र</strong> केंद्रीय सरकारी कर्मचारियों, सेना और अर्धसैनिक बलों (CRPF, BSF, ITBP, CISF, SSB) के अधिकारियों और जवानों द्वारा 7वें वेतन आयोग की सिफारिशों के तहत मासिक HRA प्राप्त करने के लिए दिया जाने वाला एक वैधानिक स्व-घोषणा पत्र है। इसके माध्यम से यह सत्यापित किया जाता है कि कर्मी या उसके परिवार के पास सरकारी आवास है या नहीं और वे किस शहर की श्रेणी (X, Y, Z) में निवास कर रहे हैं।</p>
+
+        <h3 style="color: #202124; margin-top: 20px;">प्रमाण-पत्र के मुख्य बिंदुओं को भरने के निर्देश</h3>
+        <ul>
+          <li><strong>बिंदु 1 (व्यक्तिगत विवरण एवं पता):</strong> अपनी बेल्ट/दल संख्या, पद, नाम, पदस्थ रहने की अवधि और आश्रित परिजनों का पूरा पता हिंदी तथा अंग्रेजी में पिन कोड सहित भरें।</li>
+          <li><strong>बिंदु 2 (सरकारी आवास की स्थिति):</strong> यदि आपको वर्तमान या पूर्व तैनाती स्थल पर कोई सरकारी आवास (Type I/II/III आदि) आवंटित है, तो उसकी संख्या व स्थान दर्ज करें।</li>
+          <li><strong>बिंदु 3 एवं 4 (शहर श्रेणी व आवेदन):</strong> आश्रितों के रहने का स्थान X (मेट्रो), Y (बड़े शहर) या Z (ग्रामीण/छोटे शहर) श्रेणी में आता है या नहीं, उसकी घोषणा करें।</li>
+          <li><strong>बिंदु 5 एवं 6 (मकान प्रकार व अविवाहित कर्मचारी नियम):</strong> मकान स्वयं का है या किराये का, उसकी स्पष्ट जानकारी दें। अविवाहित कर्मियों के माता-पिता की न्यूनतम मासिक आय ₹9,000/- से कम होने पर राजस्व अधिकारी द्वारा जारी निर्भरता प्रमाण पत्र लगाना अनिवार्य है।</li>
+          <li><strong>बिंदु 7 एवं बैंक विवरण (बैरक/डोरमैट्री निवास):</strong> प्रशासनिक कारणों से जवान बैरक या अधिकारी डोरमैट्री में रहने का प्रमाण दें ताकि नियमानुसार HRA स्वीकृत हो सके। अपना बैंक खाता संख्या, IFSC कोड और वेंडर आईडी सही-सही दर्ज करें।</li>
+        </ul>
+
+        <h3 style="color: #202124; margin-top: 20px;">अक्सर पूछे जाने वाले प्रश्न (FAQs)</h3>
+        <p><strong>Q1: 7वें वेतन आयोग में HRA की दरें क्या हैं?</strong><br>
+        A: 7th CPC के अनुसार शहरों को तीन श्रेणियों में बाँटा गया है - X श्रेणी (27%/30%), Y श्रेणी (18%/20%), और Z श्रेणी (9%/10%)।</p>
+
+        <p><strong>Q2: क्या बैरक में रहने वाले जवान HRA के हकदार हैं?</strong><br>
+        A: यदि जवान प्रशासनिक बाध्यता के कारण बैरक/डोरमैट्री में रह रहा है और परिवार अन्य स्थान पर है, तो नियमानुसार HRA स्वीकृत किया जाता है।</p>
+      </div>
+
+    </section>
+    <!-- ================= 800+ Words SEO Guide Section End ================= -->
+
+    <!-- Auto-Save Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const inputs = document.querySelectorAll("input");
+        const pageKey = window.location.pathname;
+
+        // 1. Restore saved data on page load
+        inputs.forEach((input, index) => {
+            const savedValue = localStorage.getItem(`${pageKey}_input_${index}`);
+            if (savedValue) {
+                input.value = savedValue;
+            }
+
+            // 2. Save data on every input change
+            input.addEventListener("input", () => {
+                localStorage.setItem(`${pageKey}_input_${index}`, input.value);
+            });
+        });
+
+        // 3. Clear memory after print button is clicked
+        const printBtn = document.querySelector(".btn-print");
+        if (printBtn) {
+            printBtn.addEventListener("click", () => {
+                setTimeout(() => {
+                    inputs.forEach((input, index) => {
+                        localStorage.removeItem(`${pageKey}_input_${index}`);
+                    });
+                }, 2000); 
+            });
+        }
+    });
+    </script>
+    <!-- End Auto-Save Script -->
+
   </body>
 </html>
