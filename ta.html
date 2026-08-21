@@ -5,10 +5,38 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRAVELLING ALLOWANCE BILL FOR TOUR - ORIGINAL 4 PAGES</title>
+    <title>TRAVELLING ALLOWANCE BILL FOR TOUR - ORIGINAL 4 PAGES - TA LTC Portal</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Times New Roman', 'Mangal', serif; line-height: 1.35; background-color: #f4f4f9; color: #000; padding: 10px; }
+        
+        /* 🏠 Floating Home Button */
+        .home-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: #1e3c72;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: #2a5298;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+            color: #fff;
+        }
+
         .page { background: #fff; width: 210mm; min-height: 297mm; margin: 15px auto; padding: 12mm 15mm; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; page-break-after: always; break-after: page; }
         .page:last-of-type { page-break-after: avoid; break-after: avoid; }
         .top-sub-header { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 8px; font-weight: bold; }
@@ -136,6 +164,7 @@
         
         @media print {
             body { background: none; padding: 0; margin: 0; }
+            .home-btn { display: none !important; }
             .page { box-shadow: none; margin: 0; padding: 10mm; width: 210mm; }
             .screenshot-btn-panel { display: none !important; }
             .modal-overlay { display: none !important; } 
@@ -146,6 +175,11 @@
     </style>
 </head>
 <body>
+
+    <!-- 🏠 Floating Home Button -->
+    <a href="index.html" class="home-btn" title="Go to Home Page">
+        🏠 Home
+    </a>
 
     <div class="modal-overlay" id="instructionModal">
         <div class="modal-box">
@@ -227,7 +261,6 @@
                         <th colspan="2" style="width: 14%;">सदत्त यात्री भाड़ा / Fare Paid</th>
                         <th rowspan="2" style="width: 11%;">सड़क मील भत्ता के लिए दूरी कि. मी. में</th>
                         <th rowspan="2" style="width: 11%;">विश्राम की अवधि / Halt</th>
-                        <!-- बदलाव: हेडिंग को आपके निर्देशानुसार यात्रा की अवधि / यात्रा का प्रयोजन किया गया -->
                         <th rowspan="2" style="width: 6%;" class="vertical-text">यात्रा की अवधि / यात्रा का प्रयोजन</th>
                     </tr>
                     <tr>
@@ -241,7 +274,6 @@
                 </thead>
                 <tbody id="tableBody">
                     <tr class="journey-row">
-                        <!-- डेट फ़ील्ड्स में अक्षरों (abcd) को ब्लॉक करने का रेगैक्स नियम लागू किया गया है -->
                         <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY&#10;HH:MM" oninput="autoResize(this); this.value = this.value.replace(/[^0-9.:\/\s\n-]/g, '');"></textarea></td>
                         <td><textarea class="cell-expand" rows="1" placeholder="From" oninput="autoResize(this)"></textarea></td>
                         <td><textarea class="cell-expand" rows="1" placeholder="DD.MM.YY&#10;HH:MM" oninput="autoResize(this); this.value = this.value.replace(/[^0-9.:\/\s\n-]/g, '');"></textarea></td>
@@ -415,7 +447,6 @@
             </div>
 
             <div class="flex-container" style="margin-top: 50px;">
-                <!-- तारीख बॉक्स में एबीसीडी ब्लॉक -->
                 <div>तारीख / Date: <input type="text" class="inline-blank" style="width: 120px;" oninput="this.value = this.value.replace(/[^0-9.:\/\s\n-]/g, '');"></div>
                 <div style="text-align: right; width: 50%;">
                     <br><br>
