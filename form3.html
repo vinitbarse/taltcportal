@@ -4,7 +4,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7936972567930323"
      crossorigin="anonymous"></script>
     <meta charset="UTF-8" />
-    <title>Form No. 3 - Details of Family & Nomination Forms</title>
+    <title>Form No. 3 - Details of Family & Nomination Forms - TA LTC Portal</title>
     <style>
       * {
         box-sizing: border-box;
@@ -17,6 +17,33 @@
         background-color: #d1d8e0;
         color: #000;
         padding: 25px 10px;
+      }
+
+      /* 🏠 Floating Home Button */
+      .home-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background: #1e3c72;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 10px 18px;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 25px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.3s ease;
+      }
+
+      .home-btn:hover {
+        background: #2a5298;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+        color: #fff;
       }
 
       /* Container standard to match portal layout (850px width) */
@@ -204,6 +231,9 @@
           padding: 0 !important; 
           margin: 0 !important;
         }
+        .home-btn { 
+          display: none !important; 
+        }
         .form-container { 
           width: 100% !important; 
           margin: 0 !important; 
@@ -236,6 +266,11 @@
     </style>
   </head>
   <body>
+
+    <!-- 🏠 Floating Home Button -->
+    <a href="index.html" class="home-btn" title="Go to Home Page">
+      🏠 Home
+    </a>
 
     <div class="form-container">
 
@@ -591,11 +626,14 @@
           <li><strong>Head of Office Receipt:</strong> Ensure the lower portion (Acknowledgement slip) is signed, stamped, and officially recorded in your Service Book by the Head of Office / Audit Officer.</li>
         </ul>
 
-        <h3 style="color: #202124; margin-top: 20px;">Key Documents to Attach</h3>
+        <h3 style="color: #202124; margin-top: 20px;">Mandatory Checklist of Documents &amp; Strict Guidelines</h3>
         <ol>
-          <li>Passport-size Joint / Family Photograph (affixed on Page 1 as applicable).</li>
-          <li>Attested copies of Birth Certificates / Aadhaar cards of dependent children.</li>
-          <li>Copy of Official Appointment / Joining Order.</li>
+          <li><strong>Family Photograph:</strong> Combined joint family photograph affixed on the designated space of Form 3.</li>
+          <li><strong>Identity Proofs:</strong> Self-attested identity proof copies (e.g. valid identity cards) of all listed family members.</li>
+          <li><strong>Inclusion of Spouse (Wife's Name):</strong> Official Marriage Certificate is mandatory along with an updated government identity document reflecting the changed surname/name post-marriage.</li>
+          <li><strong>Inclusion of Child:</strong> Official Birth Certificate issued by the Municipal Corporation / Registrar of Births.</li>
+          <li><strong>Dependent Parents:</strong> Valid Income Certificate and Dependency Certificate with official seal and signature of the competent revenue authority (Tehsildar).</li>
+          <li><strong>Critical Rule on Name &amp; DOB Matching:</strong> Always enter the exact Name and Date of Birth as recorded on the identity documents. If there is any discrepancy between the identity document and official Service Book entries, explicitly mention it in your forwarding application requesting necessary correction as per the identity document.</li>
         </ol>
       </div>
 
@@ -626,6 +664,16 @@
           <li><strong>पेंशन क्रम:</strong> मृत्यु की स्थिति में फैमिली पेंशन प्राप्त करने वाले सदस्यों को प्राथमिकता क्रम में दर्ज करें।</li>
           <li><strong>पावती रसीद:</strong> फॉर्म जमा करने के बाद निचले भाग (Acknowledgement Slip) पर कार्यालयाध्यक्ष के हस्ताक्षर एवं मुहर लगवाकर अपनी सर्विस बुक (Service Book) में दर्ज करवाएँ।</li>
         </ul>
+
+        <h3 style="color: #202124; margin-top: 20px;">आवश्यक दस्तावेज़ों की चेकलिस्ट एवं महत्वपूर्ण दिशा-निर्देश</h3>
+        <ol>
+          <li><strong>फैमिली फोटो:</strong> परिवार के सभी सदस्यों का संयुक्त (फैमिली) फोटो निर्धारित स्थान पर संलग्न करें।</li>
+          <li><strong>पहचान पत्र प्रति:</strong> परिवार के सभी सदस्यों के वैध पहचान पत्र (जैसे आधार कार्ड) की स्व-प्रमाणित प्रति।</li>
+          <li><strong>पत्नी (Wife) का नाम जोड़ना:</strong> यदि पत्नी का नाम जोड़ना है, तो मैरिज सर्टिफिकेट अनिवार्य है और पहचान पत्र (आधार कार्ड) में नाम परिवर्तित/अपडेटेड होना चाहिए।</li>
+          <li><strong>बच्चे का नाम जोड़ना:</strong> जिस बच्चे का नाम दर्ज कराना है, उसका सक्षम प्राधिकारी द्वारा जारी आधिकारिक जन्म प्रमाण पत्र (Birth Certificate) संलग्न करें।</li>
+          <li><strong>माता-पिता का नाम:</strong> माता-पिता के लिए आय प्रमाण पत्र (Income Certificate) तथा आश्रित प्रमाण पत्र (Dependency Certificate) संलग्न करें, जिस पर <strong>तहसीलदार की मुहर एवं हस्ताक्षर</strong> होना अनिवार्य है।</li>
+          <li><strong>नाम और जन्म तिथि का मिलान (अति महत्वपूर्ण):</strong> फॉर्म भरते समय पहचान पत्र (आधार कार्ड) में दर्ज नाम और जन्म तिथि ही भरें। यदि पहचान पत्र और सेवा पंजीका (Service Book) के विवरण में कोई भिन्नता है, तो अपने आवेदन पत्र (Application) में इसका स्पष्ट उल्लेख करें कि पहचान पत्र में दर्ज नाम तथा जन्म तिथि के अनुसार सेवा पंजीका में सुधार किया जाए।</li>
+        </ol>
 
         <h3 style="color: #202124; margin-top: 20px;">अक्सर पूछे जाने वाले प्रश्न (FAQs)</h3>
         <p><strong>Q1: क्या विवाह या बच्चे के जन्म के बाद फ़ॉर्म नंबर 3 को अपडेट करना जरूरी है?</strong><br>
