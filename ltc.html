@@ -5,7 +5,7 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEAVE TRAVEL CONCESSION BILL</title>
+    <title>LEAVE TRAVEL CONCESSION BILL - TA LTC Portal</title>
     <style>
         * {
             box-sizing: border-box;
@@ -20,6 +20,33 @@
             padding: 0;
         }
         
+        /* 🏠 Floating Home Button */
+        .home-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: #1e3c72;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: #2a5298;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+            color: #fff;
+        }
+
         .page-container {
             display: flex;
             flex-direction: column;
@@ -227,32 +254,38 @@
         }
 
        @media print {
-    body { background: none; padding: 0; margin: 0; }
-    .page-container { margin: 0; padding: 0; }
-    .page { 
-        box-shadow: none !important; 
-        margin: 0 auto !important; 
-        padding: 10mm 15mm !important; 
-        width: 210mm !important; 
-        height: 297mm !important; 
-        max-height: 297mm !important; 
-        overflow: hidden !important; 
-        page-break-inside: avoid !important;
-    }
-    .control-panel, .copyright-footer, .no-print, section.content-section { 
-        display: none !important; 
-    }
-    tr, .flex-container { page-break-inside: avoid !important; }
-    input::placeholder, textarea::placeholder, input.readonly-notice::placeholder { 
-        color: transparent !important; 
-        opacity: 0 !important; 
-        display: none !important; 
-    }
-}
+            body { background: none; padding: 0; margin: 0; }
+            .page-container { margin: 0; padding: 0; }
+            .home-btn { display: none !important; }
+            .page { 
+                box-shadow: none !important; 
+                margin: 0 auto !important; 
+                padding: 10mm 15mm !important; 
+                width: 210mm !important; 
+                height: 297mm !important; 
+                max-height: 297mm !important; 
+                overflow: hidden !important; 
+                page-break-inside: avoid !important;
+            }
+            .control-panel, .copyright-footer, .no-print, section.content-section { 
+                display: none !important; 
+            }
+            tr, .flex-container { page-break-inside: avoid !important; }
+            input::placeholder, textarea::placeholder, input.readonly-notice::placeholder { 
+                color: transparent !important; 
+                opacity: 0 !important; 
+                display: none !important; 
+            }
+        }
  
     </style>
 </head>
 <body>
+
+    <!-- 🏠 Floating Home Button -->
+    <a href="index.html" class="home-btn" title="Go to Home Page">
+        🏠 Home
+    </a>
 
     <div class="page-container">
         
